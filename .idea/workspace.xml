@@ -5,6 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/public/schema/openapi.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/public/schema/openapi.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/src/Entity/Grave.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/Entity/Grave.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/Entity/GraveCover.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/Entity/GraveCover.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,6 +188,11 @@
       <workItem from="1584549147019" duration="1028000" />
       <workItem from="1584608862364" duration="485000" />
       <workItem from="1584621584330" duration="845000" />
+      <workItem from="1584625607827" duration="6000" />
+      <workItem from="1584625639087" duration="1109000" />
+      <workItem from="1584629424835" duration="31000" />
+      <workItem from="1584633390331" duration="2069000" />
+      <workItem from="1584635508322" duration="63000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed language errors in Installation.md">
       <created>1573726496674</created>

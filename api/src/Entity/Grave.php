@@ -9,6 +9,7 @@ use Ramsey\Uuid\UuidInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Serializer\Annotation\MaxDepth;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  *  An entity representing an Grave.
@@ -44,7 +45,7 @@ class Grave
      * @var GraveCover The Relation of this Grave to GraveCover
      *
      * @example e2984465-190a-4562-829e-a8cca81aa35d
-     * @Groups({"write", "read"})
+     * @Groups({"read", "write"})
      * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="App\Entity\GraveCover")
      */
@@ -54,7 +55,7 @@ class Grave
      * @var datetime The date this grave has been created
      * @Assert\NotNull
      * @example 19/01/2010
-     * @Groups({"write", "read"})
+     * @Groups({"read", "write"})
      * @ORM\Column(type="datetime")
      */
     private $dateCreated;
@@ -63,7 +64,7 @@ class Grave
      * @var datetime The date this grave has been edited
      *
      * @example 19/01/2020
-     * @Groups({"write", "read"})
+     * @Groups({"read", "write"})
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $dateModified;
@@ -76,7 +77,7 @@ class Grave
      * @Assert\Length(
      *     max = 255
      * )
-     * @Groups({"read","write"})
+     * @Groups({"read", "write"})
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $description;
@@ -89,7 +90,7 @@ class Grave
      * @Assert\Length(
      *     max = 255
      * )
-     * @Groups({"read","write"})
+     * @Groups({"read", "write"})
      * @ORM\Column(type="string", length=255)
      */
     private $cemetery;
@@ -101,7 +102,7 @@ class Grave
      * @Assert\Length(
      *     max = 255
      * )
-     * @Groups({"read","write"})
+     * @Groups({"read", "write"})
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $acquisition;
@@ -114,7 +115,7 @@ class Grave
      * @Assert\Length(
      *     max = 255
      * )
-     * @Groups({"read","write"})
+     * @Groups({"read", "write"})
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $graveReference;
@@ -126,7 +127,7 @@ class Grave
      * @Assert\Length(
      *     max = 255
      * )
-     * @Groups({"read","write"})
+     * @Groups({"read", "write"})
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $graveType;

@@ -8,6 +8,7 @@ use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  *  An entity representing an GraveCover.
@@ -42,8 +43,9 @@ class GraveCover
     /**
      * @var datetime The date this gravecover has been created
      * @Assert\NotNull
-     * @example 19/01/2010
-     * @Groups({"write", "read"})
+     * @Assert\Date
+     * @example 20200101
+     * @Groups({"read", "write"})
      * @ORM\Column(type="datetime")
      */
 
@@ -51,9 +53,9 @@ class GraveCover
 
     /**
      * @var datetime The date this gravecover has been edited
-     *
-     * @example 19/01/2020
-     * @Groups({"write", "read"})
+     * @Assert\Date
+     * @example 20200101
+     * @Groups({"read", "write"})
      * @ORM\Column(type="datetime", nullable=true)
      */
 
@@ -67,7 +69,7 @@ class GraveCover
      * @Assert\Length(
      *     max = 255
      * )
-     * @Groups({"read","write"})
+     * @Groups({"read", "write"})
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $name;
@@ -80,7 +82,7 @@ class GraveCover
      * @Assert\Length(
      *     max = 255
      * )
-     * @Groups({"read","write"})
+     * @Groups({"read", "write"})
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $description;

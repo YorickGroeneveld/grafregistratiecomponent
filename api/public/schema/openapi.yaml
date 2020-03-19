@@ -3791,6 +3791,12 @@ components:
         status:
           description: 'The status of this Grave'
           type: string
+        location:
+          description: 'The location of this Grave on a cemetery'
+          type: string
+        position:
+          description: 'The position where a deceased rests within the Grave'
+          type: integer
       required:
         - dateCreated
         - cemetery
@@ -3827,6 +3833,12 @@ components:
         status:
           description: 'The status of this Grave'
           type: string
+        location:
+          description: 'The location of this Grave on a cemetery'
+          type: string
+        position:
+          description: 'The position where a deceased rests within the Grave'
+          type: integer
       required:
         - dateCreated
         - cemetery
@@ -3878,6 +3890,12 @@ components:
         status:
           description: 'The status of this Grave'
           type: string
+        location:
+          description: 'The location of this Grave on a cemetery'
+          type: string
+        position:
+          description: 'The position where a deceased rests within the Grave'
+          type: integer
       required:
         - dateCreated
         - cemetery
@@ -3923,6 +3941,12 @@ components:
         status:
           description: 'The status of this Grave'
           type: string
+        location:
+          description: 'The location of this Grave on a cemetery'
+          type: string
+        position:
+          description: 'The position where a deceased rests within the Grave'
+          type: integer
       required:
         - dateCreated
         - cemetery
@@ -3938,10 +3962,14 @@ components:
           type: string
         dateCreated:
           description: 'The date this gravecover has been created'
+          externalDocs:
+            url: 'http://schema.org/Date'
           type: string
           format: date-time
         dateModified:
           description: 'The date this gravecover has been edited'
+          externalDocs:
+            url: 'http://schema.org/Date'
           type: string
           format: date-time
         name:
@@ -3960,10 +3988,14 @@ components:
       properties:
         dateCreated:
           description: 'The date this gravecover has been created'
+          externalDocs:
+            url: 'http://schema.org/Date'
           type: string
           format: date-time
         dateModified:
           description: 'The date this gravecover has been edited'
+          externalDocs:
+            url: 'http://schema.org/Date'
           type: string
           format: date-time
         name:
@@ -3993,10 +4025,14 @@ components:
           type: string
         dateCreated:
           description: 'The date this gravecover has been created'
+          externalDocs:
+            url: 'http://schema.org/Date'
           type: string
           format: date-time
         dateModified:
           description: 'The date this gravecover has been edited'
+          externalDocs:
+            url: 'http://schema.org/Date'
           type: string
           format: date-time
         name:
@@ -4024,10 +4060,14 @@ components:
           type: string
         dateCreated:
           description: 'The date this gravecover has been created'
+          externalDocs:
+            url: 'http://schema.org/Date'
           type: string
           format: date-time
         dateModified:
           description: 'The date this gravecover has been edited'
+          externalDocs:
+            url: 'http://schema.org/Date'
           type: string
           format: date-time
         name:
@@ -4141,12 +4181,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-03-19 12:45:08'
+        example: '2020-03-19 16:32:04'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-03-19 12:45:08'
+        example: '2020-03-19 16:32:04'
     required: []
   AuditTrail-write:
     properties:
@@ -4194,12 +4234,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-03-19 12:45:08'
+        example: '2020-03-19 16:32:04'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-03-19 12:45:08'
+        example: '2020-03-19 16:32:04'
     required: []
   ChangeLog-write:
     properties:
@@ -4254,6 +4294,15 @@ definitions:
         type: string
         example: 'in use'
         maxLength: 255
+      location:
+        description: 'The location of this Grave on a cemetery'
+        type: string
+        example: url/locationA
+        maxLength: 255
+      position:
+        description: 'The position where a deceased rests within the Grave'
+        type: int
+        example: '1'
       graveCoverId:
         description: 'The Relation of this Grave to GraveCover'
         type: \GraveCover
@@ -4301,6 +4350,15 @@ definitions:
         type: string
         example: 'in use'
         maxLength: 255
+      location:
+        description: 'The location of this Grave on a cemetery'
+        type: string
+        example: url/locationA
+        maxLength: 255
+      position:
+        description: 'The position where a deceased rests within the Grave'
+        type: int
+        example: '1'
       graveCoverId:
         description: 'The Relation of this Grave to GraveCover'
         type: \GraveCover
@@ -4317,12 +4375,14 @@ definitions:
         format: uuid
       dateCreated:
         description: 'The date this gravecover has been created'
-        type: \datetime
-        example: 19/01/2010
+        type: string
+        format: date
+        example: '20200101'
       dateModified:
         description: 'The date this gravecover has been edited'
-        type: \datetime
-        example: 19/01/2020
+        type: string
+        format: date
+        example: '20200101'
       name:
         description: 'The name of this Grave Cover'
         type: string
@@ -4339,12 +4399,14 @@ definitions:
     properties:
       dateCreated:
         description: 'The date this gravecover has been created'
-        type: \datetime
-        example: 19/01/2010
+        type: string
+        format: date
+        example: '20200101'
       dateModified:
         description: 'The date this gravecover has been edited'
-        type: \datetime
-        example: 19/01/2020
+        type: string
+        format: date
+        example: '20200101'
       name:
         description: 'The name of this Grave Cover'
         type: string
