@@ -144,6 +144,29 @@ class Grave
      */
     private $status;
 
+    /**
+     * @var string The location of this Grave on a cemetery
+     *
+     * @example url/locationA
+     * @Assert\Length(
+     *     max = 255
+     * )
+     * @Groups({"read","write"})
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $location;
+
+    /**
+     * @var int The position where a deceased rests within the Grave
+     *
+     * @example 1
+     *
+     * @Groups({"read","write"})
+     * @ORM\Column(type="integer", nullable=true)
+     * @Assert\PositiveOrZero
+     */
+    private $position;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -253,6 +276,30 @@ class Grave
     public function setStatus(?string $status): self
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    public function getLocation(): ?string
+    {
+        return $this->location;
+    }
+
+    public function setLocation(?string $location): self
+    {
+        $this->location = $location;
+
+        return $this;
+    }
+
+    public function getPosition(): ?int
+    {
+        return $this->position;
+    }
+
+    public function setPosition(?int $position): self
+    {
+        $this->position = $position;
 
         return $this;
     }
