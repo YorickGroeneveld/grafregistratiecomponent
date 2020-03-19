@@ -3,10 +3,10 @@
 # Declare variables to be passed into your templates.
 
 settings:
-  registryBase: docker.io/conduction
-  projectName: pc
-  name: pc
-  title: Betaal Service
+  registryBase: docker.io/yorickgroeneveld
+  projectName: grc
+  name: grc
+  title: Graf Registratie Component
   version: V.0.1
   description: '&#039;Naast deze JSON rest API is er ook een [graphql](/graphql) interface beschikbaar.&#039;'
   repro: https://github.com/ConductionNL/proto-component

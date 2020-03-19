@@ -84,7 +84,7 @@ services:
     volumes:
       - ./api/public:/srv/api/public:ro
     ports:
-      - "80:80"
+      - "31500:80"
     environment:
       - NGINX_HOST=php
 
