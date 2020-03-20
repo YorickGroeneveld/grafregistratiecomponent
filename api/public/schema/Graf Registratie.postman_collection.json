@@ -1,0 +1,135 @@
+{
+	"info": {
+		"_postman_id": "1ed91491-6994-44a4-b2e9-7394d39b9192",
+		"name": "Graf Registratie",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Grave",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "45c1a4b6-59d3-4a6e-86bf-88a872f35845",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:31500/graves",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "31500",
+					"path": [
+						"graves"
+					]
+				},
+				"description": "Get Graves"
+			},
+			"response": []
+		},
+		{
+			"name": "Grave",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "45c1a4b6-59d3-4a6e-86bf-88a872f35845"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n\t\"dateCreated\": \"20200101\",\n\t\"dateModified\": \"20200101\",\n\t\"description\": \"Test description\",\n\t\"cemetery\": \"Test cemetery\",\n\t\"acquisition\": \"Test acquisition\",\n\t\"graveReference\": \"Test reference\",\n\t\"graveType\": \"Test grave type\",\n\t\"status\": \"Test status\",\n\t\"location\": \"Test location\",\n\t\"position\": 1\n}"
+				},
+				"url": {
+					"raw": "http://localhost:31500/graves",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "31500",
+					"path": [
+						"graves"
+					]
+				},
+				"description": "Post a Grave"
+			},
+			"response": []
+		},
+		{
+			"name": "GraveCover",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "45c1a4b6-59d3-4a6e-86bf-88a872f35845",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:31500/grave_covers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "31500",
+					"path": [
+						"grave_covers"
+					]
+				},
+				"description": "Gets a GraveCover"
+			},
+			"response": []
+		},
+		{
+			"name": "GraveCover",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "45c1a4b6-59d3-4a6e-86bf-88a872f35845",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n\t\"dateCreated\": \"20200101\",\n\t\"dateModified\": \"20200101\", \n\t\"name\": \"TEST\",\n\t\"description\": \"Test123\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:31500/grave_covers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "31500",
+					"path": [
+						"grave_covers"
+					]
+				},
+				"description": "Post a Grave Cover"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

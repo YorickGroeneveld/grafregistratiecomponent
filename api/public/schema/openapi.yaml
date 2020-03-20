@@ -3795,6 +3795,7 @@ components:
           description: 'The position where a deceased rests within the Grave'
           type: integer
         graveCovers:
+          description: 'The GraveCovers that are part of this Grave'
           type: array
           items:
             $ref: '#/components/schemas/GraveCover-read'
@@ -3841,6 +3842,7 @@ components:
           description: 'The position where a deceased rests within the Grave'
           type: integer
         graveCovers:
+          description: 'The GraveCovers that are part of this Grave'
           type: array
           items:
             $ref: '#/components/schemas/GraveCover-write'
@@ -3896,6 +3898,7 @@ components:
           description: 'The position where a deceased rests within the Grave'
           type: integer
         graveCovers:
+          description: 'The GraveCovers that are part of this Grave'
           type: array
           items:
             $ref: '#/components/schemas/GraveCover:jsonld-read'
@@ -3951,6 +3954,7 @@ components:
           description: 'The position where a deceased rests within the Grave'
           type: integer
         graveCovers:
+          description: 'The GraveCovers that are part of this Grave'
           type: array
           items:
             $ref: '#/components/schemas/GraveCover:jsonld-write'
@@ -3983,6 +3987,7 @@ components:
           description: 'The description of this Grave Cover'
           type: string
         graves:
+          description: 'The Graves that are part of this GraveCover'
           type: array
           items:
             $ref: '#/components/schemas/Grave-read'
@@ -4013,6 +4018,7 @@ components:
           description: 'The description of this Grave Cover'
           type: string
         graves:
+          description: 'The Graves that are part of this GraveCover'
           type: array
           items:
             $ref: '#/components/schemas/Grave-write'
@@ -4054,6 +4060,7 @@ components:
           description: 'The description of this Grave Cover'
           type: string
         graves:
+          description: 'The Graves that are part of this GraveCover'
           type: array
           items:
             $ref: '#/components/schemas/Grave:jsonld-read'
@@ -4093,6 +4100,7 @@ components:
           description: 'The description of this Grave Cover'
           type: string
         graves:
+          description: 'The Graves that are part of this GraveCover'
           type: array
           items:
             $ref: '#/components/schemas/Grave:jsonld-write'
@@ -4201,12 +4209,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-03-20 13:02:55'
+        example: '2020-03-20 14:33:17'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-03-20 13:02:55'
+        example: '2020-03-20 14:33:17'
     required: []
   AuditTrail-write:
     properties:
@@ -4254,12 +4262,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-03-20 13:02:55'
+        example: '2020-03-20 14:33:17'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-03-20 13:02:55'
+        example: '2020-03-20 14:33:17'
     required: []
   ChangeLog-write:
     properties:
@@ -4323,7 +4331,9 @@ definitions:
         description: 'The position where a deceased rests within the Grave'
         type: int
         example: '1'
-      graveCovers: []
+      graveCovers:
+        description: 'The GraveCovers that are part of this Grave'
+        type: \ArrayCollection
     required:
       - dateCreated
       - cemetery
@@ -4376,7 +4386,9 @@ definitions:
         description: 'The position where a deceased rests within the Grave'
         type: int
         example: '1'
-      graveCovers: []
+      graveCovers:
+        description: 'The GraveCovers that are part of this Grave'
+        type: \ArrayCollection
     required:
       - dateCreated
       - cemetery
@@ -4407,7 +4419,9 @@ definitions:
         type: string
         example: 'gemaakt van marmer'
         maxLength: 255
-      graves: []
+      graves:
+        description: 'The Graves that are part of this GraveCover'
+        type: \ArrayCollection
     required:
       - dateCreated
   GraveCover-write:
@@ -4432,7 +4446,9 @@ definitions:
         type: string
         example: 'gemaakt van marmer'
         maxLength: 255
-      graves: []
+      graves:
+        description: 'The Graves that are part of this GraveCover'
+        type: \ArrayCollection
     required:
       - dateCreated
 tags:
