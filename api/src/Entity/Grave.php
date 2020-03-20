@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
@@ -44,12 +46,12 @@ class Grave
     /**
      * @var GraveCover The Relation of this Grave to GraveCover
      *
-     * @example e2984465-190a-4562-829e-a8cca81aa35d
+     * @example graveCovers
      * @Groups({"read", "write"})
      * @MaxDepth(1)
-     * @ORM\ManyToOne(targetEntity="App\Entity\GraveCover")
+     * @ORM\ManyToMany(targetEntity="App\Entity\GraveCover", inversedBy="graves")
      */
-    private $graveCoverId;
+    private $graveCovers;
 
     /**
      * @var datetime The date this grave has been created
@@ -168,19 +170,38 @@ class Grave
      */
     private $position;
 
-    public function getId(): ?int
+    public function __construct()
+    {
+        $this->graveCovers = new ArrayCollection();
+    }
+
+    public function getId(): ?Uuid
     {
         return $this->id;
     }
 
-    public function getGraveCoverId(): ?GraveCover
+    /**
+     * @return Collection|GraveCover[]
+     */
+    public function getGraveCovers(): Collection
     {
-        return $this->graveCoverId;
+        return $this->graveCovers;
     }
 
-    public function setGraveCoverId(?GraveCover $graveCoverId): self
+    public function addGraveCover(GraveCover $graveCover): self
     {
-        $this->graveCoverId = $graveCoverId;
+        if (!$this->graveCovers->contains($graveCover)) {
+            $this->graveCovers[] = $graveCover;
+        }
+
+        return $this;
+    }
+
+    public function removeGraveCover(GraveCover $graveCover): self
+    {
+        if ($this->graveCovers->contains($graveCover)) {
+            $this->s->removeElement($graveCover);
+        }
 
         return $this;
     }

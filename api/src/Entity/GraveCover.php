@@ -3,11 +3,14 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Serializer\Annotation\MaxDepth;
 use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
@@ -39,6 +42,16 @@ class GraveCover
      * @ORM\CustomIdGenerator(class="Ramsey\Uuid\Doctrine\UuidGenerator")
      */
     private $id;
+
+    /**
+     * @var Grave The Relation of this GraveCover to Grave
+     *
+     * @example graves
+     * @Groups({"read", "write"})
+     * @MaxDepth(1)
+     * @ORM\ManyToMany(targetEntity="App\Entity\Grave", mappedBy="graveCovers")
+     */
+    private $graves;
 
     /**
      * @var datetime The date this gravecover has been created
@@ -87,9 +100,42 @@ class GraveCover
      */
     private $description;
 
-    public function getId(): ?int
+    public function __construct()
+    {
+        $this->graves = new ArrayCollection();
+    }
+
+    public function getId(): ?Uuid
     {
         return $this->id;
+    }
+
+    /**
+     * @return Collection|Grave[]
+     */
+    public function getGraves(): Collection
+    {
+        return $this->graves;
+    }
+
+    public function addGrave(Grave $grave): self
+    {
+        if (!$this->graves->contains($grave)) {
+            $this->graves[] = $grave;
+            $grave->addGraveCover($this);
+        }
+
+        return $this;
+    }
+
+    public function removeGrave(Grave $grave): self
+    {
+        if ($this->graves->contains($grave)) {
+            $this->graves->removeElement($grave);
+            $grave->removeGraveCover($this);
+        }
+
+        return $this;
     }
 
     public function getDateCreated(): ?\DateTimeInterface
