@@ -4,7 +4,6 @@
     <list default="true" id="92089c82-d91e-45b0-a4eb-32fdfd03bfef" name="Default Changelist" comment="(semi) definitive fix for rollout issue">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/public/schema/openapi.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/public/schema/openapi.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/public/schema/publiccode.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/public/schema/publiccode.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/src/Entity/Grave.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/Entity/Grave.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/src/Entity/GraveCover.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/Entity/GraveCover.php" afterDir="false" />
     </list>
@@ -196,7 +195,8 @@
       <workItem from="1584635508322" duration="63000" />
       <workItem from="1584694611830" duration="599000" />
       <workItem from="1584695739876" duration="484000" />
-      <workItem from="1584702250769" duration="2984000" />
+      <workItem from="1584702250769" duration="3276000" />
+      <workItem from="1584706457155" duration="5346000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed language errors in Installation.md">
       <created>1573726496674</created>

@@ -18,7 +18,7 @@ use Symfony\Component\Validator\Constraints\DateTime;
  *
  * This entity represents an Grave for Graves
  *
- * @author Yorick Groeneveld, Wilco Louwerse <yorickgroeneveld@hotmail.com>
+ * @author Yorick Groeneveld <yorickgroeneveld@hotmail.com>
  * @author Wilco Louwerse <wilco@louwerse.com>
  * @ApiResource(
  *
@@ -42,16 +42,6 @@ class Grave
      * @ORM\CustomIdGenerator(class="Ramsey\Uuid\Doctrine\UuidGenerator")
      */
     private $id;
-
-    /**
-     * @var GraveCover The Relation of this Grave to GraveCover
-     *
-     * @example graveCovers
-     * @Groups({"read", "write"})
-     * @MaxDepth(1)
-     * @ORM\ManyToMany(targetEntity="App\Entity\GraveCover", inversedBy="graves")
-     */
-    private $graveCovers;
 
     /**
      * @var datetime The date this grave has been created
@@ -170,6 +160,15 @@ class Grave
      */
     private $position;
 
+    /**
+     * @var ArrayCollection The GraveCovers that are part of this Grave
+     *
+     * @Groups({"read", "write"})
+     * @MaxDepth(1)
+     * @ORM\ManyToMany(targetEntity="App\Entity\GraveCover", inversedBy="graves")
+     */
+    private $graveCovers;
+
     public function __construct()
     {
         $this->graveCovers = new ArrayCollection();
@@ -178,32 +177,6 @@ class Grave
     public function getId(): ?Uuid
     {
         return $this->id;
-    }
-
-    /**
-     * @return Collection|GraveCover[]
-     */
-    public function getGraveCovers(): Collection
-    {
-        return $this->graveCovers;
-    }
-
-    public function addGraveCover(GraveCover $graveCover): self
-    {
-        if (!$this->graveCovers->contains($graveCover)) {
-            $this->graveCovers[] = $graveCover;
-        }
-
-        return $this;
-    }
-
-    public function removeGraveCover(GraveCover $graveCover): self
-    {
-        if ($this->graveCovers->contains($graveCover)) {
-            $this->s->removeElement($graveCover);
-        }
-
-        return $this;
     }
 
     public function getDateCreated(): ?\DateTimeInterface
@@ -322,6 +295,32 @@ class Grave
     public function setPosition(?int $position): self
     {
         $this->position = $position;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|GraveCover[]
+     */
+    public function getGraveCovers(): Collection
+    {
+        return $this->graveCovers;
+    }
+
+    public function addGraveCover(GraveCover $graveCover): self
+    {
+        if (!$this->graveCovers->contains($graveCover)) {
+            $this->graveCovers[] = $graveCover;
+        }
+
+        return $this;
+    }
+
+    public function removeGraveCover(GraveCover $graveCover): self
+    {
+        if ($this->graveCovers->contains($graveCover)) {
+            $this->graveCovers->removeElement($graveCover);
+        }
 
         return $this;
     }

@@ -3762,9 +3762,6 @@ components:
           externalDocs:
             url: 'http://schema.org/identifier'
           type: string
-        graveCoverId:
-          description: 'The Relation of this Grave to GraveCover'
-          $ref: '#/components/schemas/GraveCover-read'
         dateCreated:
           description: 'The date this grave has been created'
           type: string
@@ -3797,16 +3794,20 @@ components:
         position:
           description: 'The position where a deceased rests within the Grave'
           type: integer
+        graveCovers:
+          type: array
+          items:
+            $ref: '#/components/schemas/GraveCover-read'
       required:
         - dateCreated
         - cemetery
     Grave-write:
       type: object
       description: 'An entity representing an Grave.'
+      required:
+        - dateCreated
+        - cemetery
       properties:
-        graveCoverId:
-          description: 'The Relation of this Grave to GraveCover'
-          $ref: '#/components/schemas/GraveCover-write'
         dateCreated:
           description: 'The date this grave has been created'
           type: string
@@ -3839,9 +3840,10 @@ components:
         position:
           description: 'The position where a deceased rests within the Grave'
           type: integer
-      required:
-        - dateCreated
-        - cemetery
+        graveCovers:
+          type: array
+          items:
+            $ref: '#/components/schemas/GraveCover-write'
     'Grave:jsonld-read':
       type: object
       description: 'An entity representing an Grave.'
@@ -3861,9 +3863,6 @@ components:
           externalDocs:
             url: 'http://schema.org/identifier'
           type: string
-        graveCoverId:
-          description: 'The Relation of this Grave to GraveCover'
-          $ref: '#/components/schemas/GraveCover:jsonld-read'
         dateCreated:
           description: 'The date this grave has been created'
           type: string
@@ -3896,12 +3895,19 @@ components:
         position:
           description: 'The position where a deceased rests within the Grave'
           type: integer
+        graveCovers:
+          type: array
+          items:
+            $ref: '#/components/schemas/GraveCover:jsonld-read'
       required:
         - dateCreated
         - cemetery
     'Grave:jsonld-write':
       type: object
       description: 'An entity representing an Grave.'
+      required:
+        - dateCreated
+        - cemetery
       properties:
         '@context':
           readOnly: true
@@ -3912,9 +3918,6 @@ components:
         '@type':
           readOnly: true
           type: string
-        graveCoverId:
-          description: 'The Relation of this Grave to GraveCover'
-          $ref: '#/components/schemas/GraveCover:jsonld-write'
         dateCreated:
           description: 'The date this grave has been created'
           type: string
@@ -3947,9 +3950,10 @@ components:
         position:
           description: 'The position where a deceased rests within the Grave'
           type: integer
-      required:
-        - dateCreated
-        - cemetery
+        graveCovers:
+          type: array
+          items:
+            $ref: '#/components/schemas/GraveCover:jsonld-write'
     GraveCover-read:
       type: object
       description: 'An entity representing an GraveCover.'
@@ -3978,6 +3982,10 @@ components:
         description:
           description: 'The description of this Grave Cover'
           type: string
+        graves:
+          type: array
+          items:
+            $ref: '#/components/schemas/Grave-read'
       required:
         - dateCreated
     GraveCover-write:
@@ -4004,6 +4012,10 @@ components:
         description:
           description: 'The description of this Grave Cover'
           type: string
+        graves:
+          type: array
+          items:
+            $ref: '#/components/schemas/Grave-write'
     'GraveCover:jsonld-read':
       type: object
       description: 'An entity representing an GraveCover.'
@@ -4041,6 +4053,10 @@ components:
         description:
           description: 'The description of this Grave Cover'
           type: string
+        graves:
+          type: array
+          items:
+            $ref: '#/components/schemas/Grave:jsonld-read'
       required:
         - dateCreated
     'GraveCover:jsonld-write':
@@ -4076,6 +4092,10 @@ components:
         description:
           description: 'The description of this Grave Cover'
           type: string
+        graves:
+          type: array
+          items:
+            $ref: '#/components/schemas/Grave:jsonld-write'
 definitions:
   AuditTrail-read:
     properties:
@@ -4181,12 +4201,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-03-20 11:19:07'
+        example: '2020-03-20 13:02:55'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-03-20 11:19:07'
+        example: '2020-03-20 13:02:55'
     required: []
   AuditTrail-write:
     properties:
@@ -4234,12 +4254,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-03-20 11:19:07'
+        example: '2020-03-20 13:02:55'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-03-20 11:19:07'
+        example: '2020-03-20 13:02:55'
     required: []
   ChangeLog-write:
     properties:
@@ -4303,10 +4323,7 @@ definitions:
         description: 'The position where a deceased rests within the Grave'
         type: int
         example: '1'
-      graveCoverId:
-        description: 'The Relation of this Grave to GraveCover'
-        type: \GraveCover
-        example: e2984465-190a-4562-829e-a8cca81aa35d
+      graveCovers: []
     required:
       - dateCreated
       - cemetery
@@ -4359,10 +4376,7 @@ definitions:
         description: 'The position where a deceased rests within the Grave'
         type: int
         example: '1'
-      graveCoverId:
-        description: 'The Relation of this Grave to GraveCover'
-        type: \GraveCover
-        example: e2984465-190a-4562-829e-a8cca81aa35d
+      graveCovers: []
     required:
       - dateCreated
       - cemetery
@@ -4393,6 +4407,7 @@ definitions:
         type: string
         example: 'gemaakt van marmer'
         maxLength: 255
+      graves: []
     required:
       - dateCreated
   GraveCover-write:
@@ -4417,6 +4432,7 @@ definitions:
         type: string
         example: 'gemaakt van marmer'
         maxLength: 255
+      graves: []
     required:
       - dateCreated
 tags:
