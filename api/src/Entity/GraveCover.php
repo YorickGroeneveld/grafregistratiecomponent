@@ -47,7 +47,7 @@ class GraveCover
      * @var datetime The date this gravecover has been created
      * @Assert\NotNull
      * @Assert\Date
-     * @example 20200101
+     * @example 2020-01-19T00:00:00+00:00
      * @Groups({"read", "write"})
      * @ORM\Column(type="datetime")
      */
@@ -57,7 +57,7 @@ class GraveCover
     /**
      * @var datetime The date this gravecover has been edited
      * @Assert\Date
-     * @example 20200101
+     * @example 2020-01-19T00:00:00+00:00
      * @Groups({"read", "write"})
      * @ORM\Column(type="datetime", nullable=true)
      */

@@ -46,7 +46,7 @@ class Grave
     /**
      * @var datetime The date this grave has been created
      * @Assert\NotNull
-     * @example 19/01/2010
+     * @example 2020-01-19T00:00:00+00:00
      * @Groups({"read", "write"})
      * @ORM\Column(type="datetime")
      */
@@ -55,7 +55,7 @@ class Grave
     /**
      * @var datetime The date this grave has been edited
      *
-     * @example 19/01/2020
+     * @example 2020-01-19T00:00:00+00:00
      * @Groups({"read", "write"})
      * @ORM\Column(type="datetime", nullable=true)
      */
@@ -168,6 +168,18 @@ class Grave
      * @ORM\ManyToMany(targetEntity="App\Entity\GraveCover", inversedBy="graves")
      */
     private $graveCovers;
+
+    /**
+     * @var string The deceased resting in this grave
+     *
+     * @example url/deceased1
+     * @Assert\Length(
+     *     max = 255
+     * )
+     * @Groups({"read","write"})
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $deceased;
 
     public function __construct()
     {
@@ -321,6 +333,18 @@ class Grave
         if ($this->graveCovers->contains($graveCover)) {
             $this->graveCovers->removeElement($graveCover);
         }
+
+        return $this;
+    }
+
+    public function getDeceased(): ?string
+    {
+        return $this->deceased;
+    }
+
+    public function setDeceased(?string $deceased): self
+    {
+        $this->deceased = $deceased;
 
         return $this;
     }
