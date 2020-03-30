@@ -3799,6 +3799,9 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/GraveCover-read'
+        deceased:
+          description: 'The deceased resting in this grave'
+          type: string
       required:
         - dateCreated
         - cemetery
@@ -3846,6 +3849,9 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/GraveCover-write'
+        deceased:
+          description: 'The deceased resting in this grave'
+          type: string
     'Grave:jsonld-read':
       type: object
       description: 'An entity representing an Grave.'
@@ -3902,6 +3908,9 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/GraveCover:jsonld-read'
+        deceased:
+          description: 'The deceased resting in this grave'
+          type: string
       required:
         - dateCreated
         - cemetery
@@ -3958,6 +3967,9 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/GraveCover:jsonld-write'
+        deceased:
+          description: 'The deceased resting in this grave'
+          type: string
     GraveCover-read:
       type: object
       description: 'An entity representing an GraveCover.'
@@ -4209,12 +4221,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-03-20 14:33:17'
+        example: '2020-03-27 15:20:56'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-03-20 14:33:17'
+        example: '2020-03-27 15:20:56'
     required: []
   AuditTrail-write:
     properties:
@@ -4262,12 +4274,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-03-20 14:33:17'
+        example: '2020-03-27 15:20:56'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-03-20 14:33:17'
+        example: '2020-03-27 15:20:56'
     required: []
   ChangeLog-write:
     properties:
@@ -4287,11 +4299,11 @@ definitions:
       dateCreated:
         description: 'The date this grave has been created'
         type: \datetime
-        example: 19/01/2010
+        example: '2020-01-19T00:00:00+00:00'
       dateModified:
         description: 'The date this grave has been edited'
         type: \datetime
-        example: 19/01/2020
+        example: '2020-01-19T00:00:00+00:00'
       description:
         description: 'The description of this Grave'
         type: string
@@ -4331,6 +4343,11 @@ definitions:
         description: 'The position where a deceased rests within the Grave'
         type: int
         example: '1'
+      deceased:
+        description: 'The deceased resting in this grave'
+        type: string
+        example: url/deceased1
+        maxLength: 255
       graveCovers:
         description: 'The GraveCovers that are part of this Grave'
         type: \ArrayCollection
@@ -4342,11 +4359,11 @@ definitions:
       dateCreated:
         description: 'The date this grave has been created'
         type: \datetime
-        example: 19/01/2010
+        example: '2020-01-19T00:00:00+00:00'
       dateModified:
         description: 'The date this grave has been edited'
         type: \datetime
-        example: 19/01/2020
+        example: '2020-01-19T00:00:00+00:00'
       description:
         description: 'The description of this Grave'
         type: string
@@ -4386,6 +4403,11 @@ definitions:
         description: 'The position where a deceased rests within the Grave'
         type: int
         example: '1'
+      deceased:
+        description: 'The deceased resting in this grave'
+        type: string
+        example: url/deceased1
+        maxLength: 255
       graveCovers:
         description: 'The GraveCovers that are part of this Grave'
         type: \ArrayCollection
@@ -4403,12 +4425,12 @@ definitions:
         description: 'The date this gravecover has been created'
         type: string
         format: date
-        example: '20200101'
+        example: '2020-01-19T00:00:00+00:00'
       dateModified:
         description: 'The date this gravecover has been edited'
         type: string
         format: date
-        example: '20200101'
+        example: '2020-01-19T00:00:00+00:00'
       name:
         description: 'The name of this Grave Cover'
         type: string
@@ -4430,12 +4452,12 @@ definitions:
         description: 'The date this gravecover has been created'
         type: string
         format: date
-        example: '20200101'
+        example: '2020-01-19T00:00:00+00:00'
       dateModified:
         description: 'The date this gravecover has been edited'
         type: string
         format: date
-        example: '20200101'
+        example: '2020-01-19T00:00:00+00:00'
       name:
         description: 'The name of this Grave Cover'
         type: string
