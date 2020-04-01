@@ -14,9 +14,9 @@ use Symfony\Component\Serializer\Annotation\MaxDepth;
 use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
- *  An entity representing an GraveCover.
+ *  An entity representing an Grave.
  *
- * This entity represents an GraveCover for Graves
+ * This entity represents an Grave for Graves
  *
  * @author Yorick Groeneveld <yorickgroeneveld@hotmail.com>
  * @author Wilco Louwerse <wilco@louwerse.com>
@@ -25,9 +25,9 @@ use Symfony\Component\Validator\Constraints\DateTime;
  *     normalizationContext={"groups"={"read"}, "enable_max_depth"=true},
  *     denormalizationContext={"groups"={"write"}, "enable_max_depth"=true}
  * )
- * @ORM\Entity(repositoryClass="App\Repository\GraveCoverRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\CemeteryRepository")
  */
-class GraveCover
+class Cemetery
 {
     /**
      * @var UuidInterface The UUID identifier of this object
@@ -44,43 +44,28 @@ class GraveCover
     private $id;
 
     /**
-     * @var datetime The date this GraveCover has been created
+     * @var datetime The date this Cemetery has been created
      * @Assert\NotNull
      * @Assert\Date
      * @example 2020-01-19T00:00:00+00:00
      * @Groups({"read", "write"})
      * @ORM\Column(type="datetime")
      */
-
     private $dateCreated;
 
     /**
-     * @var datetime The date this GraveCover has been edited
+     * @var datetime The date this Cemetery has been edited
      * @Assert\Date
      * @example 2020-01-19T00:00:00+00:00
      * @Groups({"read", "write"})
      * @ORM\Column(type="datetime", nullable=true)
      */
-
     private $dateModified;
 
     /**
-     * @var string The name of this GraveCover
+     * @var string The grave reference of this Grave
      *
-     * @example Enkel monument
-     *
-     * @Assert\Length(
-     *     max = 255
-     * )
-     * @Groups({"read", "write"})
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $name;
-
-    /**
-     * @var string The description of this GraveCover
-     *
-     * @example gemaakt van marmer
+     * @example Noorderbegraafplaats
      *
      * @Assert\Length(
      *     max = 255
@@ -88,14 +73,38 @@ class GraveCover
      * @Groups({"read", "write"})
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $description;
+    private $reference;
 
     /**
-     * @var ArrayCollection The Graves that are part of this GraveCover
+     * @var string The Location of this Cemetery
      *
+     * @example url/location1
+     * @Assert\Length(
+     *     max = 255
+     * )
+     * @Groups({"read", "write"})
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $location;
+
+    /**
+     * @var string The Organization of this Cemetery
+     *
+     * @example url/organization1
+     * @Assert\Length(
+     *     max = 255
+     * )
+     * @Groups({"read", "write"})
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $organization;
+
+    /**
+     * @var ArrayCollection The graves that are part of this Cemetery
+     *
+     * @Groups({"read", "write"})
      * @MaxDepth(1)
-     * @Groups({"read", "write"})
-     * @ORM\ManyToMany(targetEntity="App\Entity\Grave", mappedBy="graveCovers")
+     * @ORM\OneToMany(targetEntity="App\Entity\Grave", mappedBy="cemetery")
      */
     private $graves;
 
@@ -104,7 +113,7 @@ class GraveCover
         $this->graves = new ArrayCollection();
     }
 
-    public function getId(): ?Uuid
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -133,26 +142,38 @@ class GraveCover
         return $this;
     }
 
-    public function getName(): ?string
+    public function getReference(): ?string
     {
-        return $this->name;
+        return $this->reference;
     }
 
-    public function setName(?string $name): self
+    public function setReference(?string $reference): self
     {
-        $this->name = $name;
+        $this->reference = $reference;
 
         return $this;
     }
 
-    public function getDescription(): ?string
+    public function getLocation(): ?string
     {
-        return $this->description;
+        return $this->location;
     }
 
-    public function setDescription(?string $description): self
+    public function setLocation(?string $location): self
     {
-        $this->description = $description;
+        $this->location = $location;
+
+        return $this;
+    }
+
+    public function getOrganization(): ?string
+    {
+        return $this->organization;
+    }
+
+    public function setOrganization(?string $organization): self
+    {
+        $this->organization = $organization;
 
         return $this;
     }
@@ -169,7 +190,7 @@ class GraveCover
     {
         if (!$this->graves->contains($grave)) {
             $this->graves[] = $grave;
-            $grave->addGraveCover($this);
+            $grave->setCemetery($this);
         }
 
         return $this;
@@ -179,7 +200,10 @@ class GraveCover
     {
         if ($this->graves->contains($grave)) {
             $this->graves->removeElement($grave);
-            $grave->removeGraveCover($this);
+            // set the owning side to null (unless already changed)
+            if ($grave->getCemetery() === $this) {
+                $grave->setCemetery(null);
+            }
         }
 
         return $this;
