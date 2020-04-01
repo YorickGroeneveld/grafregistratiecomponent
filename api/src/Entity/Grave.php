@@ -19,7 +19,7 @@ use Symfony\Component\Validator\Constraints\DateTime;
  * This entity represents an Grave for Graves
  *
  * @author Yorick Groeneveld <yorickgroeneveld@hotmail.com>
- * @author Wilco Louwerse <wilco@louwerse.com>
+ * @author Wilco B. Louwerse <wilco@louwerse.com>
  * @ApiResource(
  *
  *     normalizationContext={"groups"={"read"}, "enable_max_depth"=true},
