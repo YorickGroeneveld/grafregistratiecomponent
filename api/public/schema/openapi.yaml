@@ -3773,9 +3773,6 @@ components:
         description:
           description: 'The description of this Grave'
           type: string
-        cemetery:
-          description: 'The cemetery of this Grave'
-          type: string
         acquisition:
           description: 'The acquisition of this Grave'
           type: string
@@ -3804,13 +3801,11 @@ components:
           type: string
       required:
         - dateCreated
-        - cemetery
     Grave-write:
       type: object
       description: 'An entity representing an Grave.'
       required:
         - dateCreated
-        - cemetery
       properties:
         dateCreated:
           description: 'The date this grave has been created'
@@ -3822,9 +3817,6 @@ components:
           format: date-time
         description:
           description: 'The description of this Grave'
-          type: string
-        cemetery:
-          description: 'The cemetery of this Grave'
           type: string
         acquisition:
           description: 'The acquisition of this Grave'
@@ -3882,9 +3874,6 @@ components:
         description:
           description: 'The description of this Grave'
           type: string
-        cemetery:
-          description: 'The cemetery of this Grave'
-          type: string
         acquisition:
           description: 'The acquisition of this Grave'
           type: string
@@ -3913,13 +3902,11 @@ components:
           type: string
       required:
         - dateCreated
-        - cemetery
     'Grave:jsonld-write':
       type: object
       description: 'An entity representing an Grave.'
       required:
         - dateCreated
-        - cemetery
       properties:
         '@context':
           readOnly: true
@@ -3940,9 +3927,6 @@ components:
           format: date-time
         description:
           description: 'The description of this Grave'
-          type: string
-        cemetery:
-          description: 'The cemetery of this Grave'
           type: string
         acquisition:
           description: 'The acquisition of this Grave'
@@ -4221,12 +4205,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-03-27 15:20:56'
+        example: '2020-04-01 11:23:08'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-03-27 15:20:56'
+        example: '2020-04-01 11:23:08'
     required: []
   AuditTrail-write:
     properties:
@@ -4274,12 +4258,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-03-27 15:20:56'
+        example: '2020-04-01 11:23:08'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-03-27 15:20:56'
+        example: '2020-04-01 11:23:08'
     required: []
   ChangeLog-write:
     properties:
@@ -4309,11 +4293,6 @@ definitions:
         type: string
         example: 'beneath a nice tree'
         maxLength: 255
-      cemetery:
-        description: 'The cemetery of this Grave'
-        type: string
-        example: url/Zuiderbegraafplaats
-        maxLength: 255
       acquisition:
         description: 'The acquisition of this Grave'
         type: string
@@ -4353,7 +4332,6 @@ definitions:
         type: \ArrayCollection
     required:
       - dateCreated
-      - cemetery
   Grave-write:
     properties:
       dateCreated:
@@ -4369,11 +4347,6 @@ definitions:
         type: string
         example: 'beneath a nice tree'
         maxLength: 255
-      cemetery:
-        description: 'The cemetery of this Grave'
-        type: string
-        example: url/Zuiderbegraafplaats
-        maxLength: 255
       acquisition:
         description: 'The acquisition of this Grave'
         type: string
@@ -4413,7 +4386,6 @@ definitions:
         type: \ArrayCollection
     required:
       - dateCreated
-      - cemetery
   GraveCover-read:
     properties:
       id:
