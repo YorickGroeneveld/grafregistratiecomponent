@@ -14,9 +14,9 @@ use Symfony\Component\Serializer\Annotation\MaxDepth;
 use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
- *  An entity representing an GraveCover.
+ *  An entity representing an Grave.
  *
- * This entity represents an GraveCover for Graves
+ * This entity represents an Grave for Graves
  *
  * @author Yorick Groeneveld <yorickgroeneveld@hotmail.com>
  * @author Wilco Louwerse <wilco@louwerse.com>
@@ -25,9 +25,9 @@ use Symfony\Component\Validator\Constraints\DateTime;
  *     normalizationContext={"groups"={"read"}, "enable_max_depth"=true},
  *     denormalizationContext={"groups"={"write"}, "enable_max_depth"=true}
  * )
- * @ORM\Entity(repositoryClass="App\Repository\GraveCoverRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\StakeholderRepository")
  */
-class GraveCover
+class Stakeholder
 {
     /**
      * @var UuidInterface The UUID identifier of this object
@@ -44,58 +44,54 @@ class GraveCover
     private $id;
 
     /**
-     * @var datetime The date this GraveCover has been created
+     * @var datetime The date this Stakeholder has been created
      * @Assert\NotNull
      * @Assert\Date
      * @example 2020-01-19T00:00:00+00:00
      * @Groups({"read", "write"})
      * @ORM\Column(type="datetime")
      */
-
     private $dateCreated;
 
     /**
-     * @var datetime The date this GraveCover has been edited
+     * @var datetime The date this Stakeholder has been edited
      * @Assert\Date
      * @example 2020-01-19T00:00:00+00:00
      * @Groups({"read", "write"})
      * @ORM\Column(type="datetime", nullable=true)
      */
-
     private $dateModified;
 
     /**
-     * @var string The name of this GraveCover
+     * @var string The contact of this Stakeholder
      *
-     * @example Enkel monument
-     *
+     * @example url/contact1
      * @Assert\Length(
      *     max = 255
      * )
      * @Groups({"read", "write"})
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $name;
+    private $contact;
 
     /**
-     * @var string The description of this GraveCover
+     * @var string The defined person of this Stakeholder
      *
-     * @example gemaakt van marmer
-     *
+     * @example url/ingeschrevenpersoon1
      * @Assert\Length(
      *     max = 255
      * )
      * @Groups({"read", "write"})
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $description;
+    private $ingeschrevenpersoon;
 
     /**
-     * @var ArrayCollection The Graves that are part of this GraveCover
+     * @var ArrayCollection The graves that are part of this Stakeholder
      *
+     * @Groups({"read", "write"})
      * @MaxDepth(1)
-     * @Groups({"read", "write"})
-     * @ORM\ManyToMany(targetEntity="App\Entity\Grave", mappedBy="graveCovers")
+     * @ORM\OneToMany(targetEntity="App\Entity\Grave", mappedBy="stakeholder")
      */
     private $graves;
 
@@ -104,7 +100,7 @@ class GraveCover
         $this->graves = new ArrayCollection();
     }
 
-    public function getId(): ?Uuid
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -133,26 +129,26 @@ class GraveCover
         return $this;
     }
 
-    public function getName(): ?string
+    public function getContact(): ?string
     {
-        return $this->name;
+        return $this->contact;
     }
 
-    public function setName(?string $name): self
+    public function setContact(?string $contact): self
     {
-        $this->name = $name;
+        $this->contact = $contact;
 
         return $this;
     }
 
-    public function getDescription(): ?string
+    public function getIngeschrevenpersoon(): ?string
     {
-        return $this->description;
+        return $this->ingeschrevenpersoon;
     }
 
-    public function setDescription(?string $description): self
+    public function setIngeschrevenpersoon(?string $ingeschrevenpersoon): self
     {
-        $this->description = $description;
+        $this->ingeschrevenpersoon = $ingeschrevenpersoon;
 
         return $this;
     }
@@ -169,7 +165,7 @@ class GraveCover
     {
         if (!$this->graves->contains($grave)) {
             $this->graves[] = $grave;
-            $grave->addGraveCover($this);
+            $grave->setStakeholder($this);
         }
 
         return $this;
@@ -179,7 +175,10 @@ class GraveCover
     {
         if ($this->graves->contains($grave)) {
             $this->graves->removeElement($grave);
-            $grave->removeGraveCover($this);
+            // set the owning side to null (unless already changed)
+            if ($grave->getStakeholder() === $this) {
+                $grave->setStakeholder(null);
+            }
         }
 
         return $this;
