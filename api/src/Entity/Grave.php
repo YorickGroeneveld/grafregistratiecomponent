@@ -44,7 +44,7 @@ class Grave
     private $id;
 
     /**
-     * @var datetime The date this grave has been created
+     * @var datetime The date this Grave has been created
      * @Assert\NotNull
      * @example 2020-01-19T00:00:00+00:00
      * @Groups({"read", "write"})
@@ -53,7 +53,7 @@ class Grave
     private $dateCreated;
 
     /**
-     * @var datetime The date this grave has been edited
+     * @var datetime The date this Grave has been edited
      *
      * @example 2020-01-19T00:00:00+00:00
      * @Groups({"read", "write"})
@@ -73,19 +73,6 @@ class Grave
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $description;
-
-    /**
-     * @var string The cemetery of this Grave
-     *
-     * @example url/Zuiderbegraafplaats
-     * @Assert\NotNull
-     * @Assert\Length(
-     *     max = 255
-     * )
-     * @Groups({"read", "write"})
-     * @ORM\Column(type="string", length=255)
-     */
-    private $cemetery;
 
     /**
      * @var string The acquisition of this Grave
@@ -138,7 +125,7 @@ class Grave
     private $status;
 
     /**
-     * @var string The location of this Grave on a cemetery
+     * @var string The Location of this Grave on a Cemetery
      *
      * @example url/locationA
      * @Assert\Length(
@@ -150,7 +137,7 @@ class Grave
     private $location;
 
     /**
-     * @var int The position where a deceased rests within the Grave
+     * @var int The position where a Deceased rests within the Grave
      *
      * @example 1
      *
@@ -170,7 +157,7 @@ class Grave
     private $graveCovers;
 
     /**
-     * @var string The deceased resting in this grave
+     * @var string The deceased resting in this Grave
      *
      * @example url/deceased1
      * @Assert\Length(
@@ -180,6 +167,24 @@ class Grave
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $deceased;
+
+    /**
+     * @var Stakeholder The Stakeholder that is part of this Grave
+     *
+     * @Groups({"read", "write"})
+     * @MaxDepth(1)
+     * @ORM\ManyToOne(targetEntity="App\Entity\Stakeholder", inversedBy="graves")
+     */
+    private $stakeholder;
+
+    /**
+     * @var Cemetery The Cemetery that is part of this Grave
+     *
+     * @Groups({"read", "write"})
+     * @MaxDepth(1)
+     * @ORM\ManyToOne(targetEntity="App\Entity\Cemetery", inversedBy="graves")
+     */
+    private $cemetery;
 
     public function __construct()
     {
@@ -223,18 +228,6 @@ class Grave
     public function setDescription(?string $description): self
     {
         $this->description = $description;
-
-        return $this;
-    }
-
-    public function getCemetery(): ?string
-    {
-        return $this->cemetery;
-    }
-
-    public function setCemetery(string $cemetery): self
-    {
-        $this->cemetery = $cemetery;
 
         return $this;
     }
@@ -345,6 +338,30 @@ class Grave
     public function setDeceased(?string $deceased): self
     {
         $this->deceased = $deceased;
+
+        return $this;
+    }
+
+    public function getStakeholder(): ?Stakeholder
+    {
+        return $this->stakeholder;
+    }
+
+    public function setStakeholder(?Stakeholder $stakeholder): self
+    {
+        $this->stakeholder = $stakeholder;
+
+        return $this;
+    }
+
+    public function getCemetery(): ?Cemetery
+    {
+        return $this->cemetery;
+    }
+
+    public function setCemetery(?Cemetery $cemetery): self
+    {
+        $this->cemetery = $cemetery;
 
         return $this;
     }
