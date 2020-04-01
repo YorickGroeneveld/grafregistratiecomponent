@@ -14,9 +14,9 @@ use Symfony\Component\Serializer\Annotation\MaxDepth;
 use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
- *  An entity representing an Grave.
+ *  An entity representing an Cemetery.
  *
- * This entity represents an Grave for Graves
+ * This entity represents an Cemetery for Cemeteries
  *
  * @author Yorick Groeneveld <yorickgroeneveld@hotmail.com>
  * @author Wilco Louwerse <wilco@louwerse.com>
@@ -113,7 +113,7 @@ class Cemetery
         $this->graves = new ArrayCollection();
     }
 
-    public function getId(): ?int
+    public function getId(): ?UUid
     {
         return $this->id;
     }
