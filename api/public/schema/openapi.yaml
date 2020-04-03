@@ -1,13 +1,13 @@
 openapi: 3.0.2
 info:
   title: 'Graf Registratie Component'
-  version: V.0.4
+  version: V.0.4.1
   description: |
     API Details
     - Component: Graf Registratie Component
     - Reference: grc
     - Enviroment: dev
-    - Version: V.0.4
+    - Version: V.0.4.1
     - Repository: [online](https://github.com/ConductionNL/proto-component) / [zip](https://github.com/ConductionNL/proto-component/archive/master.zip)
     - Docker Image: [online](https://hub.docker.com/repository/docker/conduction/pc-php) 
     - Datamodel: [postman](/schema/grc.postman_collection.json) / [oas](/schema/openapi.yaml) / [pdf](/schema/datamodel.pdf) / [mwb](/schema/datamodel.mwb) 
@@ -5379,7 +5379,7 @@ components:
           description: 'The acquisition of this Grave'
           type: string
         reference:
-          description: 'The grave reference of this Grave'
+          description: 'The reference of this Grave'
           type: string
         graveType:
           description: 'The grave type of this Grave'
@@ -5430,7 +5430,7 @@ components:
           description: 'The acquisition of this Grave'
           type: string
         reference:
-          description: 'The grave reference of this Grave'
+          description: 'The reference of this Grave'
           type: string
         graveType:
           description: 'The grave type of this Grave'
@@ -5492,7 +5492,7 @@ components:
           description: 'The acquisition of this Grave'
           type: string
         reference:
-          description: 'The grave reference of this Grave'
+          description: 'The reference of this Grave'
           type: string
         graveType:
           description: 'The grave type of this Grave'
@@ -5552,7 +5552,7 @@ components:
           description: 'The acquisition of this Grave'
           type: string
         reference:
-          description: 'The grave reference of this Grave'
+          description: 'The reference of this Grave'
           type: string
         graveType:
           description: 'The grave type of this Grave'
@@ -5602,8 +5602,8 @@ components:
             url: 'http://schema.org/Date'
           type: string
           format: date-time
-        name:
-          description: 'The name of this GraveCover'
+        reference:
+          description: 'The reference of this GraveCover'
           type: string
         description:
           description: 'The description of this GraveCover'
@@ -5633,8 +5633,8 @@ components:
             url: 'http://schema.org/Date'
           type: string
           format: date-time
-        name:
-          description: 'The name of this GraveCover'
+        reference:
+          description: 'The reference of this GraveCover'
           type: string
         description:
           description: 'The description of this GraveCover'
@@ -5675,8 +5675,8 @@ components:
             url: 'http://schema.org/Date'
           type: string
           format: date-time
-        name:
-          description: 'The name of this GraveCover'
+        reference:
+          description: 'The reference of this GraveCover'
           type: string
         description:
           description: 'The description of this GraveCover'
@@ -5715,8 +5715,8 @@ components:
             url: 'http://schema.org/Date'
           type: string
           format: date-time
-        name:
-          description: 'The name of this GraveCover'
+        reference:
+          description: 'The reference of this GraveCover'
           type: string
         description:
           description: 'The description of this GraveCover'
@@ -5977,12 +5977,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-04-03 08:48:38'
+        example: '2020-04-03 09:15:18'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-04-03 08:48:38'
+        example: '2020-04-03 09:15:18'
     required: []
   AuditTrail-write:
     properties:
@@ -6099,12 +6099,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-04-03 08:48:38'
+        example: '2020-04-03 09:15:18'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-04-03 08:48:38'
+        example: '2020-04-03 09:15:18'
     required: []
   ChangeLog-write:
     properties:
@@ -6140,7 +6140,7 @@ definitions:
         example: url
         maxLength: 255
       reference:
-        description: 'The grave reference of this Grave'
+        description: 'The reference of this Grave'
         type: string
         example: zb-01
         maxLength: 255
@@ -6200,7 +6200,7 @@ definitions:
         example: url
         maxLength: 255
       reference:
-        description: 'The grave reference of this Grave'
+        description: 'The reference of this Grave'
         type: string
         example: zb-01
         maxLength: 255
@@ -6256,8 +6256,8 @@ definitions:
         type: string
         format: date
         example: '2020-01-19T00:00:00+00:00'
-      name:
-        description: 'The name of this GraveCover'
+      reference:
+        description: 'The reference of this GraveCover'
         type: string
         example: 'Enkel monument'
         maxLength: 255
@@ -6283,8 +6283,8 @@ definitions:
         type: string
         format: date
         example: '2020-01-19T00:00:00+00:00'
-      name:
-        description: 'The name of this GraveCover'
+      reference:
+        description: 'The reference of this GraveCover'
         type: string
         example: 'Enkel monument'
         maxLength: 255
