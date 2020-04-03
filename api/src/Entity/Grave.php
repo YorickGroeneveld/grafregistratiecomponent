@@ -87,7 +87,7 @@ class Grave
     private $acquisition;
 
     /**
-     * @var string The grave reference of this Grave
+     * @var string The reference of this Grave
      *
      * @example zb-01
      *
@@ -97,7 +97,7 @@ class Grave
      * @Groups({"read", "write"})
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $graveReference;
+    private $reference;
 
     /**
      * @var string The grave type of this Grave
@@ -244,14 +244,14 @@ class Grave
         return $this;
     }
 
-    public function getGraveReference(): ?string
+    public function getReference(): ?string
     {
-        return $this->graveReference;
+        return $this->reference;
     }
 
-    public function setGraveReference(?string $graveReference): self
+    public function setReference(?string $reference): self
     {
-        $this->graveReference = $graveReference;
+        $this->reference = $reference;
 
         return $this;
     }

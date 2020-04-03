@@ -65,7 +65,7 @@ class GraveCover
     private $dateModified;
 
     /**
-     * @var string The name of this GraveCover
+     * @var string The reference of this GraveCover
      *
      * @example Enkel monument
      *
@@ -75,7 +75,7 @@ class GraveCover
      * @Groups({"read", "write"})
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $name;
+    private $reference;
 
     /**
      * @var string The description of this GraveCover
@@ -133,14 +133,14 @@ class GraveCover
         return $this;
     }
 
-    public function getName(): ?string
+    public function getReference(): ?string
     {
-        return $this->name;
+        return $this->reference;
     }
 
-    public function setName(?string $name): self
+    public function setReference(?string $reference): self
     {
-        $this->name = $name;
+        $this->reference = $reference;
 
         return $this;
     }

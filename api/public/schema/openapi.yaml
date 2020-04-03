@@ -1,13 +1,13 @@
 openapi: 3.0.2
 info:
   title: 'Graf Registratie Component'
-  version: V.0.1
+  version: V.0.4
   description: |
     API Details
     - Component: Graf Registratie Component
     - Reference: grc
     - Enviroment: dev
-    - Version: V.0.1
+    - Version: V.0.4
     - Repository: [online](https://github.com/ConductionNL/proto-component) / [zip](https://github.com/ConductionNL/proto-component/archive/master.zip)
     - Docker Image: [online](https://hub.docker.com/repository/docker/conduction/pc-php) 
     - Datamodel: [postman](/schema/grc.postman_collection.json) / [oas](/schema/openapi.yaml) / [pdf](/schema/datamodel.pdf) / [mwb](/schema/datamodel.mwb) 
@@ -1027,6 +1027,728 @@ paths:
             schema:
               $ref: '#/components/schemas/AuditTrail-write'
         description: 'The updated AuditTrail resource'
+  /cemeteries:
+    get:
+      tags:
+        - Cemetery
+      operationId: getCemeteryCollection
+      summary: 'Retrieves the collection of Cemetery resources.'
+      responses:
+        200:
+          description: 'Cemetery collection response'
+          content:
+            application/ld+json:
+              schema:
+                type: object
+                properties:
+                  'hydra:member': { type: array, items: { $ref: '#/components/schemas/Cemetery:jsonld-read' } }
+                  'hydra:totalItems': { type: integer, minimum: 0 }
+                  'hydra:view': { type: object, properties: { '@id': { type: string, format: iri-reference }, '@type': { type: string }, 'hydra:first': { type: string, format: iri-reference }, 'hydra:last': { type: string, format: iri-reference }, 'hydra:next': { type: string, format: iri-reference } } }
+                  'hydra:search': { type: object, properties: { '@type': { type: string }, 'hydra:template': { type: string }, 'hydra:variableRepresentation': { type: string }, 'hydra:mapping': { type: array, items: { type: object, properties: { '@type': { type: string }, variable: { type: string }, property: { type: string }, required: { type: boolean } } } } } }
+                required:
+                  - 'hydra:member'
+            application/json+ld:
+              schema:
+                type: object
+                properties:
+                  'hydra:member': { type: array, items: { $ref: '#/components/schemas/Cemetery:jsonld-read' } }
+                  'hydra:totalItems': { type: integer, minimum: 0 }
+                  'hydra:view': { type: object, properties: { '@id': { type: string, format: iri-reference }, '@type': { type: string }, 'hydra:first': { type: string, format: iri-reference }, 'hydra:last': { type: string, format: iri-reference }, 'hydra:next': { type: string, format: iri-reference } } }
+                  'hydra:search': { type: object, properties: { '@type': { type: string }, 'hydra:template': { type: string }, 'hydra:variableRepresentation': { type: string }, 'hydra:mapping': { type: array, items: { type: object, properties: { '@type': { type: string }, variable: { type: string }, property: { type: string }, required: { type: boolean } } } } } }
+                required:
+                  - 'hydra:member'
+            application/hal+json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Cemetery-read'
+            application/json+hal:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Cemetery-read'
+            application/vnd.api+json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Cemetery-read'
+            application/json+vnd.api:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Cemetery-read'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Cemetery-read'
+            application/health+json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Cemetery-read'
+            application/json+health:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Cemetery-read'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Cemetery-read'
+            application/x-yaml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Cemetery-read'
+            text/csv:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Cemetery-read'
+            text/html:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Cemetery-read'
+      parameters:
+        -
+          name: page
+          in: query
+          required: false
+          description: 'The collection page number'
+          schema:
+            type: integer
+            default: 1
+        -
+          name: Authorization
+          description: 'The JWT of the entity performing the request'
+          in: header
+        -
+          name: API-Version
+          description: 'The version of the API conform [Landelijke API-strategie.](https://geonovum.github.io/KP-APIs/#versioning)'
+          example: 1.0.1
+          in: header
+        -
+          name: X-NLX-Logrecord-ID
+          description: 'A  globally unique id of the request, which makes a request traceable throughout the network.'
+          in: header
+        -
+          name: X-NLX-Request-Process-Id
+          description: 'A process id for purpose registration (doelbinding)'
+          in: header
+        -
+          name: X-NLX-Request-Data-Elements
+          description: 'A list of requested data elements'
+          in: header
+        -
+          name: X-NLX-Request-Data-Subject
+          description: 'A key-value list of data subjects related to this request. e.g. `bsn=12345678, kenteken=ab-12-fg`'
+          in: header
+        -
+          name: X-NLX-Audit-Clarification
+          description: 'A clarification as to why a request has been made  (doelbinding)'
+          in: header
+        -
+          name: Link
+          description: 'A [websub](https://www.w3.org/TR/websub/#discovery) header like <https://hub.example.com/>; rel="hub"'
+          in: header
+        -
+          name: 'extend[]'
+          required: false
+          description: 'An array of nested objects to include in the return object'
+          in: query
+          schema:
+            type: array
+        -
+          name: 'fields[]'
+          required: false
+          description: 'An array of fields to return in output, wil return all fields is not supplied'
+          in: query
+          schema:
+            type: array
+        -
+          name: validOn
+          required: false
+          description: 'Returns object as valid on a given date time'
+          schema:
+            type: string
+            format: date-time
+          in: query
+        -
+          name: validFrom
+          required: false
+          description: 'Returns objects valid from a given date time'
+          schema:
+            type: string
+            format: date-time
+          in: query
+        -
+          name: validUntil
+          required: false
+          description: 'Returns objects valid until a given date time'
+          schema:
+            type: string
+            format: date-time
+          in: query
+      produces:
+        - application/health+json
+    post:
+      tags:
+        - Cemetery
+      operationId: postCemeteryCollection
+      summary: 'Creates a Cemetery resource.'
+      responses:
+        201:
+          description: 'Cemetery resource created'
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/Cemetery:jsonld-read'
+            application/json+ld:
+              schema:
+                $ref: '#/components/schemas/Cemetery:jsonld-read'
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/Cemetery-read'
+            application/json+hal:
+              schema:
+                $ref: '#/components/schemas/Cemetery-read'
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/Cemetery-read'
+            application/json+vnd.api:
+              schema:
+                $ref: '#/components/schemas/Cemetery-read'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cemetery-read'
+            application/health+json:
+              schema:
+                $ref: '#/components/schemas/Cemetery-read'
+            application/json+health:
+              schema:
+                $ref: '#/components/schemas/Cemetery-read'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Cemetery-read'
+            application/x-yaml:
+              schema:
+                $ref: '#/components/schemas/Cemetery-read'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Cemetery-read'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Cemetery-read'
+          links:
+            GetCemeteryItem:
+              parameters:
+                id: '$response.body#/id'
+              operationId: getCemeteryItem
+              description: 'The `id` value returned in the response can be used as the `id` parameter in `GET /cemeteries/{id}`.'
+        400:
+          description: 'Invalid input'
+        404:
+          description: 'Resource not found'
+      requestBody:
+        content:
+          application/ld+json:
+            schema:
+              $ref: '#/components/schemas/Cemetery:jsonld-write'
+          application/json+ld:
+            schema:
+              $ref: '#/components/schemas/Cemetery:jsonld-write'
+          application/hal+json:
+            schema:
+              $ref: '#/components/schemas/Cemetery-write'
+          application/json+hal:
+            schema:
+              $ref: '#/components/schemas/Cemetery-write'
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/Cemetery-write'
+          application/json+vnd.api:
+            schema:
+              $ref: '#/components/schemas/Cemetery-write'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Cemetery-write'
+          application/health+json:
+            schema:
+              $ref: '#/components/schemas/Cemetery-write'
+          application/json+health:
+            schema:
+              $ref: '#/components/schemas/Cemetery-write'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Cemetery-write'
+          application/x-yaml:
+            schema:
+              $ref: '#/components/schemas/Cemetery-write'
+          text/csv:
+            schema:
+              $ref: '#/components/schemas/Cemetery-write'
+          text/html:
+            schema:
+              $ref: '#/components/schemas/Cemetery-write'
+        description: 'The new Cemetery resource'
+      parameters:
+        -
+          name: Authorization
+          description: 'The JWT of the entity performing the request'
+          in: header
+        -
+          name: API-Version
+          description: 'The version of the API conform [Landelijke API-strategie.](https://geonovum.github.io/KP-APIs/#versioning)'
+          example: 1.0.1
+          in: header
+        -
+          name: X-NLX-Logrecord-ID
+          description: 'A  globally unique id of the request, which makes a request traceable throughout the network.'
+          in: header
+        -
+          name: X-NLX-Request-Process-Id
+          description: 'A process id for purpose registration (doelbinding)'
+          in: header
+        -
+          name: X-NLX-Request-Data-Elements
+          description: 'A list of requested data elements'
+          in: header
+        -
+          name: X-NLX-Request-Data-Subject
+          description: 'A key-value list of data subjects related to this request. e.g. `bsn=12345678, kenteken=ab-12-fg`'
+          in: header
+        -
+          name: X-NLX-Audit-Clarification
+          description: 'A clarification as to why a request has been made  (doelbinding)'
+          in: header
+  '/cemeteries/{id}':
+    get:
+      tags:
+        - Cemetery
+      operationId: getCemeteryItem
+      summary: 'Retrieves a Cemetery resource.'
+      parameters:
+        -
+          name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: Authorization
+          description: 'The JWT of the entity performing the request'
+          in: header
+        -
+          name: API-Version
+          description: 'The version of the API conform [Landelijke API-strategie.](https://geonovum.github.io/KP-APIs/#versioning)'
+          example: 1.0.1
+          in: header
+        -
+          name: X-NLX-Logrecord-ID
+          description: 'A  globally unique id of the request, which makes a request traceable throughout the network.'
+          in: header
+        -
+          name: X-NLX-Request-Process-Id
+          description: 'A process id for purpose registration (doelbinding)'
+          in: header
+        -
+          name: X-NLX-Request-Data-Elements
+          description: 'A list of requested data elements'
+          in: header
+        -
+          name: X-NLX-Request-Data-Subject
+          description: 'A key-value list of data subjects related to this request. e.g. `bsn=12345678, kenteken=ab-12-fg`'
+          in: header
+        -
+          name: X-NLX-Audit-Clarification
+          description: 'A clarification as to why a request has been made  (doelbinding)'
+          in: header
+        -
+          name: Link
+          description: 'A [websub](https://www.w3.org/TR/websub/#discovery) header like <https://hub.example.com/>; rel="hub"'
+          in: header
+        -
+          name: 'extend[]'
+          required: false
+          description: 'An array of nested objects to include in the return object'
+          in: query
+          schema:
+            type: array
+        -
+          name: 'fields[]'
+          required: false
+          description: 'An array of fields to return in output, wil return all fields is not supplied'
+          in: query
+          schema:
+            type: array
+        -
+          name: validOn
+          required: false
+          description: 'Returns object as valid on a given date time'
+          schema:
+            type: string
+            format: date-time
+          in: query
+        -
+          name: validFrom
+          required: false
+          description: 'Returns objects valid from a given date time'
+          schema:
+            type: string
+            format: date-time
+          in: query
+        -
+          name: validUntil
+          required: false
+          description: 'Returns objects valid until a given date time'
+          schema:
+            type: string
+            format: date-time
+          in: query
+      responses:
+        200:
+          description: 'Cemetery resource response'
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/Cemetery:jsonld-read'
+            application/json+ld:
+              schema:
+                $ref: '#/components/schemas/Cemetery:jsonld-read'
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/Cemetery-read'
+            application/json+hal:
+              schema:
+                $ref: '#/components/schemas/Cemetery-read'
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/Cemetery-read'
+            application/json+vnd.api:
+              schema:
+                $ref: '#/components/schemas/Cemetery-read'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cemetery-read'
+            application/health+json:
+              schema:
+                $ref: '#/components/schemas/Cemetery-read'
+            application/json+health:
+              schema:
+                $ref: '#/components/schemas/Cemetery-read'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Cemetery-read'
+            application/x-yaml:
+              schema:
+                $ref: '#/components/schemas/Cemetery-read'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Cemetery-read'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Cemetery-read'
+        404:
+          description: 'Resource not found'
+      produces:
+        - application/health+json
+    delete:
+      tags:
+        - Cemetery
+      operationId: deleteCemeteryItem
+      summary: 'Removes the Cemetery resource.'
+      responses:
+        204:
+          description: 'Cemetery resource deleted'
+        404:
+          description: 'Resource not found'
+      parameters:
+        -
+          name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: Authorization
+          description: 'The JWT of the entity performing the request'
+          in: header
+        -
+          name: API-Version
+          description: 'The version of the API conform [Landelijke API-strategie.](https://geonovum.github.io/KP-APIs/#versioning)'
+          example: 1.0.1
+          in: header
+        -
+          name: X-NLX-Logrecord-ID
+          description: 'A  globally unique id of the request, which makes a request traceable throughout the network.'
+          in: header
+        -
+          name: X-NLX-Request-Process-Id
+          description: 'A process id for purpose registration (doelbinding)'
+          in: header
+        -
+          name: X-NLX-Request-Data-Elements
+          description: 'A list of requested data elements'
+          in: header
+        -
+          name: X-NLX-Request-Data-Subject
+          description: 'A key-value list of data subjects related to this request. e.g. `bsn=12345678, kenteken=ab-12-fg`'
+          in: header
+        -
+          name: X-NLX-Audit-Clarification
+          description: 'A clarification as to why a request has been made  (doelbinding)'
+          in: header
+    put:
+      tags:
+        - Cemetery
+      operationId: putCemeteryItem
+      summary: 'Replaces the Cemetery resource.'
+      parameters:
+        -
+          name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: Authorization
+          description: 'The JWT of the entity performing the request'
+          in: header
+        -
+          name: API-Version
+          description: 'The version of the API conform [Landelijke API-strategie.](https://geonovum.github.io/KP-APIs/#versioning)'
+          example: 1.0.1
+          in: header
+        -
+          name: X-NLX-Logrecord-ID
+          description: 'A  globally unique id of the request, which makes a request traceable throughout the network.'
+          in: header
+        -
+          name: X-NLX-Request-Process-Id
+          description: 'A process id for purpose registration (doelbinding)'
+          in: header
+        -
+          name: X-NLX-Request-Data-Elements
+          description: 'A list of requested data elements'
+          in: header
+        -
+          name: X-NLX-Request-Data-Subject
+          description: 'A key-value list of data subjects related to this request. e.g. `bsn=12345678, kenteken=ab-12-fg`'
+          in: header
+        -
+          name: X-NLX-Audit-Clarification
+          description: 'A clarification as to why a request has been made  (doelbinding)'
+          in: header
+      responses:
+        200:
+          description: 'Cemetery resource updated'
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/Cemetery:jsonld-read'
+            application/json+ld:
+              schema:
+                $ref: '#/components/schemas/Cemetery:jsonld-read'
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/Cemetery-read'
+            application/json+hal:
+              schema:
+                $ref: '#/components/schemas/Cemetery-read'
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/Cemetery-read'
+            application/json+vnd.api:
+              schema:
+                $ref: '#/components/schemas/Cemetery-read'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cemetery-read'
+            application/health+json:
+              schema:
+                $ref: '#/components/schemas/Cemetery-read'
+            application/json+health:
+              schema:
+                $ref: '#/components/schemas/Cemetery-read'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Cemetery-read'
+            application/x-yaml:
+              schema:
+                $ref: '#/components/schemas/Cemetery-read'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Cemetery-read'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Cemetery-read'
+        400:
+          description: 'Invalid input'
+        404:
+          description: 'Resource not found'
+      requestBody:
+        content:
+          application/ld+json:
+            schema:
+              $ref: '#/components/schemas/Cemetery:jsonld-write'
+          application/json+ld:
+            schema:
+              $ref: '#/components/schemas/Cemetery:jsonld-write'
+          application/hal+json:
+            schema:
+              $ref: '#/components/schemas/Cemetery-write'
+          application/json+hal:
+            schema:
+              $ref: '#/components/schemas/Cemetery-write'
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/Cemetery-write'
+          application/json+vnd.api:
+            schema:
+              $ref: '#/components/schemas/Cemetery-write'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Cemetery-write'
+          application/health+json:
+            schema:
+              $ref: '#/components/schemas/Cemetery-write'
+          application/json+health:
+            schema:
+              $ref: '#/components/schemas/Cemetery-write'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Cemetery-write'
+          application/x-yaml:
+            schema:
+              $ref: '#/components/schemas/Cemetery-write'
+          text/csv:
+            schema:
+              $ref: '#/components/schemas/Cemetery-write'
+          text/html:
+            schema:
+              $ref: '#/components/schemas/Cemetery-write'
+        description: 'The updated Cemetery resource'
+    patch:
+      tags:
+        - Cemetery
+      operationId: patchCemeteryItem
+      summary: 'Updates the Cemetery resource.'
+      parameters:
+        -
+          name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: Authorization
+          description: 'The JWT of the entity performing the request'
+          in: header
+        -
+          name: API-Version
+          description: 'The version of the API conform [Landelijke API-strategie.](https://geonovum.github.io/KP-APIs/#versioning)'
+          example: 1.0.1
+          in: header
+        -
+          name: X-NLX-Logrecord-ID
+          description: 'A  globally unique id of the request, which makes a request traceable throughout the network.'
+          in: header
+        -
+          name: X-NLX-Request-Process-Id
+          description: 'A process id for purpose registration (doelbinding)'
+          in: header
+        -
+          name: X-NLX-Request-Data-Elements
+          description: 'A list of requested data elements'
+          in: header
+        -
+          name: X-NLX-Request-Data-Subject
+          description: 'A key-value list of data subjects related to this request. e.g. `bsn=12345678, kenteken=ab-12-fg`'
+          in: header
+        -
+          name: X-NLX-Audit-Clarification
+          description: 'A clarification as to why a request has been made  (doelbinding)'
+          in: header
+      responses:
+        200:
+          description: 'Cemetery resource updated'
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/Cemetery:jsonld-read'
+            application/json+ld:
+              schema:
+                $ref: '#/components/schemas/Cemetery:jsonld-read'
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/Cemetery-read'
+            application/json+hal:
+              schema:
+                $ref: '#/components/schemas/Cemetery-read'
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/Cemetery-read'
+            application/json+vnd.api:
+              schema:
+                $ref: '#/components/schemas/Cemetery-read'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cemetery-read'
+            application/health+json:
+              schema:
+                $ref: '#/components/schemas/Cemetery-read'
+            application/json+health:
+              schema:
+                $ref: '#/components/schemas/Cemetery-read'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Cemetery-read'
+            application/x-yaml:
+              schema:
+                $ref: '#/components/schemas/Cemetery-read'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Cemetery-read'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Cemetery-read'
+        400:
+          description: 'Invalid input'
+        404:
+          description: 'Resource not found'
+      requestBody:
+        content:
+          application/ld+json:
+            schema:
+              $ref: '#/components/schemas/Cemetery:jsonld-write'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Cemetery-write'
+          application/hal+json:
+            schema:
+              $ref: '#/components/schemas/Cemetery-write'
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/Cemetery-write'
+          application/merge-patch+json:
+            schema:
+              $ref: '#/components/schemas/Cemetery-write'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Cemetery-write'
+          applications/x-yaml:
+            schema:
+              $ref: '#/components/schemas/Cemetery-write'
+          text/csv:
+            schema:
+              $ref: '#/components/schemas/Cemetery-write'
+          text/html:
+            schema:
+              $ref: '#/components/schemas/Cemetery-write'
+        description: 'The updated Cemetery resource'
   /change_logs:
     get:
       tags:
@@ -3368,6 +4090,728 @@ paths:
             schema:
               $ref: '#/components/schemas/Grave-write'
         description: 'The updated Grave resource'
+  /stakeholders:
+    get:
+      tags:
+        - Stakeholder
+      operationId: getStakeholderCollection
+      summary: 'Retrieves the collection of Stakeholder resources.'
+      responses:
+        200:
+          description: 'Stakeholder collection response'
+          content:
+            application/ld+json:
+              schema:
+                type: object
+                properties:
+                  'hydra:member': { type: array, items: { $ref: '#/components/schemas/Stakeholder:jsonld-read' } }
+                  'hydra:totalItems': { type: integer, minimum: 0 }
+                  'hydra:view': { type: object, properties: { '@id': { type: string, format: iri-reference }, '@type': { type: string }, 'hydra:first': { type: string, format: iri-reference }, 'hydra:last': { type: string, format: iri-reference }, 'hydra:next': { type: string, format: iri-reference } } }
+                  'hydra:search': { type: object, properties: { '@type': { type: string }, 'hydra:template': { type: string }, 'hydra:variableRepresentation': { type: string }, 'hydra:mapping': { type: array, items: { type: object, properties: { '@type': { type: string }, variable: { type: string }, property: { type: string }, required: { type: boolean } } } } } }
+                required:
+                  - 'hydra:member'
+            application/json+ld:
+              schema:
+                type: object
+                properties:
+                  'hydra:member': { type: array, items: { $ref: '#/components/schemas/Stakeholder:jsonld-read' } }
+                  'hydra:totalItems': { type: integer, minimum: 0 }
+                  'hydra:view': { type: object, properties: { '@id': { type: string, format: iri-reference }, '@type': { type: string }, 'hydra:first': { type: string, format: iri-reference }, 'hydra:last': { type: string, format: iri-reference }, 'hydra:next': { type: string, format: iri-reference } } }
+                  'hydra:search': { type: object, properties: { '@type': { type: string }, 'hydra:template': { type: string }, 'hydra:variableRepresentation': { type: string }, 'hydra:mapping': { type: array, items: { type: object, properties: { '@type': { type: string }, variable: { type: string }, property: { type: string }, required: { type: boolean } } } } } }
+                required:
+                  - 'hydra:member'
+            application/hal+json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Stakeholder-read'
+            application/json+hal:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Stakeholder-read'
+            application/vnd.api+json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Stakeholder-read'
+            application/json+vnd.api:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Stakeholder-read'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Stakeholder-read'
+            application/health+json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Stakeholder-read'
+            application/json+health:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Stakeholder-read'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Stakeholder-read'
+            application/x-yaml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Stakeholder-read'
+            text/csv:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Stakeholder-read'
+            text/html:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Stakeholder-read'
+      parameters:
+        -
+          name: page
+          in: query
+          required: false
+          description: 'The collection page number'
+          schema:
+            type: integer
+            default: 1
+        -
+          name: Authorization
+          description: 'The JWT of the entity performing the request'
+          in: header
+        -
+          name: API-Version
+          description: 'The version of the API conform [Landelijke API-strategie.](https://geonovum.github.io/KP-APIs/#versioning)'
+          example: 1.0.1
+          in: header
+        -
+          name: X-NLX-Logrecord-ID
+          description: 'A  globally unique id of the request, which makes a request traceable throughout the network.'
+          in: header
+        -
+          name: X-NLX-Request-Process-Id
+          description: 'A process id for purpose registration (doelbinding)'
+          in: header
+        -
+          name: X-NLX-Request-Data-Elements
+          description: 'A list of requested data elements'
+          in: header
+        -
+          name: X-NLX-Request-Data-Subject
+          description: 'A key-value list of data subjects related to this request. e.g. `bsn=12345678, kenteken=ab-12-fg`'
+          in: header
+        -
+          name: X-NLX-Audit-Clarification
+          description: 'A clarification as to why a request has been made  (doelbinding)'
+          in: header
+        -
+          name: Link
+          description: 'A [websub](https://www.w3.org/TR/websub/#discovery) header like <https://hub.example.com/>; rel="hub"'
+          in: header
+        -
+          name: 'extend[]'
+          required: false
+          description: 'An array of nested objects to include in the return object'
+          in: query
+          schema:
+            type: array
+        -
+          name: 'fields[]'
+          required: false
+          description: 'An array of fields to return in output, wil return all fields is not supplied'
+          in: query
+          schema:
+            type: array
+        -
+          name: validOn
+          required: false
+          description: 'Returns object as valid on a given date time'
+          schema:
+            type: string
+            format: date-time
+          in: query
+        -
+          name: validFrom
+          required: false
+          description: 'Returns objects valid from a given date time'
+          schema:
+            type: string
+            format: date-time
+          in: query
+        -
+          name: validUntil
+          required: false
+          description: 'Returns objects valid until a given date time'
+          schema:
+            type: string
+            format: date-time
+          in: query
+      produces:
+        - application/health+json
+    post:
+      tags:
+        - Stakeholder
+      operationId: postStakeholderCollection
+      summary: 'Creates a Stakeholder resource.'
+      responses:
+        201:
+          description: 'Stakeholder resource created'
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/Stakeholder:jsonld-read'
+            application/json+ld:
+              schema:
+                $ref: '#/components/schemas/Stakeholder:jsonld-read'
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/Stakeholder-read'
+            application/json+hal:
+              schema:
+                $ref: '#/components/schemas/Stakeholder-read'
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/Stakeholder-read'
+            application/json+vnd.api:
+              schema:
+                $ref: '#/components/schemas/Stakeholder-read'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stakeholder-read'
+            application/health+json:
+              schema:
+                $ref: '#/components/schemas/Stakeholder-read'
+            application/json+health:
+              schema:
+                $ref: '#/components/schemas/Stakeholder-read'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Stakeholder-read'
+            application/x-yaml:
+              schema:
+                $ref: '#/components/schemas/Stakeholder-read'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Stakeholder-read'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Stakeholder-read'
+          links:
+            GetStakeholderItem:
+              parameters:
+                id: '$response.body#/id'
+              operationId: getStakeholderItem
+              description: 'The `id` value returned in the response can be used as the `id` parameter in `GET /stakeholders/{id}`.'
+        400:
+          description: 'Invalid input'
+        404:
+          description: 'Resource not found'
+      requestBody:
+        content:
+          application/ld+json:
+            schema:
+              $ref: '#/components/schemas/Stakeholder:jsonld-write'
+          application/json+ld:
+            schema:
+              $ref: '#/components/schemas/Stakeholder:jsonld-write'
+          application/hal+json:
+            schema:
+              $ref: '#/components/schemas/Stakeholder-write'
+          application/json+hal:
+            schema:
+              $ref: '#/components/schemas/Stakeholder-write'
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/Stakeholder-write'
+          application/json+vnd.api:
+            schema:
+              $ref: '#/components/schemas/Stakeholder-write'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Stakeholder-write'
+          application/health+json:
+            schema:
+              $ref: '#/components/schemas/Stakeholder-write'
+          application/json+health:
+            schema:
+              $ref: '#/components/schemas/Stakeholder-write'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Stakeholder-write'
+          application/x-yaml:
+            schema:
+              $ref: '#/components/schemas/Stakeholder-write'
+          text/csv:
+            schema:
+              $ref: '#/components/schemas/Stakeholder-write'
+          text/html:
+            schema:
+              $ref: '#/components/schemas/Stakeholder-write'
+        description: 'The new Stakeholder resource'
+      parameters:
+        -
+          name: Authorization
+          description: 'The JWT of the entity performing the request'
+          in: header
+        -
+          name: API-Version
+          description: 'The version of the API conform [Landelijke API-strategie.](https://geonovum.github.io/KP-APIs/#versioning)'
+          example: 1.0.1
+          in: header
+        -
+          name: X-NLX-Logrecord-ID
+          description: 'A  globally unique id of the request, which makes a request traceable throughout the network.'
+          in: header
+        -
+          name: X-NLX-Request-Process-Id
+          description: 'A process id for purpose registration (doelbinding)'
+          in: header
+        -
+          name: X-NLX-Request-Data-Elements
+          description: 'A list of requested data elements'
+          in: header
+        -
+          name: X-NLX-Request-Data-Subject
+          description: 'A key-value list of data subjects related to this request. e.g. `bsn=12345678, kenteken=ab-12-fg`'
+          in: header
+        -
+          name: X-NLX-Audit-Clarification
+          description: 'A clarification as to why a request has been made  (doelbinding)'
+          in: header
+  '/stakeholders/{id}':
+    get:
+      tags:
+        - Stakeholder
+      operationId: getStakeholderItem
+      summary: 'Retrieves a Stakeholder resource.'
+      parameters:
+        -
+          name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: Authorization
+          description: 'The JWT of the entity performing the request'
+          in: header
+        -
+          name: API-Version
+          description: 'The version of the API conform [Landelijke API-strategie.](https://geonovum.github.io/KP-APIs/#versioning)'
+          example: 1.0.1
+          in: header
+        -
+          name: X-NLX-Logrecord-ID
+          description: 'A  globally unique id of the request, which makes a request traceable throughout the network.'
+          in: header
+        -
+          name: X-NLX-Request-Process-Id
+          description: 'A process id for purpose registration (doelbinding)'
+          in: header
+        -
+          name: X-NLX-Request-Data-Elements
+          description: 'A list of requested data elements'
+          in: header
+        -
+          name: X-NLX-Request-Data-Subject
+          description: 'A key-value list of data subjects related to this request. e.g. `bsn=12345678, kenteken=ab-12-fg`'
+          in: header
+        -
+          name: X-NLX-Audit-Clarification
+          description: 'A clarification as to why a request has been made  (doelbinding)'
+          in: header
+        -
+          name: Link
+          description: 'A [websub](https://www.w3.org/TR/websub/#discovery) header like <https://hub.example.com/>; rel="hub"'
+          in: header
+        -
+          name: 'extend[]'
+          required: false
+          description: 'An array of nested objects to include in the return object'
+          in: query
+          schema:
+            type: array
+        -
+          name: 'fields[]'
+          required: false
+          description: 'An array of fields to return in output, wil return all fields is not supplied'
+          in: query
+          schema:
+            type: array
+        -
+          name: validOn
+          required: false
+          description: 'Returns object as valid on a given date time'
+          schema:
+            type: string
+            format: date-time
+          in: query
+        -
+          name: validFrom
+          required: false
+          description: 'Returns objects valid from a given date time'
+          schema:
+            type: string
+            format: date-time
+          in: query
+        -
+          name: validUntil
+          required: false
+          description: 'Returns objects valid until a given date time'
+          schema:
+            type: string
+            format: date-time
+          in: query
+      responses:
+        200:
+          description: 'Stakeholder resource response'
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/Stakeholder:jsonld-read'
+            application/json+ld:
+              schema:
+                $ref: '#/components/schemas/Stakeholder:jsonld-read'
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/Stakeholder-read'
+            application/json+hal:
+              schema:
+                $ref: '#/components/schemas/Stakeholder-read'
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/Stakeholder-read'
+            application/json+vnd.api:
+              schema:
+                $ref: '#/components/schemas/Stakeholder-read'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stakeholder-read'
+            application/health+json:
+              schema:
+                $ref: '#/components/schemas/Stakeholder-read'
+            application/json+health:
+              schema:
+                $ref: '#/components/schemas/Stakeholder-read'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Stakeholder-read'
+            application/x-yaml:
+              schema:
+                $ref: '#/components/schemas/Stakeholder-read'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Stakeholder-read'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Stakeholder-read'
+        404:
+          description: 'Resource not found'
+      produces:
+        - application/health+json
+    delete:
+      tags:
+        - Stakeholder
+      operationId: deleteStakeholderItem
+      summary: 'Removes the Stakeholder resource.'
+      responses:
+        204:
+          description: 'Stakeholder resource deleted'
+        404:
+          description: 'Resource not found'
+      parameters:
+        -
+          name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: Authorization
+          description: 'The JWT of the entity performing the request'
+          in: header
+        -
+          name: API-Version
+          description: 'The version of the API conform [Landelijke API-strategie.](https://geonovum.github.io/KP-APIs/#versioning)'
+          example: 1.0.1
+          in: header
+        -
+          name: X-NLX-Logrecord-ID
+          description: 'A  globally unique id of the request, which makes a request traceable throughout the network.'
+          in: header
+        -
+          name: X-NLX-Request-Process-Id
+          description: 'A process id for purpose registration (doelbinding)'
+          in: header
+        -
+          name: X-NLX-Request-Data-Elements
+          description: 'A list of requested data elements'
+          in: header
+        -
+          name: X-NLX-Request-Data-Subject
+          description: 'A key-value list of data subjects related to this request. e.g. `bsn=12345678, kenteken=ab-12-fg`'
+          in: header
+        -
+          name: X-NLX-Audit-Clarification
+          description: 'A clarification as to why a request has been made  (doelbinding)'
+          in: header
+    put:
+      tags:
+        - Stakeholder
+      operationId: putStakeholderItem
+      summary: 'Replaces the Stakeholder resource.'
+      parameters:
+        -
+          name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: Authorization
+          description: 'The JWT of the entity performing the request'
+          in: header
+        -
+          name: API-Version
+          description: 'The version of the API conform [Landelijke API-strategie.](https://geonovum.github.io/KP-APIs/#versioning)'
+          example: 1.0.1
+          in: header
+        -
+          name: X-NLX-Logrecord-ID
+          description: 'A  globally unique id of the request, which makes a request traceable throughout the network.'
+          in: header
+        -
+          name: X-NLX-Request-Process-Id
+          description: 'A process id for purpose registration (doelbinding)'
+          in: header
+        -
+          name: X-NLX-Request-Data-Elements
+          description: 'A list of requested data elements'
+          in: header
+        -
+          name: X-NLX-Request-Data-Subject
+          description: 'A key-value list of data subjects related to this request. e.g. `bsn=12345678, kenteken=ab-12-fg`'
+          in: header
+        -
+          name: X-NLX-Audit-Clarification
+          description: 'A clarification as to why a request has been made  (doelbinding)'
+          in: header
+      responses:
+        200:
+          description: 'Stakeholder resource updated'
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/Stakeholder:jsonld-read'
+            application/json+ld:
+              schema:
+                $ref: '#/components/schemas/Stakeholder:jsonld-read'
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/Stakeholder-read'
+            application/json+hal:
+              schema:
+                $ref: '#/components/schemas/Stakeholder-read'
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/Stakeholder-read'
+            application/json+vnd.api:
+              schema:
+                $ref: '#/components/schemas/Stakeholder-read'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stakeholder-read'
+            application/health+json:
+              schema:
+                $ref: '#/components/schemas/Stakeholder-read'
+            application/json+health:
+              schema:
+                $ref: '#/components/schemas/Stakeholder-read'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Stakeholder-read'
+            application/x-yaml:
+              schema:
+                $ref: '#/components/schemas/Stakeholder-read'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Stakeholder-read'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Stakeholder-read'
+        400:
+          description: 'Invalid input'
+        404:
+          description: 'Resource not found'
+      requestBody:
+        content:
+          application/ld+json:
+            schema:
+              $ref: '#/components/schemas/Stakeholder:jsonld-write'
+          application/json+ld:
+            schema:
+              $ref: '#/components/schemas/Stakeholder:jsonld-write'
+          application/hal+json:
+            schema:
+              $ref: '#/components/schemas/Stakeholder-write'
+          application/json+hal:
+            schema:
+              $ref: '#/components/schemas/Stakeholder-write'
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/Stakeholder-write'
+          application/json+vnd.api:
+            schema:
+              $ref: '#/components/schemas/Stakeholder-write'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Stakeholder-write'
+          application/health+json:
+            schema:
+              $ref: '#/components/schemas/Stakeholder-write'
+          application/json+health:
+            schema:
+              $ref: '#/components/schemas/Stakeholder-write'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Stakeholder-write'
+          application/x-yaml:
+            schema:
+              $ref: '#/components/schemas/Stakeholder-write'
+          text/csv:
+            schema:
+              $ref: '#/components/schemas/Stakeholder-write'
+          text/html:
+            schema:
+              $ref: '#/components/schemas/Stakeholder-write'
+        description: 'The updated Stakeholder resource'
+    patch:
+      tags:
+        - Stakeholder
+      operationId: patchStakeholderItem
+      summary: 'Updates the Stakeholder resource.'
+      parameters:
+        -
+          name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: Authorization
+          description: 'The JWT of the entity performing the request'
+          in: header
+        -
+          name: API-Version
+          description: 'The version of the API conform [Landelijke API-strategie.](https://geonovum.github.io/KP-APIs/#versioning)'
+          example: 1.0.1
+          in: header
+        -
+          name: X-NLX-Logrecord-ID
+          description: 'A  globally unique id of the request, which makes a request traceable throughout the network.'
+          in: header
+        -
+          name: X-NLX-Request-Process-Id
+          description: 'A process id for purpose registration (doelbinding)'
+          in: header
+        -
+          name: X-NLX-Request-Data-Elements
+          description: 'A list of requested data elements'
+          in: header
+        -
+          name: X-NLX-Request-Data-Subject
+          description: 'A key-value list of data subjects related to this request. e.g. `bsn=12345678, kenteken=ab-12-fg`'
+          in: header
+        -
+          name: X-NLX-Audit-Clarification
+          description: 'A clarification as to why a request has been made  (doelbinding)'
+          in: header
+      responses:
+        200:
+          description: 'Stakeholder resource updated'
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/Stakeholder:jsonld-read'
+            application/json+ld:
+              schema:
+                $ref: '#/components/schemas/Stakeholder:jsonld-read'
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/Stakeholder-read'
+            application/json+hal:
+              schema:
+                $ref: '#/components/schemas/Stakeholder-read'
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/Stakeholder-read'
+            application/json+vnd.api:
+              schema:
+                $ref: '#/components/schemas/Stakeholder-read'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stakeholder-read'
+            application/health+json:
+              schema:
+                $ref: '#/components/schemas/Stakeholder-read'
+            application/json+health:
+              schema:
+                $ref: '#/components/schemas/Stakeholder-read'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Stakeholder-read'
+            application/x-yaml:
+              schema:
+                $ref: '#/components/schemas/Stakeholder-read'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Stakeholder-read'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Stakeholder-read'
+        400:
+          description: 'Invalid input'
+        404:
+          description: 'Resource not found'
+      requestBody:
+        content:
+          application/ld+json:
+            schema:
+              $ref: '#/components/schemas/Stakeholder:jsonld-write'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Stakeholder-write'
+          application/hal+json:
+            schema:
+              $ref: '#/components/schemas/Stakeholder-write'
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/Stakeholder-write'
+          application/merge-patch+json:
+            schema:
+              $ref: '#/components/schemas/Stakeholder-write'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Stakeholder-write'
+          applications/x-yaml:
+            schema:
+              $ref: '#/components/schemas/Stakeholder-write'
+          text/csv:
+            schema:
+              $ref: '#/components/schemas/Stakeholder-write'
+          text/html:
+            schema:
+              $ref: '#/components/schemas/Stakeholder-write'
+        description: 'The updated Stakeholder resource'
 components:
   schemas:
     AuditTrail-read:
@@ -3631,6 +5075,164 @@ components:
         '@type':
           readOnly: true
           type: string
+    Cemetery-read:
+      type: object
+      description: 'An entity representing an Cemetery.'
+      properties:
+        id:
+          readOnly: true
+          description: 'The UUID identifier of this object'
+          externalDocs:
+            url: 'http://schema.org/identifier'
+          type: string
+        dateCreated:
+          description: 'The date this Cemetery has been created'
+          externalDocs:
+            url: 'http://schema.org/Date'
+          type: string
+          format: date-time
+        dateModified:
+          description: 'The date this Cemetery has been edited'
+          externalDocs:
+            url: 'http://schema.org/Date'
+          type: string
+          format: date-time
+        reference:
+          description: 'The grave reference of this Grave'
+          type: string
+        location:
+          description: 'The Location of this Cemetery'
+          type: string
+        organization:
+          description: 'The Organization of this Cemetery'
+          type: string
+        graves:
+          description: 'The graves that are part of this Cemetery'
+          type: array
+          items:
+            $ref: '#/components/schemas/Grave-read'
+      required:
+        - dateCreated
+    Cemetery-write:
+      type: object
+      description: 'An entity representing an Cemetery.'
+      required:
+        - dateCreated
+      properties:
+        dateCreated:
+          description: 'The date this Cemetery has been created'
+          externalDocs:
+            url: 'http://schema.org/Date'
+          type: string
+          format: date-time
+        dateModified:
+          description: 'The date this Cemetery has been edited'
+          externalDocs:
+            url: 'http://schema.org/Date'
+          type: string
+          format: date-time
+        reference:
+          description: 'The grave reference of this Grave'
+          type: string
+        location:
+          description: 'The Location of this Cemetery'
+          type: string
+        organization:
+          description: 'The Organization of this Cemetery'
+          type: string
+        graves:
+          description: 'The graves that are part of this Cemetery'
+          type: array
+          items:
+            $ref: '#/components/schemas/Grave-write'
+    'Cemetery:jsonld-read':
+      type: object
+      description: 'An entity representing an Cemetery.'
+      properties:
+        '@context':
+          readOnly: true
+          type: string
+        '@id':
+          readOnly: true
+          type: string
+        '@type':
+          readOnly: true
+          type: string
+        id:
+          readOnly: true
+          description: 'The UUID identifier of this object'
+          externalDocs:
+            url: 'http://schema.org/identifier'
+          type: string
+        dateCreated:
+          description: 'The date this Cemetery has been created'
+          externalDocs:
+            url: 'http://schema.org/Date'
+          type: string
+          format: date-time
+        dateModified:
+          description: 'The date this Cemetery has been edited'
+          externalDocs:
+            url: 'http://schema.org/Date'
+          type: string
+          format: date-time
+        reference:
+          description: 'The grave reference of this Grave'
+          type: string
+        location:
+          description: 'The Location of this Cemetery'
+          type: string
+        organization:
+          description: 'The Organization of this Cemetery'
+          type: string
+        graves:
+          description: 'The graves that are part of this Cemetery'
+          type: array
+          items:
+            $ref: '#/components/schemas/Grave:jsonld-read'
+      required:
+        - dateCreated
+    'Cemetery:jsonld-write':
+      type: object
+      description: 'An entity representing an Cemetery.'
+      required:
+        - dateCreated
+      properties:
+        '@context':
+          readOnly: true
+          type: string
+        '@id':
+          readOnly: true
+          type: string
+        '@type':
+          readOnly: true
+          type: string
+        dateCreated:
+          description: 'The date this Cemetery has been created'
+          externalDocs:
+            url: 'http://schema.org/Date'
+          type: string
+          format: date-time
+        dateModified:
+          description: 'The date this Cemetery has been edited'
+          externalDocs:
+            url: 'http://schema.org/Date'
+          type: string
+          format: date-time
+        reference:
+          description: 'The grave reference of this Grave'
+          type: string
+        location:
+          description: 'The Location of this Cemetery'
+          type: string
+        organization:
+          description: 'The Organization of this Cemetery'
+          type: string
+        graves:
+          description: 'The graves that are part of this Cemetery'
+          type: array
+          items:
+            $ref: '#/components/schemas/Grave:jsonld-write'
     ChangeLog-read:
       type: object
       description: 'An resource representing a log line.'
@@ -3763,11 +5365,11 @@ components:
             url: 'http://schema.org/identifier'
           type: string
         dateCreated:
-          description: 'The date this grave has been created'
+          description: 'The date this Grave has been created'
           type: string
           format: date-time
         dateModified:
-          description: 'The date this grave has been edited'
+          description: 'The date this Grave has been edited'
           type: string
           format: date-time
         description:
@@ -3776,7 +5378,7 @@ components:
         acquisition:
           description: 'The acquisition of this Grave'
           type: string
-        graveReference:
+        reference:
           description: 'The grave reference of this Grave'
           type: string
         graveType:
@@ -3786,10 +5388,10 @@ components:
           description: 'The status of this Grave'
           type: string
         location:
-          description: 'The location of this Grave on a cemetery'
+          description: 'The Location of this Grave on a Cemetery'
           type: string
         position:
-          description: 'The position where a deceased rests within the Grave'
+          description: 'The position where a Deceased rests within the Grave'
           type: integer
         graveCovers:
           description: 'The GraveCovers that are part of this Grave'
@@ -3797,8 +5399,14 @@ components:
           items:
             $ref: '#/components/schemas/GraveCover-read'
         deceased:
-          description: 'The deceased resting in this grave'
+          description: 'The deceased resting in this Grave'
           type: string
+        stakeholder:
+          description: 'The Stakeholder that is part of this Grave'
+          $ref: '#/components/schemas/Stakeholder-read'
+        cemetery:
+          description: 'The Cemetery that is part of this Grave'
+          $ref: '#/components/schemas/Cemetery-read'
       required:
         - dateCreated
     Grave-write:
@@ -3808,11 +5416,11 @@ components:
         - dateCreated
       properties:
         dateCreated:
-          description: 'The date this grave has been created'
+          description: 'The date this Grave has been created'
           type: string
           format: date-time
         dateModified:
-          description: 'The date this grave has been edited'
+          description: 'The date this Grave has been edited'
           type: string
           format: date-time
         description:
@@ -3821,7 +5429,7 @@ components:
         acquisition:
           description: 'The acquisition of this Grave'
           type: string
-        graveReference:
+        reference:
           description: 'The grave reference of this Grave'
           type: string
         graveType:
@@ -3831,10 +5439,10 @@ components:
           description: 'The status of this Grave'
           type: string
         location:
-          description: 'The location of this Grave on a cemetery'
+          description: 'The Location of this Grave on a Cemetery'
           type: string
         position:
-          description: 'The position where a deceased rests within the Grave'
+          description: 'The position where a Deceased rests within the Grave'
           type: integer
         graveCovers:
           description: 'The GraveCovers that are part of this Grave'
@@ -3842,8 +5450,14 @@ components:
           items:
             $ref: '#/components/schemas/GraveCover-write'
         deceased:
-          description: 'The deceased resting in this grave'
+          description: 'The deceased resting in this Grave'
           type: string
+        stakeholder:
+          description: 'The Stakeholder that is part of this Grave'
+          $ref: '#/components/schemas/Stakeholder-write'
+        cemetery:
+          description: 'The Cemetery that is part of this Grave'
+          $ref: '#/components/schemas/Cemetery-write'
     'Grave:jsonld-read':
       type: object
       description: 'An entity representing an Grave.'
@@ -3864,11 +5478,11 @@ components:
             url: 'http://schema.org/identifier'
           type: string
         dateCreated:
-          description: 'The date this grave has been created'
+          description: 'The date this Grave has been created'
           type: string
           format: date-time
         dateModified:
-          description: 'The date this grave has been edited'
+          description: 'The date this Grave has been edited'
           type: string
           format: date-time
         description:
@@ -3877,7 +5491,7 @@ components:
         acquisition:
           description: 'The acquisition of this Grave'
           type: string
-        graveReference:
+        reference:
           description: 'The grave reference of this Grave'
           type: string
         graveType:
@@ -3887,10 +5501,10 @@ components:
           description: 'The status of this Grave'
           type: string
         location:
-          description: 'The location of this Grave on a cemetery'
+          description: 'The Location of this Grave on a Cemetery'
           type: string
         position:
-          description: 'The position where a deceased rests within the Grave'
+          description: 'The position where a Deceased rests within the Grave'
           type: integer
         graveCovers:
           description: 'The GraveCovers that are part of this Grave'
@@ -3898,8 +5512,14 @@ components:
           items:
             $ref: '#/components/schemas/GraveCover:jsonld-read'
         deceased:
-          description: 'The deceased resting in this grave'
+          description: 'The deceased resting in this Grave'
           type: string
+        stakeholder:
+          description: 'The Stakeholder that is part of this Grave'
+          $ref: '#/components/schemas/Stakeholder:jsonld-read'
+        cemetery:
+          description: 'The Cemetery that is part of this Grave'
+          $ref: '#/components/schemas/Cemetery:jsonld-read'
       required:
         - dateCreated
     'Grave:jsonld-write':
@@ -3918,11 +5538,11 @@ components:
           readOnly: true
           type: string
         dateCreated:
-          description: 'The date this grave has been created'
+          description: 'The date this Grave has been created'
           type: string
           format: date-time
         dateModified:
-          description: 'The date this grave has been edited'
+          description: 'The date this Grave has been edited'
           type: string
           format: date-time
         description:
@@ -3931,7 +5551,7 @@ components:
         acquisition:
           description: 'The acquisition of this Grave'
           type: string
-        graveReference:
+        reference:
           description: 'The grave reference of this Grave'
           type: string
         graveType:
@@ -3941,10 +5561,10 @@ components:
           description: 'The status of this Grave'
           type: string
         location:
-          description: 'The location of this Grave on a cemetery'
+          description: 'The Location of this Grave on a Cemetery'
           type: string
         position:
-          description: 'The position where a deceased rests within the Grave'
+          description: 'The position where a Deceased rests within the Grave'
           type: integer
         graveCovers:
           description: 'The GraveCovers that are part of this Grave'
@@ -3952,8 +5572,14 @@ components:
           items:
             $ref: '#/components/schemas/GraveCover:jsonld-write'
         deceased:
-          description: 'The deceased resting in this grave'
+          description: 'The deceased resting in this Grave'
           type: string
+        stakeholder:
+          description: 'The Stakeholder that is part of this Grave'
+          $ref: '#/components/schemas/Stakeholder:jsonld-write'
+        cemetery:
+          description: 'The Cemetery that is part of this Grave'
+          $ref: '#/components/schemas/Cemetery:jsonld-write'
     GraveCover-read:
       type: object
       description: 'An entity representing an GraveCover.'
@@ -3965,22 +5591,22 @@ components:
             url: 'http://schema.org/identifier'
           type: string
         dateCreated:
-          description: 'The date this gravecover has been created'
+          description: 'The date this GraveCover has been created'
           externalDocs:
             url: 'http://schema.org/Date'
           type: string
           format: date-time
         dateModified:
-          description: 'The date this gravecover has been edited'
+          description: 'The date this GraveCover has been edited'
           externalDocs:
             url: 'http://schema.org/Date'
           type: string
           format: date-time
         name:
-          description: 'The name of this Grave Cover'
+          description: 'The name of this GraveCover'
           type: string
         description:
-          description: 'The description of this Grave Cover'
+          description: 'The description of this GraveCover'
           type: string
         graves:
           description: 'The Graves that are part of this GraveCover'
@@ -3996,22 +5622,22 @@ components:
         - dateCreated
       properties:
         dateCreated:
-          description: 'The date this gravecover has been created'
+          description: 'The date this GraveCover has been created'
           externalDocs:
             url: 'http://schema.org/Date'
           type: string
           format: date-time
         dateModified:
-          description: 'The date this gravecover has been edited'
+          description: 'The date this GraveCover has been edited'
           externalDocs:
             url: 'http://schema.org/Date'
           type: string
           format: date-time
         name:
-          description: 'The name of this Grave Cover'
+          description: 'The name of this GraveCover'
           type: string
         description:
-          description: 'The description of this Grave Cover'
+          description: 'The description of this GraveCover'
           type: string
         graves:
           description: 'The Graves that are part of this GraveCover'
@@ -4038,22 +5664,22 @@ components:
             url: 'http://schema.org/identifier'
           type: string
         dateCreated:
-          description: 'The date this gravecover has been created'
+          description: 'The date this GraveCover has been created'
           externalDocs:
             url: 'http://schema.org/Date'
           type: string
           format: date-time
         dateModified:
-          description: 'The date this gravecover has been edited'
+          description: 'The date this GraveCover has been edited'
           externalDocs:
             url: 'http://schema.org/Date'
           type: string
           format: date-time
         name:
-          description: 'The name of this Grave Cover'
+          description: 'The name of this GraveCover'
           type: string
         description:
-          description: 'The description of this Grave Cover'
+          description: 'The description of this GraveCover'
           type: string
         graves:
           description: 'The Graves that are part of this GraveCover'
@@ -4078,25 +5704,171 @@ components:
           readOnly: true
           type: string
         dateCreated:
-          description: 'The date this gravecover has been created'
+          description: 'The date this GraveCover has been created'
           externalDocs:
             url: 'http://schema.org/Date'
           type: string
           format: date-time
         dateModified:
-          description: 'The date this gravecover has been edited'
+          description: 'The date this GraveCover has been edited'
           externalDocs:
             url: 'http://schema.org/Date'
           type: string
           format: date-time
         name:
-          description: 'The name of this Grave Cover'
+          description: 'The name of this GraveCover'
           type: string
         description:
-          description: 'The description of this Grave Cover'
+          description: 'The description of this GraveCover'
           type: string
         graves:
           description: 'The Graves that are part of this GraveCover'
+          type: array
+          items:
+            $ref: '#/components/schemas/Grave:jsonld-write'
+    Stakeholder-read:
+      type: object
+      description: 'An entity representing an Stakeholder.'
+      properties:
+        id:
+          readOnly: true
+          description: 'The UUID identifier of this object'
+          externalDocs:
+            url: 'http://schema.org/identifier'
+          type: string
+        dateCreated:
+          description: 'The date this Stakeholder has been created'
+          externalDocs:
+            url: 'http://schema.org/Date'
+          type: string
+          format: date-time
+        dateModified:
+          description: 'The date this Stakeholder has been edited'
+          externalDocs:
+            url: 'http://schema.org/Date'
+          type: string
+          format: date-time
+        contact:
+          description: 'The contact of this Stakeholder'
+          type: string
+        ingeschrevenpersoon:
+          description: 'The defined person of this Stakeholder'
+          type: string
+        graves:
+          description: 'The graves that are part of this Stakeholder'
+          type: array
+          items:
+            $ref: '#/components/schemas/Grave-read'
+      required:
+        - dateCreated
+    Stakeholder-write:
+      type: object
+      description: 'An entity representing an Stakeholder.'
+      required:
+        - dateCreated
+      properties:
+        dateCreated:
+          description: 'The date this Stakeholder has been created'
+          externalDocs:
+            url: 'http://schema.org/Date'
+          type: string
+          format: date-time
+        dateModified:
+          description: 'The date this Stakeholder has been edited'
+          externalDocs:
+            url: 'http://schema.org/Date'
+          type: string
+          format: date-time
+        contact:
+          description: 'The contact of this Stakeholder'
+          type: string
+        ingeschrevenpersoon:
+          description: 'The defined person of this Stakeholder'
+          type: string
+        graves:
+          description: 'The graves that are part of this Stakeholder'
+          type: array
+          items:
+            $ref: '#/components/schemas/Grave-write'
+    'Stakeholder:jsonld-read':
+      type: object
+      description: 'An entity representing an Stakeholder.'
+      properties:
+        '@context':
+          readOnly: true
+          type: string
+        '@id':
+          readOnly: true
+          type: string
+        '@type':
+          readOnly: true
+          type: string
+        id:
+          readOnly: true
+          description: 'The UUID identifier of this object'
+          externalDocs:
+            url: 'http://schema.org/identifier'
+          type: string
+        dateCreated:
+          description: 'The date this Stakeholder has been created'
+          externalDocs:
+            url: 'http://schema.org/Date'
+          type: string
+          format: date-time
+        dateModified:
+          description: 'The date this Stakeholder has been edited'
+          externalDocs:
+            url: 'http://schema.org/Date'
+          type: string
+          format: date-time
+        contact:
+          description: 'The contact of this Stakeholder'
+          type: string
+        ingeschrevenpersoon:
+          description: 'The defined person of this Stakeholder'
+          type: string
+        graves:
+          description: 'The graves that are part of this Stakeholder'
+          type: array
+          items:
+            $ref: '#/components/schemas/Grave:jsonld-read'
+      required:
+        - dateCreated
+    'Stakeholder:jsonld-write':
+      type: object
+      description: 'An entity representing an Stakeholder.'
+      required:
+        - dateCreated
+      properties:
+        '@context':
+          readOnly: true
+          type: string
+        '@id':
+          readOnly: true
+          type: string
+        '@type':
+          readOnly: true
+          type: string
+        dateCreated:
+          description: 'The date this Stakeholder has been created'
+          externalDocs:
+            url: 'http://schema.org/Date'
+          type: string
+          format: date-time
+        dateModified:
+          description: 'The date this Stakeholder has been edited'
+          externalDocs:
+            url: 'http://schema.org/Date'
+          type: string
+          format: date-time
+        contact:
+          description: 'The contact of this Stakeholder'
+          type: string
+        ingeschrevenpersoon:
+          description: 'The defined person of this Stakeholder'
+          type: string
+        graves:
+          description: 'The graves that are part of this Stakeholder'
           type: array
           items:
             $ref: '#/components/schemas/Grave:jsonld-write'
@@ -4205,12 +5977,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-04-01 11:23:08'
+        example: '2020-04-03 08:48:38'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-04-01 11:23:08'
+        example: '2020-04-03 08:48:38'
     required: []
   AuditTrail-write:
     properties:
@@ -4220,6 +5992,75 @@ definitions:
         example: 'This log line looks suspicius'
         maxLength: 2555
     required: []
+  Cemetery-read:
+    properties:
+      id:
+        description: 'The UUID identifier of this object'
+        type: string
+        example: e2984465-190a-4562-829e-a8cca81aa35d
+        format: uuid
+      dateCreated:
+        description: 'The date this Cemetery has been created'
+        type: string
+        format: date
+        example: '2020-01-19T00:00:00+00:00'
+      dateModified:
+        description: 'The date this Cemetery has been edited'
+        type: string
+        format: date
+        example: '2020-01-19T00:00:00+00:00'
+      reference:
+        description: 'The grave reference of this Grave'
+        type: string
+        example: Noorderbegraafplaats
+        maxLength: 255
+      location:
+        description: 'The Location of this Cemetery'
+        type: string
+        example: url/location1
+        maxLength: 255
+      organization:
+        description: 'The Organization of this Cemetery'
+        type: string
+        example: url/organization1
+        maxLength: 255
+      graves:
+        description: 'The graves that are part of this Cemetery'
+        type: \ArrayCollection
+    required:
+      - dateCreated
+  Cemetery-write:
+    properties:
+      dateCreated:
+        description: 'The date this Cemetery has been created'
+        type: string
+        format: date
+        example: '2020-01-19T00:00:00+00:00'
+      dateModified:
+        description: 'The date this Cemetery has been edited'
+        type: string
+        format: date
+        example: '2020-01-19T00:00:00+00:00'
+      reference:
+        description: 'The grave reference of this Grave'
+        type: string
+        example: Noorderbegraafplaats
+        maxLength: 255
+      location:
+        description: 'The Location of this Cemetery'
+        type: string
+        example: url/location1
+        maxLength: 255
+      organization:
+        description: 'The Organization of this Cemetery'
+        type: string
+        example: url/organization1
+        maxLength: 255
+      graves:
+        description: 'The graves that are part of this Cemetery'
+        type: \ArrayCollection
+    required:
+      - dateCreated
   ChangeLog-read:
     properties:
       id:
@@ -4258,12 +6099,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-04-01 11:23:08'
+        example: '2020-04-03 08:48:38'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-04-01 11:23:08'
+        example: '2020-04-03 08:48:38'
     required: []
   ChangeLog-write:
     properties:
@@ -4281,11 +6122,11 @@ definitions:
         example: e2984465-190a-4562-829e-a8cca81aa35d
         format: uuid
       dateCreated:
-        description: 'The date this grave has been created'
+        description: 'The date this Grave has been created'
         type: \datetime
         example: '2020-01-19T00:00:00+00:00'
       dateModified:
-        description: 'The date this grave has been edited'
+        description: 'The date this Grave has been edited'
         type: \datetime
         example: '2020-01-19T00:00:00+00:00'
       description:
@@ -4298,7 +6139,7 @@ definitions:
         type: string
         example: url
         maxLength: 255
-      graveReference:
+      reference:
         description: 'The grave reference of this Grave'
         type: string
         example: zb-01
@@ -4314,32 +6155,38 @@ definitions:
         example: 'in use'
         maxLength: 255
       location:
-        description: 'The location of this Grave on a cemetery'
+        description: 'The Location of this Grave on a Cemetery'
         type: string
         example: url/locationA
         maxLength: 255
       position:
-        description: 'The position where a deceased rests within the Grave'
+        description: 'The position where a Deceased rests within the Grave'
         type: int
         example: '1'
       deceased:
-        description: 'The deceased resting in this grave'
+        description: 'The deceased resting in this Grave'
         type: string
         example: url/deceased1
         maxLength: 255
       graveCovers:
         description: 'The GraveCovers that are part of this Grave'
         type: \ArrayCollection
+      stakeholder:
+        description: 'The Stakeholder that is part of this Grave'
+        type: \Stakeholder
+      cemetery:
+        description: 'The Cemetery that is part of this Grave'
+        type: \Cemetery
     required:
       - dateCreated
   Grave-write:
     properties:
       dateCreated:
-        description: 'The date this grave has been created'
+        description: 'The date this Grave has been created'
         type: \datetime
         example: '2020-01-19T00:00:00+00:00'
       dateModified:
-        description: 'The date this grave has been edited'
+        description: 'The date this Grave has been edited'
         type: \datetime
         example: '2020-01-19T00:00:00+00:00'
       description:
@@ -4352,7 +6199,7 @@ definitions:
         type: string
         example: url
         maxLength: 255
-      graveReference:
+      reference:
         description: 'The grave reference of this Grave'
         type: string
         example: zb-01
@@ -4368,22 +6215,28 @@ definitions:
         example: 'in use'
         maxLength: 255
       location:
-        description: 'The location of this Grave on a cemetery'
+        description: 'The Location of this Grave on a Cemetery'
         type: string
         example: url/locationA
         maxLength: 255
       position:
-        description: 'The position where a deceased rests within the Grave'
+        description: 'The position where a Deceased rests within the Grave'
         type: int
         example: '1'
       deceased:
-        description: 'The deceased resting in this grave'
+        description: 'The deceased resting in this Grave'
         type: string
         example: url/deceased1
         maxLength: 255
       graveCovers:
         description: 'The GraveCovers that are part of this Grave'
         type: \ArrayCollection
+      stakeholder:
+        description: 'The Stakeholder that is part of this Grave'
+        type: \Stakeholder
+      cemetery:
+        description: 'The Cemetery that is part of this Grave'
+        type: \Cemetery
     required:
       - dateCreated
   GraveCover-read:
@@ -4394,22 +6247,22 @@ definitions:
         example: e2984465-190a-4562-829e-a8cca81aa35d
         format: uuid
       dateCreated:
-        description: 'The date this gravecover has been created'
+        description: 'The date this GraveCover has been created'
         type: string
         format: date
         example: '2020-01-19T00:00:00+00:00'
       dateModified:
-        description: 'The date this gravecover has been edited'
+        description: 'The date this GraveCover has been edited'
         type: string
         format: date
         example: '2020-01-19T00:00:00+00:00'
       name:
-        description: 'The name of this Grave Cover'
+        description: 'The name of this GraveCover'
         type: string
         example: 'Enkel monument'
         maxLength: 255
       description:
-        description: 'The description of this Grave Cover'
+        description: 'The description of this GraveCover'
         type: string
         example: 'gemaakt van marmer'
         maxLength: 255
@@ -4421,27 +6274,86 @@ definitions:
   GraveCover-write:
     properties:
       dateCreated:
-        description: 'The date this gravecover has been created'
+        description: 'The date this GraveCover has been created'
         type: string
         format: date
         example: '2020-01-19T00:00:00+00:00'
       dateModified:
-        description: 'The date this gravecover has been edited'
+        description: 'The date this GraveCover has been edited'
         type: string
         format: date
         example: '2020-01-19T00:00:00+00:00'
       name:
-        description: 'The name of this Grave Cover'
+        description: 'The name of this GraveCover'
         type: string
         example: 'Enkel monument'
         maxLength: 255
       description:
-        description: 'The description of this Grave Cover'
+        description: 'The description of this GraveCover'
         type: string
         example: 'gemaakt van marmer'
         maxLength: 255
       graves:
         description: 'The Graves that are part of this GraveCover'
+        type: \ArrayCollection
+    required:
+      - dateCreated
+  Stakeholder-read:
+    properties:
+      id:
+        description: 'The UUID identifier of this object'
+        type: string
+        example: e2984465-190a-4562-829e-a8cca81aa35d
+        format: uuid
+      dateCreated:
+        description: 'The date this Stakeholder has been created'
+        type: string
+        format: date
+        example: '2020-01-19T00:00:00+00:00'
+      dateModified:
+        description: 'The date this Stakeholder has been edited'
+        type: string
+        format: date
+        example: '2020-01-19T00:00:00+00:00'
+      contact:
+        description: 'The contact of this Stakeholder'
+        type: string
+        example: url/contact1
+        maxLength: 255
+      ingeschrevenpersoon:
+        description: 'The defined person of this Stakeholder'
+        type: string
+        example: url/ingeschrevenpersoon1
+        maxLength: 255
+      graves:
+        description: 'The graves that are part of this Stakeholder'
+        type: \ArrayCollection
+    required:
+      - dateCreated
+  Stakeholder-write:
+    properties:
+      dateCreated:
+        description: 'The date this Stakeholder has been created'
+        type: string
+        format: date
+        example: '2020-01-19T00:00:00+00:00'
+      dateModified:
+        description: 'The date this Stakeholder has been edited'
+        type: string
+        format: date
+        example: '2020-01-19T00:00:00+00:00'
+      contact:
+        description: 'The contact of this Stakeholder'
+        type: string
+        example: url/contact1
+        maxLength: 255
+      ingeschrevenpersoon:
+        description: 'The defined person of this Stakeholder'
+        type: string
+        example: url/ingeschrevenpersoon1
+        maxLength: 255
+      graves:
+        description: 'The graves that are part of this Stakeholder'
         type: \ArrayCollection
     required:
       - dateCreated
@@ -4452,6 +6364,12 @@ tags:
       An resource representing a log line.
       
       This entity represents a product that can be ordered via the OrderRegistratieComponent.
+  -
+    name: Cemetery
+    description: |
+      An entity representing an Cemetery.
+      
+      This entity represents an Cemetery for Cemeteries
   -
     name: ChangeLog
     description: |
@@ -4470,21 +6388,27 @@ tags:
       An entity representing an GraveCover.
       
       This entity represents an GraveCover for Graves
+  -
+    name: Stakeholder
+    description: |
+      An entity representing an Stakeholder.
+      
+      This entity represents an Stakeholder for Stakeholders
 securityDefinitions:
   JWT-Oauth:
     type: oauth2
     authorizationUrl: 'http://petstore.swagger.io/api/oauth/dialog'
     flow: implicit
     scopes:
-      read: 'read right to the GraveCover resource'
-      write: 'write right to the GraveCover resource'
+      read: 'read right to the Stakeholder resource'
+      write: 'write right to the Stakeholder resource'
   JWT-Token:
     type: apiKey
     in: header
     name: Authorization
     scopes:
-      read: 'read right to the GraveCover resource'
-      write: 'write right to the GraveCover resource'
+      read: 'read right to the Stakeholder resource'
+      write: 'write right to the Stakeholder resource'
 host: irc.zaakonline.nl
 servers:
   -
