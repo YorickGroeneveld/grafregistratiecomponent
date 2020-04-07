@@ -100,6 +100,18 @@ class Cemetery
     private $organization;
 
     /**
+     * @var string The Calendar of this Cemetery
+     *
+     * @example url/calendar1
+     * @Assert\Length(
+     *     max = 255
+     * )
+     * @Groups({"read", "write"})
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $calendar;
+
+    /**
      * @var ArrayCollection The graves that are part of this Cemetery
      *
      * @Groups({"read", "write"})
@@ -174,6 +186,18 @@ class Cemetery
     public function setOrganization(?string $organization): self
     {
         $this->organization = $organization;
+
+        return $this;
+    }
+
+    public function getCalendar(): ?string
+    {
+        return $this->calendar;
+    }
+
+    public function setCalendar(string $calendar): self
+    {
+        $this->calendar = $calendar;
 
         return $this;
     }

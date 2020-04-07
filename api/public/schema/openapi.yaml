@@ -1,13 +1,13 @@
 openapi: 3.0.2
 info:
   title: 'Graf Registratie Component'
-  version: V.0.4.1
+  version: V.0.4.2
   description: |
     API Details
     - Component: Graf Registratie Component
     - Reference: grc
     - Enviroment: dev
-    - Version: V.0.4.1
+    - Version: V.0.4.2
     - Repository: [online](https://github.com/ConductionNL/proto-component) / [zip](https://github.com/ConductionNL/proto-component/archive/master.zip)
     - Docker Image: [online](https://hub.docker.com/repository/docker/conduction/pc-php) 
     - Datamodel: [postman](/schema/grc.postman_collection.json) / [oas](/schema/openapi.yaml) / [pdf](/schema/datamodel.pdf) / [mwb](/schema/datamodel.mwb) 
@@ -5106,6 +5106,9 @@ components:
         organization:
           description: 'The Organization of this Cemetery'
           type: string
+        calendar:
+          description: 'The Calendar of this Cemetery'
+          type: string
         graves:
           description: 'The graves that are part of this Cemetery'
           type: array
@@ -5139,6 +5142,9 @@ components:
           type: string
         organization:
           description: 'The Organization of this Cemetery'
+          type: string
+        calendar:
+          description: 'The Calendar of this Cemetery'
           type: string
         graves:
           description: 'The graves that are part of this Cemetery'
@@ -5185,6 +5191,9 @@ components:
         organization:
           description: 'The Organization of this Cemetery'
           type: string
+        calendar:
+          description: 'The Calendar of this Cemetery'
+          type: string
         graves:
           description: 'The graves that are part of this Cemetery'
           type: array
@@ -5227,6 +5236,9 @@ components:
           type: string
         organization:
           description: 'The Organization of this Cemetery'
+          type: string
+        calendar:
+          description: 'The Calendar of this Cemetery'
           type: string
         graves:
           description: 'The graves that are part of this Cemetery'
@@ -5977,12 +5989,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-04-03 09:15:18'
+        example: '2020-04-07 12:37:31'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-04-03 09:15:18'
+        example: '2020-04-07 12:37:31'
     required: []
   AuditTrail-write:
     properties:
@@ -6024,6 +6036,11 @@ definitions:
         type: string
         example: url/organization1
         maxLength: 255
+      calendar:
+        description: 'The Calendar of this Cemetery'
+        type: string
+        example: url/calendar1
+        maxLength: 255
       graves:
         description: 'The graves that are part of this Cemetery'
         type: \ArrayCollection
@@ -6055,6 +6072,11 @@ definitions:
         description: 'The Organization of this Cemetery'
         type: string
         example: url/organization1
+        maxLength: 255
+      calendar:
+        description: 'The Calendar of this Cemetery'
+        type: string
+        example: url/calendar1
         maxLength: 255
       graves:
         description: 'The graves that are part of this Cemetery'
@@ -6099,12 +6121,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-04-03 09:15:18'
+        example: '2020-04-07 12:37:31'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-04-03 09:15:18'
+        example: '2020-04-07 12:37:31'
     required: []
   ChangeLog-write:
     properties:
