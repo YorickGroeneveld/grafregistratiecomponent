@@ -14,9 +14,9 @@ use Symfony\Component\Serializer\Annotation\MaxDepth;
 use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
- *  An entity representing an GraveCover.
+ *  An entity representing an GraveType.
  *
- * This entity represents an GraveCover for Graves
+ * This entity represents an GraveType for Graves
  *
  * @author Yorick Groeneveld <yorickgroeneveld@hotmail.com>
  * @author Wilco Louwerse <wilco@louwerse.com>
@@ -25,9 +25,9 @@ use Symfony\Component\Validator\Constraints\DateTime;
  *     normalizationContext={"groups"={"read"}, "enable_max_depth"=true},
  *     denormalizationContext={"groups"={"write"}, "enable_max_depth"=true}
  * )
- * @ORM\Entity(repositoryClass="App\Repository\GraveCoverRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\GraveTypeRepository")
  */
-class GraveCover
+class GraveType
 {
     /**
      * @var UuidInterface The UUID identifier of this object
@@ -44,7 +44,7 @@ class GraveCover
     private $id;
 
     /**
-     * @var datetime The date this GraveCover has been created
+     * @var datetime The date this GraveTyp has been created
      * @Assert\NotNull
      * @Assert\Date
      * @example 2020-01-19T00:00:00+00:00
@@ -54,7 +54,7 @@ class GraveCover
     private $dateCreated;
 
     /**
-     * @var datetime The date this GraveCover has been edited
+     * @var datetime The date this GraveType has been edited
      * @Assert\Date
      * @example 2020-01-19T00:00:00+00:00
      * @Groups({"read", "write"})
@@ -63,9 +63,9 @@ class GraveCover
     private $dateModified;
 
     /**
-     * @var string The reference of this GraveCover
+     * @var string The reference of this GraveType
      *
-     * @example Enkel monument
+     * @example Algemeen graf
      *
      * @Assert\Length(
      *     max = 255
@@ -76,9 +76,9 @@ class GraveCover
     private $reference;
 
     /**
-     * @var string The description of this GraveCover
+     * @var string The description of this GraveType
      *
-     * @example gemaakt van marmer
+     * @example Dit is een beschrijving van een Algemeen graf
      *
      * @Assert\Length(
      *     max = 255
@@ -89,11 +89,11 @@ class GraveCover
     private $description;
 
     /**
-     * @var ArrayCollection The Graves that are part of this GraveCover
+     * @var ArrayCollection The graves that are part of this GraveType
      *
-     * @MaxDepth(1)
      * @Groups({"read", "write"})
-     * @ORM\ManyToMany(targetEntity="App\Entity\Grave", mappedBy="graveCovers")
+     * @MaxDepth(1)
+     * @ORM\OneToMany(targetEntity="App\Entity\Grave", mappedBy="graveType")
      */
     private $graves;
 
@@ -167,7 +167,7 @@ class GraveCover
     {
         if (!$this->graves->contains($grave)) {
             $this->graves[] = $grave;
-            $grave->addGraveCover($this);
+            $grave->setGraveType($this);
         }
 
         return $this;
@@ -177,7 +177,10 @@ class GraveCover
     {
         if ($this->graves->contains($grave)) {
             $this->graves->removeElement($grave);
-            $grave->removeGraveCover($this);
+            // set the owning side to null (unless already changed)
+            if ($grave->getGraveType() === $this) {
+                $grave->setGraveType(null);
+            }
         }
 
         return $this;

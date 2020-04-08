@@ -100,18 +100,6 @@ class Grave
     private $reference;
 
     /**
-     * @var string The grave type of this Grave
-     *
-     * @example url/singlegrave
-     * @Assert\Length(
-     *     max = 255
-     * )
-     * @Groups({"read", "write"})
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $graveType;
-
-    /**
      * @var string The status of this Grave
      *
      * @example in use
@@ -186,6 +174,15 @@ class Grave
      */
     private $cemetery;
 
+    /**
+     * @var GraveType The grave type of this Grave
+     *
+     * @Groups({"read", "write"})
+     * @MaxDepth(1)
+     * @ORM\ManyToOne(targetEntity="App\Entity\GraveType", inversedBy="graves")
+     */
+    private $graveType;
+
     public function __construct()
     {
         $this->graveCovers = new ArrayCollection();
@@ -252,18 +249,6 @@ class Grave
     public function setReference(?string $reference): self
     {
         $this->reference = $reference;
-
-        return $this;
-    }
-
-    public function getGraveType(): ?string
-    {
-        return $this->graveType;
-    }
-
-    public function setGraveType(?string $graveType): self
-    {
-        $this->graveType = $graveType;
 
         return $this;
     }
@@ -362,6 +347,18 @@ class Grave
     public function setCemetery(?Cemetery $cemetery): self
     {
         $this->cemetery = $cemetery;
+
+        return $this;
+    }
+
+    public function getGraveType(): ?GraveType
+    {
+        return $this->graveType;
+    }
+
+    public function setGraveType(?GraveType $graveType): self
+    {
+        $this->graveType = $graveType;
 
         return $this;
     }
