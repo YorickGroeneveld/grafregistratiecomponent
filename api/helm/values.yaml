@@ -7,7 +7,7 @@ settings:
   projectName: grc
   name: grc
   title: Graf Registratie Component
-  version: V.0.4.1
+  version: V.0.5
   description: '&#039;Naast deze JSON rest API is er ook een [graphql](/graphql) interface beschikbaar.&#039;'
   type: 
   repro: https://github.com/ConductionNL/proto-component

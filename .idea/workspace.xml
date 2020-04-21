@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="92089c82-d91e-45b0-a4eb-32fdfd03bfef" name="Default Changelist" comment="(semi) definitive fix for rollout issue">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/helm/Chart.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/helm/Chart.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/helm/values.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/helm/values.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/public/schema/openapi.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/public/schema/openapi.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/public/schema/publiccode.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/public/schema/publiccode.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/Entity/Grave.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/Entity/Grave.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/Entity/GraveCover.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/Entity/GraveCover.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -206,6 +209,14 @@
       <workItem from="1585904014223" duration="7000" />
       <workItem from="1585904286178" duration="20000" />
       <workItem from="1585905121702" duration="471000" />
+      <workItem from="1586259956200" duration="1296000" />
+      <workItem from="1586262660541" duration="268000" />
+      <workItem from="1586267802999" duration="774000" />
+      <workItem from="1586268781935" duration="73000" />
+      <workItem from="1586268993642" duration="1412000" />
+      <workItem from="1586337399749" duration="706000" />
+      <workItem from="1586340221628" duration="1263000" />
+      <workItem from="1586341557077" duration="562000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed language errors in Installation.md">
       <created>1573726496674</created>
