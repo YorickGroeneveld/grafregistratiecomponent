@@ -1,13 +1,13 @@
 openapi: 3.0.2
 info:
   title: 'Graf Registratie Component'
-  version: V.0.5
+  version: V.0.5.1
   description: |
     API Details
     - Component: Graf Registratie Component
     - Reference: grc
     - Enviroment: dev
-    - Version: V.0.5
+    - Version: V.0.5.1
     - Repository: [online](https://github.com/ConductionNL/proto-component) / [zip](https://github.com/ConductionNL/proto-component/archive/master.zip)
     - Docker Image: [online](https://hub.docker.com/repository/docker/conduction/pc-php) 
     - Datamodel: [postman](/schema/grc.postman_collection.json) / [oas](/schema/openapi.yaml) / [pdf](/schema/datamodel.pdf) / [mwb](/schema/datamodel.mwb) 
@@ -1113,6 +1113,133 @@ paths:
                 items:
                   $ref: '#/components/schemas/Cemetery-read'
       parameters:
+        -
+          name: 'order[id]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        -
+          name: 'order[dateCreated]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        -
+          name: 'order[dateModified]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        -
+          name: 'order[reference]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        -
+          name: 'order[location]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        -
+          name: 'order[organization]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        -
+          name: 'order[calendar]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        -
+          name: 'dateCreated[before]'
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'dateCreated[strictly_before]'
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'dateCreated[after]'
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'dateCreated[strictly_after]'
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'dateModified[before]'
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'dateModified[strictly_before]'
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'dateModified[after]'
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'dateModified[strictly_after]'
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: id
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'id[]'
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: true
         -
           name: page
           in: query
@@ -4177,6 +4304,160 @@ paths:
                   $ref: '#/components/schemas/Grave-read'
       parameters:
         -
+          name: 'order[id]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        -
+          name: 'order[dateCreated]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        -
+          name: 'order[dateModified]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        -
+          name: 'order[description]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        -
+          name: 'order[acquisition]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        -
+          name: 'order[reference]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        -
+          name: 'order[status]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        -
+          name: 'order[location]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        -
+          name: 'order[position]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        -
+          name: 'order[deceased]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        -
+          name: 'dateCreated[before]'
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'dateCreated[strictly_before]'
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'dateCreated[after]'
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'dateCreated[strictly_after]'
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'dateModified[before]'
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'dateModified[strictly_before]'
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'dateModified[after]'
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'dateModified[strictly_after]'
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: cemetery.id
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'cemetery.id[]'
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: true
+        -
           name: page
           in: query
           required: false
@@ -6857,12 +7138,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-04-08 10:33:13'
+        example: '2020-05-15 14:34:17'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-04-08 10:33:13'
+        example: '2020-05-15 14:34:17'
     required: []
   AuditTrail-write:
     properties:
@@ -6951,59 +7232,6 @@ definitions:
         type: \ArrayCollection
     required:
       - dateCreated
-  ChangeLog-read:
-    properties:
-      id:
-        description: 'The UUID identifier of this object'
-        type: string
-        example: e2984465-190a-4562-829e-a8cca81aa35d
-        format: uuid
-      note:
-        description: 'A note conserning this log lin'
-        type: string
-        example: 'This log line is suspicius'
-        maxLength: 2555
-      action:
-        description: ''
-        type: string
-      objectId:
-        description: ''
-        type: string
-      objectClass:
-        description: ''
-        type: string
-      version:
-        description: ''
-        type: int
-      data:
-        description: ''
-        type: array
-      username:
-        description: ''
-        type: string
-      session:
-        description: 'The moment this request was created'
-        type: \sting
-        maxLength: 255
-      dateCreated:
-        description: 'The moment this request was created'
-        type: string
-        format: date-time
-        example: '2020-04-08 10:33:13'
-      dateModified:
-        description: 'The moment this request last Modified'
-        type: string
-        format: date-time
-        example: '2020-04-08 10:33:13'
-    required: []
-  ChangeLog-write:
-    properties:
-      note:
-        description: 'A note conserning this log lin'
-        type: string
-        example: 'This log line is suspicius'
-        maxLength: 2555
-    required: []
   Grave-read:
     properties:
       id:
@@ -7184,65 +7412,6 @@ definitions:
         type: \ArrayCollection
     required:
       - dateCreated
-  GraveType-read:
-    properties:
-      id:
-        description: 'The UUID identifier of this object'
-        type: string
-        example: e2984465-190a-4562-829e-a8cca81aa35d
-        format: uuid
-      dateCreated:
-        description: 'The date this GraveTyp has been created'
-        type: string
-        format: date
-        example: '2020-01-19T00:00:00+00:00'
-      dateModified:
-        description: 'The date this GraveType has been edited'
-        type: string
-        format: date
-        example: '2020-01-19T00:00:00+00:00'
-      reference:
-        description: 'The reference of this GraveType'
-        type: string
-        example: 'Algemeen graf'
-        maxLength: 255
-      description:
-        description: 'The description of this GraveType'
-        type: string
-        example: 'Dit is een beschrijving van een Algemeen graf'
-        maxLength: 255
-      graves:
-        description: 'The graves that are part of this GraveType'
-        type: \ArrayCollection
-    required:
-      - dateCreated
-  GraveType-write:
-    properties:
-      dateCreated:
-        description: 'The date this GraveTyp has been created'
-        type: string
-        format: date
-        example: '2020-01-19T00:00:00+00:00'
-      dateModified:
-        description: 'The date this GraveType has been edited'
-        type: string
-        format: date
-        example: '2020-01-19T00:00:00+00:00'
-      reference:
-        description: 'The reference of this GraveType'
-        type: string
-        example: 'Algemeen graf'
-        maxLength: 255
-      description:
-        description: 'The description of this GraveType'
-        type: string
-        example: 'Dit is een beschrijving van een Algemeen graf'
-        maxLength: 255
-      graves:
-        description: 'The graves that are part of this GraveType'
-        type: \ArrayCollection
-    required:
-      - dateCreated
   Stakeholder-read:
     properties:
       id:
@@ -7302,6 +7471,118 @@ definitions:
         type: \ArrayCollection
     required:
       - dateCreated
+  GraveType-read:
+    properties:
+      id:
+        description: 'The UUID identifier of this object'
+        type: string
+        example: e2984465-190a-4562-829e-a8cca81aa35d
+        format: uuid
+      dateCreated:
+        description: 'The date this GraveTyp has been created'
+        type: string
+        format: date
+        example: '2020-01-19T00:00:00+00:00'
+      dateModified:
+        description: 'The date this GraveType has been edited'
+        type: string
+        format: date
+        example: '2020-01-19T00:00:00+00:00'
+      reference:
+        description: 'The reference of this GraveType'
+        type: string
+        example: 'Algemeen graf'
+        maxLength: 255
+      description:
+        description: 'The description of this GraveType'
+        type: string
+        example: 'Dit is een beschrijving van een Algemeen graf'
+        maxLength: 255
+      graves:
+        description: 'The graves that are part of this GraveType'
+        type: \ArrayCollection
+    required:
+      - dateCreated
+  GraveType-write:
+    properties:
+      dateCreated:
+        description: 'The date this GraveTyp has been created'
+        type: string
+        format: date
+        example: '2020-01-19T00:00:00+00:00'
+      dateModified:
+        description: 'The date this GraveType has been edited'
+        type: string
+        format: date
+        example: '2020-01-19T00:00:00+00:00'
+      reference:
+        description: 'The reference of this GraveType'
+        type: string
+        example: 'Algemeen graf'
+        maxLength: 255
+      description:
+        description: 'The description of this GraveType'
+        type: string
+        example: 'Dit is een beschrijving van een Algemeen graf'
+        maxLength: 255
+      graves:
+        description: 'The graves that are part of this GraveType'
+        type: \ArrayCollection
+    required:
+      - dateCreated
+  ChangeLog-read:
+    properties:
+      id:
+        description: 'The UUID identifier of this object'
+        type: string
+        example: e2984465-190a-4562-829e-a8cca81aa35d
+        format: uuid
+      note:
+        description: 'A note conserning this log lin'
+        type: string
+        example: 'This log line is suspicius'
+        maxLength: 2555
+      action:
+        description: ''
+        type: string
+      objectId:
+        description: ''
+        type: string
+      objectClass:
+        description: ''
+        type: string
+      version:
+        description: ''
+        type: int
+      data:
+        description: ''
+        type: array
+      username:
+        description: ''
+        type: string
+      session:
+        description: 'The moment this request was created'
+        type: \sting
+        maxLength: 255
+      dateCreated:
+        description: 'The moment this request was created'
+        type: string
+        format: date-time
+        example: '2020-05-15 14:34:17'
+      dateModified:
+        description: 'The moment this request last Modified'
+        type: string
+        format: date-time
+        example: '2020-05-15 14:34:17'
+    required: []
+  ChangeLog-write:
+    properties:
+      note:
+        description: 'A note conserning this log lin'
+        type: string
+        example: 'This log line is suspicius'
+        maxLength: 2555
+    required: []
 tags:
   -
     name: AuditTrail
@@ -7316,12 +7597,6 @@ tags:
       
       This entity represents an Cemetery for Cemeteries
   -
-    name: ChangeLog
-    description: |
-      An resource representing a log line.
-      
-      This entity represents a product that can be ordered via the OrderRegistratieComponent.
-  -
     name: Grave
     description: |
       An entity representing an Grave.
@@ -7334,32 +7609,38 @@ tags:
       
       This entity represents an GraveCover for Graves
   -
+    name: Stakeholder
+    description: |
+      An entity representing an Stakeholder.
+      
+      This entity represents an Stakeholder for Stakeholders
+  -
     name: GraveType
     description: |
       An entity representing an GraveType.
       
       This entity represents an GraveType for Graves
   -
-    name: Stakeholder
+    name: ChangeLog
     description: |
-      An entity representing an Stakeholder.
+      An resource representing a log line.
       
-      This entity represents an Stakeholder for Stakeholders
+      This entity represents a product that can be ordered via the OrderRegistratieComponent.
 securityDefinitions:
   JWT-Oauth:
     type: oauth2
     authorizationUrl: 'http://petstore.swagger.io/api/oauth/dialog'
     flow: implicit
     scopes:
-      read: 'read right to the Stakeholder resource'
-      write: 'write right to the Stakeholder resource'
+      read: 'read right to the ChangeLog resource'
+      write: 'write right to the ChangeLog resource'
   JWT-Token:
     type: apiKey
     in: header
     name: Authorization
     scopes:
-      read: 'read right to the Stakeholder resource'
-      write: 'write right to the Stakeholder resource'
+      read: 'read right to the ChangeLog resource'
+      write: 'write right to the ChangeLog resource'
 host: irc.zaakonline.nl
 servers:
   -
