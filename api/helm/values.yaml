@@ -8,13 +8,14 @@ settings:
   name: grc
   title: Graf Registratie Component
   version: V.0.5.1
+  id: 
   description: '&#039;Naast deze JSON rest API is er ook een [graphql](/graphql) interface beschikbaar.&#039;'
   type: component
   repro: https://github.com/ConductionNL/proto-component
   demo: pc.zaakonline.nl
   container: https://hub.docker.com/repository/docker/conduction/pc-php
   domain: conduction.nl
-  subdomain: pc
+  subdomain: grc
   organisationName: Conduction
   email: info@conduction.nl
   country: Netherlands
