@@ -10,7 +10,7 @@ info:
     - Version: V.0.5.1
     - Repository: [online](https://github.com/ConductionNL/proto-component) / [zip](https://github.com/ConductionNL/proto-component/archive/master.zip)
     - Docker Image: [online](https://hub.docker.com/repository/docker/conduction/pc-php) 
-    - Datamodel: [postman](/schema/grc.postman_collection.json) / [oas](/schema/openapi.yaml) / [pdf](/schema/datamodel.pdf) / [mwb](/schema/datamodel.mwb) 
+    - Datamodel: [postman](/schema/grc.postman_collection.json) / [oas](/schema/openapi.yaml) / [pdf](/schema/datamodel.pdf) / [modelio (zip)](/schema/Datamodel_Modelio.zip) 
     
     'Naast deze JSON rest API is er ook een [graphql](/graphql) interface beschikbaar.'         
     
@@ -5827,114 +5827,114 @@ components:
           externalDocs:
             url: 'http://schema.org/identifier'
           type: string
+          format: uuid
+        application:
+          writeOnly: true
+          description: 'The application that made the request'
+          externalDocs:
+            url: 'http://schema.org/url'
+          type: string
+          nullable: true
         request:
-          readOnly: true
           description: 'The id of the request within that application'
           externalDocs:
             url: 'http://schema.org/url'
           type: string
+          nullable: true
         user:
-          readOnly: true
           description: 'The user on behalf of wich the request was made'
           externalDocs:
             url: 'http://schema.org/url'
           type: string
+          nullable: true
         subject:
-          readOnly: true
           description: '???'
           type: string
+          nullable: true
         process:
-          readOnly: true
           description: 'The procces on behalf of wich the request was made'
           type: string
+          nullable: true
         dataElements:
-          readOnly: true
           description: 'The moment this request was created'
           type: array
           items:
             type: string
+          nullable: true
         dataSubjects:
-          readOnly: true
           description: 'The moment this request was created'
           type: array
           items:
             type: string
+          nullable: true
         resource:
-          readOnly: true
           description: 'The resource that was requested'
           type: string
+          nullable: true
         resourceType:
-          readOnly: true
           description: 'The type of the resource that was requested'
           type: string
+          nullable: true
         route:
-          readOnly: true
           description: 'The moment this request was created'
           type: string
         endpoint:
-          readOnly: true
           description: 'The endpoint that the request was made to'
           type: string
         method:
-          readOnly: true
           description: 'The method that was used'
           type: string
         accept:
-          readOnly: true
           description: 'The contentType that was reqousted'
           type: string
         contentType:
-          readOnly: true
           description: 'The contentType that was suplieds'
           type: string
         content:
-          readOnly: true
           description: 'The moment this request was created'
           type: string
+          nullable: true
         ip:
-          readOnly: true
           description: 'The moment this request was created'
           type: string
         session:
-          readOnly: true
           description: 'The moment this request was created'
           type: string
         headers:
-          readOnly: true
           description: 'The headers supplied by client'
           type: array
           items:
             type: string
         statusCode:
-          readOnly: true
           description: 'The status code returned to client'
           type: integer
+          nullable: true
         notFound:
-          readOnly: true
           description: 'Whether or not the reqousted endpoint was found'
           type: boolean
+          nullable: true
         forbidden:
-          readOnly: true
           description: 'Whether or not the client was allowed to the reqousted endpoint'
           type: boolean
+          nullable: true
         ok:
-          readOnly: true
           description: 'Whether or not there where any problems'
           type: boolean
+          nullable: true
         dateCreated:
-          readOnly: true
           description: 'The moment this request was created'
           externalDocs:
             url: 'http://schema.org/DateTime'
           type: string
           format: date-time
+          nullable: true
         dateModified:
-          readOnly: true
           description: 'The moment this request last Modified'
           externalDocs:
             url: 'http://schema.org/DateTime'
           type: string
           format: date-time
+          nullable: true
     AuditTrail-write:
       type: object
       description: 'An resource representing a log line.'
@@ -5957,114 +5957,114 @@ components:
           externalDocs:
             url: 'http://schema.org/identifier'
           type: string
+          format: uuid
+        application:
+          writeOnly: true
+          description: 'The application that made the request'
+          externalDocs:
+            url: 'http://schema.org/url'
+          type: string
+          nullable: true
         request:
-          readOnly: true
           description: 'The id of the request within that application'
           externalDocs:
             url: 'http://schema.org/url'
           type: string
+          nullable: true
         user:
-          readOnly: true
           description: 'The user on behalf of wich the request was made'
           externalDocs:
             url: 'http://schema.org/url'
           type: string
+          nullable: true
         subject:
-          readOnly: true
           description: '???'
           type: string
+          nullable: true
         process:
-          readOnly: true
           description: 'The procces on behalf of wich the request was made'
           type: string
+          nullable: true
         dataElements:
-          readOnly: true
           description: 'The moment this request was created'
           type: array
           items:
             type: string
+          nullable: true
         dataSubjects:
-          readOnly: true
           description: 'The moment this request was created'
           type: array
           items:
             type: string
+          nullable: true
         resource:
-          readOnly: true
           description: 'The resource that was requested'
           type: string
+          nullable: true
         resourceType:
-          readOnly: true
           description: 'The type of the resource that was requested'
           type: string
+          nullable: true
         route:
-          readOnly: true
           description: 'The moment this request was created'
           type: string
         endpoint:
-          readOnly: true
           description: 'The endpoint that the request was made to'
           type: string
         method:
-          readOnly: true
           description: 'The method that was used'
           type: string
         accept:
-          readOnly: true
           description: 'The contentType that was reqousted'
           type: string
         contentType:
-          readOnly: true
           description: 'The contentType that was suplieds'
           type: string
         content:
-          readOnly: true
           description: 'The moment this request was created'
           type: string
+          nullable: true
         ip:
-          readOnly: true
           description: 'The moment this request was created'
           type: string
         session:
-          readOnly: true
           description: 'The moment this request was created'
           type: string
         headers:
-          readOnly: true
           description: 'The headers supplied by client'
           type: array
           items:
             type: string
         statusCode:
-          readOnly: true
           description: 'The status code returned to client'
           type: integer
+          nullable: true
         notFound:
-          readOnly: true
           description: 'Whether or not the reqousted endpoint was found'
           type: boolean
+          nullable: true
         forbidden:
-          readOnly: true
           description: 'Whether or not the client was allowed to the reqousted endpoint'
           type: boolean
+          nullable: true
         ok:
-          readOnly: true
           description: 'Whether or not there where any problems'
           type: boolean
+          nullable: true
         dateCreated:
-          readOnly: true
           description: 'The moment this request was created'
           externalDocs:
             url: 'http://schema.org/DateTime'
           type: string
           format: date-time
+          nullable: true
         dateModified:
-          readOnly: true
           description: 'The moment this request last Modified'
           externalDocs:
             url: 'http://schema.org/DateTime'
           type: string
           format: date-time
+          nullable: true
     'AuditTrail:jsonld-write':
       type: object
       description: 'An resource representing a log line.'
@@ -6088,6 +6088,7 @@ components:
           externalDocs:
             url: 'http://schema.org/identifier'
           type: string
+          format: uuid
         dateCreated:
           description: 'The date this Cemetery has been created'
           externalDocs:
@@ -6100,18 +6101,23 @@ components:
             url: 'http://schema.org/Date'
           type: string
           format: date-time
+          nullable: true
         reference:
           description: 'The grave reference of this Grave'
           type: string
+          nullable: true
         location:
           description: 'The Location of this Cemetery'
           type: string
+          nullable: true
         organization:
           description: 'The Organization of this Cemetery'
           type: string
+          nullable: true
         calendar:
           description: 'The Calendar of this Cemetery'
           type: string
+          nullable: true
         graves:
           description: 'The graves that are part of this Cemetery'
           type: array
@@ -6137,18 +6143,23 @@ components:
             url: 'http://schema.org/Date'
           type: string
           format: date-time
+          nullable: true
         reference:
           description: 'The grave reference of this Grave'
           type: string
+          nullable: true
         location:
           description: 'The Location of this Cemetery'
           type: string
+          nullable: true
         organization:
           description: 'The Organization of this Cemetery'
           type: string
+          nullable: true
         calendar:
           description: 'The Calendar of this Cemetery'
           type: string
+          nullable: true
         graves:
           description: 'The graves that are part of this Cemetery'
           type: array
@@ -6173,6 +6184,7 @@ components:
           externalDocs:
             url: 'http://schema.org/identifier'
           type: string
+          format: uuid
         dateCreated:
           description: 'The date this Cemetery has been created'
           externalDocs:
@@ -6185,18 +6197,23 @@ components:
             url: 'http://schema.org/Date'
           type: string
           format: date-time
+          nullable: true
         reference:
           description: 'The grave reference of this Grave'
           type: string
+          nullable: true
         location:
           description: 'The Location of this Cemetery'
           type: string
+          nullable: true
         organization:
           description: 'The Organization of this Cemetery'
           type: string
+          nullable: true
         calendar:
           description: 'The Calendar of this Cemetery'
           type: string
+          nullable: true
         graves:
           description: 'The graves that are part of this Cemetery'
           type: array
@@ -6231,18 +6248,23 @@ components:
             url: 'http://schema.org/Date'
           type: string
           format: date-time
+          nullable: true
         reference:
           description: 'The grave reference of this Grave'
           type: string
+          nullable: true
         location:
           description: 'The Location of this Cemetery'
           type: string
+          nullable: true
         organization:
           description: 'The Organization of this Cemetery'
           type: string
+          nullable: true
         calendar:
           description: 'The Calendar of this Cemetery'
           type: string
+          nullable: true
         graves:
           description: 'The graves that are part of this Cemetery'
           type: array
@@ -6258,44 +6280,42 @@ components:
           externalDocs:
             url: 'http://schema.org/identifier'
           type: string
+          format: uuid
         action:
-          readOnly: true
           type: string
         objectId:
-          readOnly: true
           type: string
+          nullable: true
         objectClass:
-          readOnly: true
           type: string
         version:
-          readOnly: true
           type: integer
         data:
-          readOnly: true
           type: array
           items:
             type: string
+          nullable: true
         username:
-          readOnly: true
           type: string
+          nullable: true
         session:
-          readOnly: true
           description: 'The moment this request was created'
           type: string
+          nullable: true
         dateCreated:
-          readOnly: true
           description: 'The moment this request was created'
           externalDocs:
             url: 'http://schema.org/DateTime'
           type: string
           format: date-time
+          nullable: true
         dateModified:
-          readOnly: true
           description: 'The moment this request last Modified'
           externalDocs:
             url: 'http://schema.org/DateTime'
           type: string
           format: date-time
+          nullable: true
     ChangeLog-write:
       type: object
       description: 'An resource representing a log line.'
@@ -6318,44 +6338,42 @@ components:
           externalDocs:
             url: 'http://schema.org/identifier'
           type: string
+          format: uuid
         action:
-          readOnly: true
           type: string
         objectId:
-          readOnly: true
           type: string
+          nullable: true
         objectClass:
-          readOnly: true
           type: string
         version:
-          readOnly: true
           type: integer
         data:
-          readOnly: true
           type: array
           items:
             type: string
+          nullable: true
         username:
-          readOnly: true
           type: string
+          nullable: true
         session:
-          readOnly: true
           description: 'The moment this request was created'
           type: string
+          nullable: true
         dateCreated:
-          readOnly: true
           description: 'The moment this request was created'
           externalDocs:
             url: 'http://schema.org/DateTime'
           type: string
           format: date-time
+          nullable: true
         dateModified:
-          readOnly: true
           description: 'The moment this request last Modified'
           externalDocs:
             url: 'http://schema.org/DateTime'
           type: string
           format: date-time
+          nullable: true
     'ChangeLog:jsonld-write':
       type: object
       description: 'An resource representing a log line.'
@@ -6379,6 +6397,7 @@ components:
           externalDocs:
             url: 'http://schema.org/identifier'
           type: string
+          format: uuid
         dateCreated:
           description: 'The date this Grave has been created'
           type: string
@@ -6387,24 +6406,31 @@ components:
           description: 'The date this Grave has been edited'
           type: string
           format: date-time
+          nullable: true
         description:
           description: 'The description of this Grave'
           type: string
+          nullable: true
         acquisition:
           description: 'The acquisition of this Grave'
           type: string
+          nullable: true
         reference:
           description: 'The reference of this Grave'
           type: string
+          nullable: true
         status:
           description: 'The status of this Grave'
           type: string
+          nullable: true
         location:
           description: 'The Location of this Grave on a Cemetery'
           type: string
+          nullable: true
         position:
           description: 'The position where a Deceased rests within the Grave'
           type: integer
+          nullable: true
         graveCovers:
           description: 'The GraveCovers that are part of this Grave'
           type: array
@@ -6413,15 +6439,25 @@ components:
         deceased:
           description: 'The deceased resting in this Grave'
           type: string
+          nullable: true
         stakeholder:
           description: 'The Stakeholder that is part of this Grave'
-          $ref: '#/components/schemas/Stakeholder-read'
+          nullable: true
+          anyOf:
+            -
+              $ref: '#/components/schemas/Stakeholder-read'
         cemetery:
           description: 'The Cemetery that is part of this Grave'
-          $ref: '#/components/schemas/Cemetery-read'
+          nullable: true
+          anyOf:
+            -
+              $ref: '#/components/schemas/Cemetery-read'
         graveType:
           description: 'The grave type of this Grave'
-          $ref: '#/components/schemas/GraveType-read'
+          nullable: true
+          anyOf:
+            -
+              $ref: '#/components/schemas/GraveType-read'
       required:
         - dateCreated
     Grave-write:
@@ -6438,24 +6474,31 @@ components:
           description: 'The date this Grave has been edited'
           type: string
           format: date-time
+          nullable: true
         description:
           description: 'The description of this Grave'
           type: string
+          nullable: true
         acquisition:
           description: 'The acquisition of this Grave'
           type: string
+          nullable: true
         reference:
           description: 'The reference of this Grave'
           type: string
+          nullable: true
         status:
           description: 'The status of this Grave'
           type: string
+          nullable: true
         location:
           description: 'The Location of this Grave on a Cemetery'
           type: string
+          nullable: true
         position:
           description: 'The position where a Deceased rests within the Grave'
           type: integer
+          nullable: true
         graveCovers:
           description: 'The GraveCovers that are part of this Grave'
           type: array
@@ -6464,15 +6507,25 @@ components:
         deceased:
           description: 'The deceased resting in this Grave'
           type: string
+          nullable: true
         stakeholder:
           description: 'The Stakeholder that is part of this Grave'
-          $ref: '#/components/schemas/Stakeholder-write'
+          nullable: true
+          anyOf:
+            -
+              $ref: '#/components/schemas/Stakeholder-write'
         cemetery:
           description: 'The Cemetery that is part of this Grave'
-          $ref: '#/components/schemas/Cemetery-write'
+          nullable: true
+          anyOf:
+            -
+              $ref: '#/components/schemas/Cemetery-write'
         graveType:
           description: 'The grave type of this Grave'
-          $ref: '#/components/schemas/GraveType-write'
+          nullable: true
+          anyOf:
+            -
+              $ref: '#/components/schemas/GraveType-write'
     'Grave:jsonld-read':
       type: object
       description: 'An entity representing an Grave.'
@@ -6492,6 +6545,7 @@ components:
           externalDocs:
             url: 'http://schema.org/identifier'
           type: string
+          format: uuid
         dateCreated:
           description: 'The date this Grave has been created'
           type: string
@@ -6500,24 +6554,31 @@ components:
           description: 'The date this Grave has been edited'
           type: string
           format: date-time
+          nullable: true
         description:
           description: 'The description of this Grave'
           type: string
+          nullable: true
         acquisition:
           description: 'The acquisition of this Grave'
           type: string
+          nullable: true
         reference:
           description: 'The reference of this Grave'
           type: string
+          nullable: true
         status:
           description: 'The status of this Grave'
           type: string
+          nullable: true
         location:
           description: 'The Location of this Grave on a Cemetery'
           type: string
+          nullable: true
         position:
           description: 'The position where a Deceased rests within the Grave'
           type: integer
+          nullable: true
         graveCovers:
           description: 'The GraveCovers that are part of this Grave'
           type: array
@@ -6526,15 +6587,25 @@ components:
         deceased:
           description: 'The deceased resting in this Grave'
           type: string
+          nullable: true
         stakeholder:
           description: 'The Stakeholder that is part of this Grave'
-          $ref: '#/components/schemas/Stakeholder:jsonld-read'
+          nullable: true
+          anyOf:
+            -
+              $ref: '#/components/schemas/Stakeholder:jsonld-read'
         cemetery:
           description: 'The Cemetery that is part of this Grave'
-          $ref: '#/components/schemas/Cemetery:jsonld-read'
+          nullable: true
+          anyOf:
+            -
+              $ref: '#/components/schemas/Cemetery:jsonld-read'
         graveType:
           description: 'The grave type of this Grave'
-          $ref: '#/components/schemas/GraveType:jsonld-read'
+          nullable: true
+          anyOf:
+            -
+              $ref: '#/components/schemas/GraveType:jsonld-read'
       required:
         - dateCreated
     'Grave:jsonld-write':
@@ -6560,24 +6631,31 @@ components:
           description: 'The date this Grave has been edited'
           type: string
           format: date-time
+          nullable: true
         description:
           description: 'The description of this Grave'
           type: string
+          nullable: true
         acquisition:
           description: 'The acquisition of this Grave'
           type: string
+          nullable: true
         reference:
           description: 'The reference of this Grave'
           type: string
+          nullable: true
         status:
           description: 'The status of this Grave'
           type: string
+          nullable: true
         location:
           description: 'The Location of this Grave on a Cemetery'
           type: string
+          nullable: true
         position:
           description: 'The position where a Deceased rests within the Grave'
           type: integer
+          nullable: true
         graveCovers:
           description: 'The GraveCovers that are part of this Grave'
           type: array
@@ -6586,15 +6664,25 @@ components:
         deceased:
           description: 'The deceased resting in this Grave'
           type: string
+          nullable: true
         stakeholder:
           description: 'The Stakeholder that is part of this Grave'
-          $ref: '#/components/schemas/Stakeholder:jsonld-write'
+          nullable: true
+          anyOf:
+            -
+              $ref: '#/components/schemas/Stakeholder:jsonld-write'
         cemetery:
           description: 'The Cemetery that is part of this Grave'
-          $ref: '#/components/schemas/Cemetery:jsonld-write'
+          nullable: true
+          anyOf:
+            -
+              $ref: '#/components/schemas/Cemetery:jsonld-write'
         graveType:
           description: 'The grave type of this Grave'
-          $ref: '#/components/schemas/GraveType:jsonld-write'
+          nullable: true
+          anyOf:
+            -
+              $ref: '#/components/schemas/GraveType:jsonld-write'
     GraveCover-read:
       type: object
       description: 'An entity representing an GraveCover.'
@@ -6605,6 +6693,7 @@ components:
           externalDocs:
             url: 'http://schema.org/identifier'
           type: string
+          format: uuid
         dateCreated:
           description: 'The date this GraveCover has been created'
           externalDocs:
@@ -6617,12 +6706,15 @@ components:
             url: 'http://schema.org/Date'
           type: string
           format: date-time
+          nullable: true
         reference:
           description: 'The reference of this GraveCover'
           type: string
+          nullable: true
         description:
           description: 'The description of this GraveCover'
           type: string
+          nullable: true
         graves:
           description: 'The Graves that are part of this GraveCover'
           type: array
@@ -6648,12 +6740,15 @@ components:
             url: 'http://schema.org/Date'
           type: string
           format: date-time
+          nullable: true
         reference:
           description: 'The reference of this GraveCover'
           type: string
+          nullable: true
         description:
           description: 'The description of this GraveCover'
           type: string
+          nullable: true
         graves:
           description: 'The Graves that are part of this GraveCover'
           type: array
@@ -6678,6 +6773,7 @@ components:
           externalDocs:
             url: 'http://schema.org/identifier'
           type: string
+          format: uuid
         dateCreated:
           description: 'The date this GraveCover has been created'
           externalDocs:
@@ -6690,12 +6786,15 @@ components:
             url: 'http://schema.org/Date'
           type: string
           format: date-time
+          nullable: true
         reference:
           description: 'The reference of this GraveCover'
           type: string
+          nullable: true
         description:
           description: 'The description of this GraveCover'
           type: string
+          nullable: true
         graves:
           description: 'The Graves that are part of this GraveCover'
           type: array
@@ -6730,12 +6829,15 @@ components:
             url: 'http://schema.org/Date'
           type: string
           format: date-time
+          nullable: true
         reference:
           description: 'The reference of this GraveCover'
           type: string
+          nullable: true
         description:
           description: 'The description of this GraveCover'
           type: string
+          nullable: true
         graves:
           description: 'The Graves that are part of this GraveCover'
           type: array
@@ -6751,6 +6853,7 @@ components:
           externalDocs:
             url: 'http://schema.org/identifier'
           type: string
+          format: uuid
         dateCreated:
           description: 'The date this GraveTyp has been created'
           externalDocs:
@@ -6763,12 +6866,15 @@ components:
             url: 'http://schema.org/Date'
           type: string
           format: date-time
+          nullable: true
         reference:
           description: 'The reference of this GraveType'
           type: string
+          nullable: true
         description:
           description: 'The description of this GraveType'
           type: string
+          nullable: true
         graves:
           description: 'The graves that are part of this GraveType'
           type: array
@@ -6794,12 +6900,15 @@ components:
             url: 'http://schema.org/Date'
           type: string
           format: date-time
+          nullable: true
         reference:
           description: 'The reference of this GraveType'
           type: string
+          nullable: true
         description:
           description: 'The description of this GraveType'
           type: string
+          nullable: true
         graves:
           description: 'The graves that are part of this GraveType'
           type: array
@@ -6824,6 +6933,7 @@ components:
           externalDocs:
             url: 'http://schema.org/identifier'
           type: string
+          format: uuid
         dateCreated:
           description: 'The date this GraveTyp has been created'
           externalDocs:
@@ -6836,12 +6946,15 @@ components:
             url: 'http://schema.org/Date'
           type: string
           format: date-time
+          nullable: true
         reference:
           description: 'The reference of this GraveType'
           type: string
+          nullable: true
         description:
           description: 'The description of this GraveType'
           type: string
+          nullable: true
         graves:
           description: 'The graves that are part of this GraveType'
           type: array
@@ -6876,12 +6989,15 @@ components:
             url: 'http://schema.org/Date'
           type: string
           format: date-time
+          nullable: true
         reference:
           description: 'The reference of this GraveType'
           type: string
+          nullable: true
         description:
           description: 'The description of this GraveType'
           type: string
+          nullable: true
         graves:
           description: 'The graves that are part of this GraveType'
           type: array
@@ -6897,6 +7013,7 @@ components:
           externalDocs:
             url: 'http://schema.org/identifier'
           type: string
+          format: uuid
         dateCreated:
           description: 'The date this Stakeholder has been created'
           externalDocs:
@@ -6909,12 +7026,15 @@ components:
             url: 'http://schema.org/Date'
           type: string
           format: date-time
+          nullable: true
         contact:
           description: 'The contact of this Stakeholder'
           type: string
+          nullable: true
         ingeschrevenpersoon:
           description: 'The defined person of this Stakeholder'
           type: string
+          nullable: true
         graves:
           description: 'The graves that are part of this Stakeholder'
           type: array
@@ -6940,12 +7060,15 @@ components:
             url: 'http://schema.org/Date'
           type: string
           format: date-time
+          nullable: true
         contact:
           description: 'The contact of this Stakeholder'
           type: string
+          nullable: true
         ingeschrevenpersoon:
           description: 'The defined person of this Stakeholder'
           type: string
+          nullable: true
         graves:
           description: 'The graves that are part of this Stakeholder'
           type: array
@@ -6970,6 +7093,7 @@ components:
           externalDocs:
             url: 'http://schema.org/identifier'
           type: string
+          format: uuid
         dateCreated:
           description: 'The date this Stakeholder has been created'
           externalDocs:
@@ -6982,12 +7106,15 @@ components:
             url: 'http://schema.org/Date'
           type: string
           format: date-time
+          nullable: true
         contact:
           description: 'The contact of this Stakeholder'
           type: string
+          nullable: true
         ingeschrevenpersoon:
           description: 'The defined person of this Stakeholder'
           type: string
+          nullable: true
         graves:
           description: 'The graves that are part of this Stakeholder'
           type: array
@@ -7022,137 +7149,21 @@ components:
             url: 'http://schema.org/Date'
           type: string
           format: date-time
+          nullable: true
         contact:
           description: 'The contact of this Stakeholder'
           type: string
+          nullable: true
         ingeschrevenpersoon:
           description: 'The defined person of this Stakeholder'
           type: string
+          nullable: true
         graves:
           description: 'The graves that are part of this Stakeholder'
           type: array
           items:
             $ref: '#/components/schemas/Grave:jsonld-write'
 definitions:
-  AuditTrail-read:
-    properties:
-      id:
-        description: 'The UUID identifier of this object'
-        type: string
-        example: e2984465-190a-4562-829e-a8cca81aa35d
-        format: uuid
-      note:
-        description: 'A note conserning this log lin'
-        type: string
-        example: 'This log line looks suspicius'
-        maxLength: 2555
-      application:
-        description: 'The application that made the request'
-        type: string
-        format: url
-        maxLength: 255
-      request:
-        description: 'The id of the request within that application'
-        type: string
-        format: url
-        maxLength: 255
-      user:
-        description: 'The user on behalf of wich the request was made'
-        type: string
-        format: url
-        maxLength: 255
-      subject:
-        description: '???'
-        type: \sting
-        maxLength: 255
-      process:
-        description: 'The procces on behalf of wich the request was made'
-        type: \sting
-        maxLength: 255
-      dataElements:
-        description: 'The moment this request was created'
-        type: array
-      dataSubjects:
-        description: 'The moment this request was created'
-        type: array
-      resource:
-        description: 'The resource that was requested'
-        type: \sting
-        maxLength: 255
-      resourceType:
-        description: 'The type of the resource that was requested'
-        type: \sting
-        maxLength: 255
-      route:
-        description: 'The moment this request was created'
-        type: \sting
-        maxLength: 255
-      endpoint:
-        description: 'The endpoint that the request was made to'
-        type: \sting
-        maxLength: 255
-      method:
-        description: 'The method that was used'
-        type: \sting
-        maxLength: 255
-      accept:
-        description: 'The contentType that was reqousted'
-        type: \sting
-        maxLength: 255
-      contentType:
-        description: 'The contentType that was suplieds'
-        type: \sting
-        maxLength: 255
-      content:
-        description: 'The moment this request was created'
-        type: \sting
-        maxLength: 2555
-      ip:
-        description: 'The moment this request was created'
-        type: \sting
-        maxLength: 255
-      session:
-        description: 'The moment this request was created'
-        type: string
-        maxLength: 255
-      headers:
-        description: 'The headers supplied by client'
-        type: array
-      statusCode:
-        description: 'The status code returned to client'
-        type: int
-        example: '200'
-      notFound:
-        description: 'Whether or not the reqousted endpoint was found'
-        type: bool
-        example: 'false'
-      forbidden:
-        description: 'Whether or not the client was allowed to the reqousted endpoint'
-        type: bool
-        example: 'false'
-      ok:
-        description: 'Whether or not there where any problems'
-        type: bool
-        example: 'true'
-      dateCreated:
-        description: 'The moment this request was created'
-        type: string
-        format: date-time
-        example: '2020-05-15 14:34:17'
-      dateModified:
-        description: 'The moment this request last Modified'
-        type: string
-        format: date-time
-        example: '2020-05-15 14:34:17'
-    required: []
-  AuditTrail-write:
-    properties:
-      note:
-        description: 'A note conserning this log lin'
-        type: string
-        example: 'This log line looks suspicius'
-        maxLength: 2555
-    required: []
   Cemetery-read:
     properties:
       id:
@@ -7412,65 +7423,6 @@ definitions:
         type: \ArrayCollection
     required:
       - dateCreated
-  Stakeholder-read:
-    properties:
-      id:
-        description: 'The UUID identifier of this object'
-        type: string
-        example: e2984465-190a-4562-829e-a8cca81aa35d
-        format: uuid
-      dateCreated:
-        description: 'The date this Stakeholder has been created'
-        type: string
-        format: date
-        example: '2020-01-19T00:00:00+00:00'
-      dateModified:
-        description: 'The date this Stakeholder has been edited'
-        type: string
-        format: date
-        example: '2020-01-19T00:00:00+00:00'
-      contact:
-        description: 'The contact of this Stakeholder'
-        type: string
-        example: url/contact1
-        maxLength: 255
-      ingeschrevenpersoon:
-        description: 'The defined person of this Stakeholder'
-        type: string
-        example: url/ingeschrevenpersoon1
-        maxLength: 255
-      graves:
-        description: 'The graves that are part of this Stakeholder'
-        type: \ArrayCollection
-    required:
-      - dateCreated
-  Stakeholder-write:
-    properties:
-      dateCreated:
-        description: 'The date this Stakeholder has been created'
-        type: string
-        format: date
-        example: '2020-01-19T00:00:00+00:00'
-      dateModified:
-        description: 'The date this Stakeholder has been edited'
-        type: string
-        format: date
-        example: '2020-01-19T00:00:00+00:00'
-      contact:
-        description: 'The contact of this Stakeholder'
-        type: string
-        example: url/contact1
-        maxLength: 255
-      ingeschrevenpersoon:
-        description: 'The defined person of this Stakeholder'
-        type: string
-        example: url/ingeschrevenpersoon1
-        maxLength: 255
-      graves:
-        description: 'The graves that are part of this Stakeholder'
-        type: \ArrayCollection
-    required:
-      - dateCreated
   GraveType-read:
     properties:
       id:
@@ -7530,6 +7482,184 @@ definitions:
         type: \ArrayCollection
     required:
       - dateCreated
+  Stakeholder-read:
+    properties:
+      id:
+        description: 'The UUID identifier of this object'
+        type: string
+        example: e2984465-190a-4562-829e-a8cca81aa35d
+        format: uuid
+      dateCreated:
+        description: 'The date this Stakeholder has been created'
+        type: string
+        format: date
+        example: '2020-01-19T00:00:00+00:00'
+      dateModified:
+        description: 'The date this Stakeholder has been edited'
+        type: string
+        format: date
+        example: '2020-01-19T00:00:00+00:00'
+      contact:
+        description: 'The contact of this Stakeholder'
+        type: string
+        example: url/contact1
+        maxLength: 255
+      ingeschrevenpersoon:
+        description: 'The defined person of this Stakeholder'
+        type: string
+        example: url/ingeschrevenpersoon1
+        maxLength: 255
+      graves:
+        description: 'The graves that are part of this Stakeholder'
+        type: \ArrayCollection
+    required:
+      - dateCreated
+  Stakeholder-write:
+    properties:
+      dateCreated:
+        description: 'The date this Stakeholder has been created'
+        type: string
+        format: date
+        example: '2020-01-19T00:00:00+00:00'
+      dateModified:
+        description: 'The date this Stakeholder has been edited'
+        type: string
+        format: date
+        example: '2020-01-19T00:00:00+00:00'
+      contact:
+        description: 'The contact of this Stakeholder'
+        type: string
+        example: url/contact1
+        maxLength: 255
+      ingeschrevenpersoon:
+        description: 'The defined person of this Stakeholder'
+        type: string
+        example: url/ingeschrevenpersoon1
+        maxLength: 255
+      graves:
+        description: 'The graves that are part of this Stakeholder'
+        type: \ArrayCollection
+    required:
+      - dateCreated
+  AuditTrail-read:
+    properties:
+      id:
+        description: 'The UUID identifier of this object'
+        type: string
+        example: e2984465-190a-4562-829e-a8cca81aa35d
+        format: uuid
+      note:
+        description: 'A note conserning this log lin'
+        type: string
+        example: 'This log line looks suspicius'
+        maxLength: 2555
+      application:
+        description: 'The application that made the request'
+        type: string
+        format: url
+        maxLength: 255
+      request:
+        description: 'The id of the request within that application'
+        type: string
+        format: url
+        maxLength: 255
+      user:
+        description: 'The user on behalf of wich the request was made'
+        type: string
+        format: url
+        maxLength: 255
+      subject:
+        description: '???'
+        type: string
+        maxLength: 255
+      process:
+        description: 'The procces on behalf of wich the request was made'
+        type: string
+        maxLength: 255
+      dataElements:
+        description: 'The moment this request was created'
+        type: array
+      dataSubjects:
+        description: 'The moment this request was created'
+        type: array
+      resource:
+        description: 'The resource that was requested'
+        type: string
+        maxLength: 255
+      resourceType:
+        description: 'The type of the resource that was requested'
+        type: string
+        maxLength: 255
+      route:
+        description: 'The moment this request was created'
+        type: string
+        maxLength: 255
+      endpoint:
+        description: 'The endpoint that the request was made to'
+        type: string
+        maxLength: 255
+      method:
+        description: 'The method that was used'
+        type: string
+        maxLength: 255
+      accept:
+        description: 'The contentType that was reqousted'
+        type: string
+        maxLength: 255
+      contentType:
+        description: 'The contentType that was suplieds'
+        type: string
+        maxLength: 255
+      content:
+        description: 'The moment this request was created'
+        type: string
+        maxLength: 2555
+      ip:
+        description: 'The moment this request was created'
+        type: string
+        maxLength: 255
+      session:
+        description: 'The moment this request was created'
+        type: string
+        maxLength: 255
+      headers:
+        description: 'The headers supplied by client'
+        type: array
+      statusCode:
+        description: 'The status code returned to client'
+        type: int
+        example: '200'
+      notFound:
+        description: 'Whether or not the reqousted endpoint was found'
+        type: bool
+        example: 'false'
+      forbidden:
+        description: 'Whether or not the client was allowed to the reqousted endpoint'
+        type: bool
+        example: 'false'
+      ok:
+        description: 'Whether or not there where any problems'
+        type: bool
+        example: 'true'
+      dateCreated:
+        description: 'The moment this request was created'
+        type: string
+        format: date-time
+        example: '2020-05-26 12:16:32'
+      dateModified:
+        description: 'The moment this request last Modified'
+        type: string
+        format: date-time
+        example: '2020-05-26 12:16:32'
+    required: []
+  AuditTrail-write:
+    properties:
+      note:
+        description: 'A note conserning this log lin'
+        type: string
+        example: 'This log line looks suspicius'
+        maxLength: 2555
+    required: []
   ChangeLog-read:
     properties:
       id:
@@ -7562,18 +7692,18 @@ definitions:
         type: string
       session:
         description: 'The moment this request was created'
-        type: \sting
+        type: string
         maxLength: 255
       dateCreated:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-05-15 14:34:17'
+        example: '2020-05-26 12:16:32'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-05-15 14:34:17'
+        example: '2020-05-26 12:16:32'
     required: []
   ChangeLog-write:
     properties:
@@ -7584,12 +7714,6 @@ definitions:
         maxLength: 2555
     required: []
 tags:
-  -
-    name: AuditTrail
-    description: |
-      An resource representing a log line.
-      
-      This entity represents a product that can be ordered via the OrderRegistratieComponent.
   -
     name: Cemetery
     description: |
@@ -7609,17 +7733,23 @@ tags:
       
       This entity represents an GraveCover for Graves
   -
+    name: GraveType
+    description: |
+      An entity representing an GraveType.
+      
+      This entity represents an GraveType for Graves
+  -
     name: Stakeholder
     description: |
       An entity representing an Stakeholder.
       
       This entity represents an Stakeholder for Stakeholders
   -
-    name: GraveType
+    name: AuditTrail
     description: |
-      An entity representing an GraveType.
+      An resource representing a log line.
       
-      This entity represents an GraveType for Graves
+      This entity represents a product that can be ordered via the OrderRegistratieComponent.
   -
     name: ChangeLog
     description: |
@@ -7644,8 +7774,8 @@ securityDefinitions:
 host: irc.zaakonline.nl
 servers:
   -
-    description: 'Demo Omgeving'
-    url: 'http://proto.demo.common-ground.dev'
+    name: conduction.nl
+    url: grc.dev.conduction.nl
 externalDocs:
   -
     description: 'OAS Documentatie'
@@ -7658,7 +7788,7 @@ x-commonground:
       url: 'https://github.com/ConductionNL'
       email: info@conduction.nl
     -
-      name: 'Gemeente ''s-Hertogenbosch'
+      name: 'Gemeente "s-Hertogenbosch'
       url: 'https://github.com/gemeenteshertogenbosch'
       email: info@s-hertogenbosch.nl/
     -

@@ -1,0 +1,29 @@
+apiVersion: v1
+entries:
+  grc:
+  - apiVersion: v1
+    appVersion: V.0.5.1
+    created: "2020-05-26T12:14:01.0982142Z"
+    description: '&#039;Naast deze JSON rest API is er ook een [graphql](/graphql)
+      interface beschikbaar.&#039;'
+    digest: e3a4c2514634e99269d40232d00874389513dfdfec34bc0c6b9fc8bd0d6e830c
+    home: pc.zaakonline.nl
+    icon: pc.zaakonline.nl
+    name: grc
+    urls:
+    - grc-0.1.0.tgz
+    version: 0.1.0
+  pc:
+  - apiVersion: v1
+    appVersion: V.0.1
+    created: "2020-05-26T12:14:01.1144872Z"
+    description: '&#039;Naast deze JSON rest API is er ook een [graphql](/graphql)
+      interface beschikbaar.&#039;'
+    digest: 239bddf4db2f846dbdcf6da487807af4acf144879008983511d79a7387988e7d
+    home: pc.zaakonline.nl
+    icon: pc.zaakonline.nl
+    name: pc
+    urls:
+    - pc-0.1.0.tgz
+    version: 0.1.0
+generated: "2020-05-26T12:14:01.084923Z"
