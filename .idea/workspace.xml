@@ -148,6 +148,8 @@
       <path value="$PROJECT_DIR$/api/vendor/symfony/translation" />
       <path value="$PROJECT_DIR$/api/vendor/sumup/sumup-ecom-php-sdk" />
       <path value="$PROJECT_DIR$/api/vendor/sensio/framework-extra-bundle" />
+      <path value="$PROJECT_DIR$/api/vendor/twig/extensions" />
+      <path value="$PROJECT_DIR$/api/vendor/ocramius/package-versions" />
     </include_path>
   </component>
   <component name="ProjectId" id="1TbQklh1l4KcnpTiFkL5CMaM8Vy" />
@@ -213,7 +215,7 @@
       <workItem from="1587548854015" duration="1248000" />
       <workItem from="1587627983603" duration="2040000" />
       <workItem from="1589545561124" duration="4301000" />
-      <workItem from="1590484864911" duration="1334000" />
+      <workItem from="1590484864911" duration="1934000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed language errors in Installation.md">
       <created>1573726496674</created>
