@@ -8,6 +8,7 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\BooleanFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\DateFilter;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -55,20 +56,19 @@ class Cemetery
     private $id;
 
     /**
-     * @var datetime The date this Cemetery has been created
-     * @Assert\NotNull
-     * @Assert\Date
-     * @example 2020-01-19T00:00:00+00:00
-     * @Groups({"read", "write"})
-     * @ORM\Column(type="datetime")
+     * @var Datetime The moment this entity was created
+     *
+     * @Groups({"read"})
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $dateCreated;
 
     /**
-     * @var datetime The date this Cemetery has been edited
-     * @Assert\Date
-     * @example 2020-01-19T00:00:00+00:00
-     * @Groups({"read", "write"})
+     * @var Datetime The moment this entity last Modified
+     *
+     * @Groups({"read"})
+     * @Gedmo\Timestampable(on="update")
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $dateModified;

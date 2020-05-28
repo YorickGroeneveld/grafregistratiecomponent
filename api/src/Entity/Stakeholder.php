@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Gedmo\Mapping\Annotation as Gedmo;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -44,20 +45,19 @@ class Stakeholder
     private $id;
 
     /**
-     * @var datetime The date this Stakeholder has been created
-     * @Assert\NotNull
-     * @Assert\Date
-     * @example 2020-01-19T00:00:00+00:00
-     * @Groups({"read", "write"})
-     * @ORM\Column(type="datetime")
+     * @var Datetime The moment this entity was created
+     *
+     * @Groups({"read"})
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $dateCreated;
 
     /**
-     * @var datetime The date this Stakeholder has been edited
-     * @Assert\Date
-     * @example 2020-01-19T00:00:00+00:00
-     * @Groups({"read", "write"})
+     * @var Datetime The moment this entity last Modified
+     *
+     * @Groups({"read"})
+     * @Gedmo\Timestampable(on="update")
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $dateModified;
