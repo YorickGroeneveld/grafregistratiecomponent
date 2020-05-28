@@ -1,13 +1,13 @@
 openapi: 3.0.2
 info:
   title: 'Graf Registratie Component'
-  version: V.0.5.1
+  version: V.0.6.0
   description: |
     API Details
     - Component: Graf Registratie Component
     - Reference: grc
     - Enviroment: dev
-    - Version: V.0.5.1
+    - Version: V.0.6.0
     - Repository: [online](https://github.com/ConductionNL/proto-component) / [zip](https://github.com/ConductionNL/proto-component/archive/master.zip)
     - Docker Image: [online](https://hub.docker.com/repository/docker/conduction/pc-php) 
     - Datamodel: [postman](/schema/grc.postman_collection.json) / [oas](/schema/openapi.yaml) / [pdf](/schema/datamodel.pdf) / [modelio (zip)](/schema/Datamodel_Modelio.zip) 
@@ -7645,12 +7645,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-05-26 12:16:32'
+        example: '2020-05-28 10:25:18'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-05-26 12:16:32'
+        example: '2020-05-28 10:25:18'
     required: []
   AuditTrail-write:
     properties:
@@ -7698,12 +7698,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-05-26 12:16:32'
+        example: '2020-05-28 10:25:18'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-05-26 12:16:32'
+        example: '2020-05-28 10:25:18'
     required: []
   ChangeLog-write:
     properties:

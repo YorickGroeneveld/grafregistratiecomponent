@@ -206,6 +206,13 @@ class Grave
         return $this->id;
     }
 
+    public function setId(Uuid $id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
     public function getDateCreated(): ?\DateTimeInterface
     {
         return $this->dateCreated;
