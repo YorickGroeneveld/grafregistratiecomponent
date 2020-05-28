@@ -37,7 +37,7 @@ class WestFrieslandFixtures extends Fixture
         $OpperdoesOud = new Cemetery();
         $OpperdoesOud->setReference('Opperdoes (oud)');
         $OpperdoesOud->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5');
-        $OpperdoesOud->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/39fe81c5-4f2e-49a0-8b4e-562e641b7f30');
+        $OpperdoesOud->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/2885fad3-56de-47ee-a817-5d5bc007f87e');
         $manager->persist($OpperdoesOud);
         $OpperdoesOud->setId($id);
         $manager->persist($OpperdoesOud);
@@ -49,7 +49,7 @@ class WestFrieslandFixtures extends Fixture
         $StreekwegInHoogkarspel = new Cemetery();
         $StreekwegInHoogkarspel->setReference('Streekweg in Hoogkarspel');
         $StreekwegInHoogkarspel->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/7033eeb4-5c77-4d88-9f40-303b538f176f');
-        $StreekwegInHoogkarspel->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/ab69a95d-f46c-4b3f-9027-9f25fd9bbb5f');
+        $StreekwegInHoogkarspel->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/2885fad3-56de-47ee-a817-5d5bc007f87e');
         $manager->persist($StreekwegInHoogkarspel);
         $StreekwegInHoogkarspel->setId($id);
         $manager->persist($StreekwegInHoogkarspel);
@@ -61,7 +61,7 @@ class WestFrieslandFixtures extends Fixture
         $Aartswoud = new Cemetery();
         $Aartswoud->setReference('Aartswoud');
         $Aartswoud->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/16fd1092-c4d3-4011-8998-0e15e13239cf');
-        $Aartswoud->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/a03f8321-a02f-497e-993c-00677aee2566');
+        $Aartswoud->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/2885fad3-56de-47ee-a817-5d5bc007f87e6');
         $manager->persist($Aartswoud);
         $Aartswoud->setId($id);
         $manager->persist($Aartswoud);
@@ -73,7 +73,7 @@ class WestFrieslandFixtures extends Fixture
         $SijbekarspelOud = new Cemetery();
         $SijbekarspelOud->setReference('Sijbekarspel (oud)');
         $SijbekarspelOud->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5');
-        $SijbekarspelOud->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/7fb5c2ca-f72c-4720-92fe-d2a11a1621a9');
+        $SijbekarspelOud->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/2885fad3-56de-47ee-a817-5d5bc007f87e');
         $manager->persist($SijbekarspelOud);
         $SijbekarspelOud->setId($id);
         $manager->persist($SijbekarspelOud);
@@ -85,7 +85,7 @@ class WestFrieslandFixtures extends Fixture
         $BenningbroekOud = new Cemetery();
         $BenningbroekOud->setReference('Benningbroek (oud)');
         $BenningbroekOud->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5');
-        $BenningbroekOud->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/eaf45602-511a-4193-9c03-6ece1187fc63');
+        $BenningbroekOud->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/2885fad3-56de-47ee-a817-5d5bc007f87e');
         $manager->persist($BenningbroekOud);
         $BenningbroekOud->setId($id);
         $manager->persist($BenningbroekOud);
@@ -97,7 +97,7 @@ class WestFrieslandFixtures extends Fixture
         $Obdam = new Cemetery();
         $Obdam->setReference('Obdam');
         $Obdam->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/f050292c-973d-46ab-97ae-9d8830a59d15');
-        $Obdam->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/c09c8b68-7721-4276-a92b-15f45c25a8d8');
+        $Obdam->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/2885fad3-56de-47ee-a817-5d5bc007f87e');
         $manager->persist($Obdam);
         $Obdam->setId($id);
         $manager->persist($Obdam);
@@ -109,7 +109,7 @@ class WestFrieslandFixtures extends Fixture
         $BenningbroekNieuw = new Cemetery();
         $BenningbroekNieuw->setReference('Benningbroek (nieuw)');
         $BenningbroekNieuw->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5');
-        $BenningbroekNieuw->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/e37eac05-b6ee-4fc3-b8b7-f7eadd0f9e6d');
+        $BenningbroekNieuw->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/2885fad3-56de-47ee-a817-5d5bc007f87e');
         $manager->persist($BenningbroekNieuw);
         $BenningbroekNieuw->setId($id);
         $manager->persist($BenningbroekNieuw);
@@ -121,7 +121,7 @@ class WestFrieslandFixtures extends Fixture
         $TwiskOud = new Cemetery();
         $TwiskOud->setReference('Twisk (oud)');
         $TwiskOud->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5');
-        $TwiskOud->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/08435035-b28b-4c1f-a7e2-38b5f67f45d1');
+        $TwiskOud->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/2885fad3-56de-47ee-a817-5d5bc007f87e');
         $manager->persist($TwiskOud);
         $TwiskOud->setId($id);
         $manager->persist($TwiskOud);
@@ -133,7 +133,7 @@ class WestFrieslandFixtures extends Fixture
         $AlgemeneBegraafplaatsRustoord = new Cemetery();
         $AlgemeneBegraafplaatsRustoord->setReference('Algemene Begraafplaats "Rustoord"');
         $AlgemeneBegraafplaatsRustoord->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/7033eeb4-5c77-4d88-9f40-303b538f176f');
-        $AlgemeneBegraafplaatsRustoord->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/f4fa187b-c807-4e20-afda-dff758d68cae');
+        $AlgemeneBegraafplaatsRustoord->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/2885fad3-56de-47ee-a817-5d5bc007f87e');
         $manager->persist($AlgemeneBegraafplaatsRustoord);
         $AlgemeneBegraafplaatsRustoord->setId($id);
         $manager->persist($AlgemeneBegraafplaatsRustoord);
@@ -157,7 +157,7 @@ class WestFrieslandFixtures extends Fixture
         $KleineZomerdijk = new Cemetery();
         $KleineZomerdijk->setReference('Kleine Zomerdijk');
         $KleineZomerdijk->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5');
-        $KleineZomerdijk->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/a8d03533-f915-4459-b317-fe61c0b176ee');
+        $KleineZomerdijk->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/2885fad3-56de-47ee-a817-5d5bc007f87e');
         $manager->persist($KleineZomerdijk);
         $KleineZomerdijk->setId($id);
         $manager->persist($KleineZomerdijk);
@@ -169,7 +169,7 @@ class WestFrieslandFixtures extends Fixture
         $OostwoudNieuw = new Cemetery();
         $OostwoudNieuw->setReference('Oostwoud (nieuw)');
         $OostwoudNieuw->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5');
-        $OostwoudNieuw->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/05141bd7-5890-41f0-aa33-f74466b9731c');
+        $OostwoudNieuw->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/2885fad3-56de-47ee-a817-5d5bc007f87e');
         $manager->persist($OostwoudNieuw);
         $OostwoudNieuw->setId($id);
         $manager->persist($OostwoudNieuw);
@@ -181,13 +181,13 @@ class WestFrieslandFixtures extends Fixture
         $WesterkerkwegInVenhuizen = new Cemetery();
         $WesterkerkwegInVenhuizen->setReference('Westerkerkweg in Venhuizen');
         $WesterkerkwegInVenhuizen->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/7033eeb4-5c77-4d88-9f40-303b538f176f');
-        $WesterkerkwegInVenhuizen->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/ed397496-1faf-48b1-890c-f9afb74645d4');
+        $WesterkerkwegInVenhuizen->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/2885fad3-56de-47ee-a817-5d5bc007f87e');
         $manager->persist($WesterkerkwegInVenhuizen);
         $WesterkerkwegInVenhuizen->setId($id);
         $manager->persist($WesterkerkwegInVenhuizen);
         $manager->flush();
         $WesterkerkwegInVenhuizen = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
-        
+
         // Gravetypes
         // Algemeen Graf
         $id = Uuid::fromString('19bce964-be08-4968-bb16-547d8538f3c7');
