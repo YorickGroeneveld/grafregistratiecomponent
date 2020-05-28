@@ -150,6 +150,42 @@ class WestfrieslandFixtures extends Fixture
         $manager->flush();
         $WognumKreekland = $manager->getRepository('App:Organization')->findOneBy(['id'=> $id]);
 
+        // Kleine Zomerdijk
+        $id = Uuid::fromString('25adb7aa-ab70-4ade-8d40-e48368fa1ac3');
+        $KleineZomerdijk = new Cemetery();
+        $KleineZomerdijk->setReference('Kleine Zomerdijk');
+        $KleineZomerdijk->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5');
+        $KleineZomerdijk->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/a8d03533-f915-4459-b317-fe61c0b176ee');
+        $manager->persist($KleineZomerdijk);
+        $KleineZomerdijk->setId($id);
+        $manager->persist($KleineZomerdijk);
+        $manager->flush();
+        $KleineZomerdijk = $manager->getRepository('App:Organization')->findOneBy(['id'=> $id]);
+
+        // Oostwoud (nieuw)
+        $id = Uuid::fromString('29be88be-6225-4758-ae43-806b7ab5a840');
+        $OostwoudNieuw = new Cemetery();
+        $OostwoudNieuw->setReference('Oostwoud (nieuw)');
+        $OostwoudNieuw->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5');
+        $OostwoudNieuw->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/05141bd7-5890-41f0-aa33-f74466b9731c');
+        $manager->persist($OostwoudNieuw);
+        $OostwoudNieuw->setId($id);
+        $manager->persist($OostwoudNieuw);
+        $manager->flush();
+        $OostwoudNieuw = $manager->getRepository('App:Organization')->findOneBy(['id'=> $id]);
+
+        // Westerkerkweg in Venhuizen
+        $id = Uuid::fromString('2ad6e631-ecaa-419f-b517-9088e0d8357c');
+        $WesterkerkwegInVenhuizen = new Cemetery();
+        $WesterkerkwegInVenhuizen->setReference('Westerkerkweg in Venhuizen');
+        $WesterkerkwegInVenhuizen->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/7033eeb4-5c77-4d88-9f40-303b538f176f');
+        $WesterkerkwegInVenhuizen->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/ed397496-1faf-48b1-890c-f9afb74645d4');
+        $manager->persist($WesterkerkwegInVenhuizen);
+        $WesterkerkwegInVenhuizen->setId($id);
+        $manager->persist($WesterkerkwegInVenhuizen);
+        $manager->flush();
+        $WesterkerkwegInVenhuizen = $manager->getRepository('App:Organization')->findOneBy(['id'=> $id]);
+
         $manager->flush();
     }
 }

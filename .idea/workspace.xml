@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="92089c82-d91e-45b0-a4eb-32fdfd03bfef" name="Default Changelist" comment="(semi) definitive fix for rollout issue">
-      <change afterPath="$PROJECT_DIR$/api/src/DataFixtures/WestfrieslandFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/Entity/Cemetery.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/Entity/Cemetery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/DataFixtures/WestfrieslandFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/DataFixtures/WestfrieslandFixtures.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,6 +149,8 @@
       <path value="$PROJECT_DIR$/api/vendor/symfony/translation" />
       <path value="$PROJECT_DIR$/api/vendor/sumup/sumup-ecom-php-sdk" />
       <path value="$PROJECT_DIR$/api/vendor/sensio/framework-extra-bundle" />
+      <path value="$PROJECT_DIR$/api/vendor/ocramius/package-versions" />
+      <path value="$PROJECT_DIR$/api/vendor/twig/extensions" />
     </include_path>
   </component>
   <component name="ProjectId" id="1TbQklh1l4KcnpTiFkL5CMaM8Vy" />
@@ -219,6 +219,7 @@
       <workItem from="1590484864911" duration="1334000" />
       <workItem from="1590587140312" duration="709000" />
       <workItem from="1590655383384" duration="4382000" />
+      <workItem from="1590660030975" duration="815000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed language errors in Installation.md">
       <created>1573726496674</created>
