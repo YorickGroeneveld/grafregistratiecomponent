@@ -188,62 +188,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $WesterkerkwegInVenhuizen = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
 
-         // Graves
-        // zz-93
-        $id = Uuid::fromString('cbce0b48-342a-4f39-9ed7-1f3504279a6b');
-        $zz93 = new Grave();
-        $zz93->setReference('zz-93');
-        $zz93->setCemetery('https://grc.dev.westfriesland.commonground.nu/cemeteries/074defab-e2eb-4eeb-a22f-caf082502db6');
-        $zz93->setGraveType('https:/grc.dev.westfriesland.commonground.nu/grave_types/19bce964-be08-4968-bb16-547d8538f3c7');
-        $zz93->setDeceased('url/deceased WIP');
-        $zz93->setLocation('url/location WIP');
-        $zz93->setPosition('1');
-        $zz93->setStatus('Beschikbaar');
-        $zz93->setAcquisition('WIP');
-        $zz93->setDescription('Beschrijving van zz-93');
         $manager->persist($zz93);
-        $zz93->setId($id);
-        $manager->persist($zz93);
-        $manager->flush();
-        $zz93 = $manager->getRepository('App:Grave')->findOneBy(['id'=> $id]);
-
-        // zz-94
-        $id = Uuid::fromString('fc51d196-1e29-436e-a3af-55b50a711210');
-        $zz94 = new Grave();
-        $zz94->setReference('zz-94');
-        $zz94->setCemetery('https://grc.dev.westfriesland.commonground.nu/cemeteries/074defab-e2eb-4eeb-a22f-caf082502db6');
-        $zz94->setGraveType('https:/grc.dev.westfriesland.commonground.nu/grave_types/165a4898-3026-48b7-b71b-7f2ce754d5c3');
-        $zz94->setDeceased('url/deceased WIP');
-        $zz94->setLocation('url/location WIP');
-        $zz94->setPosition('1');
-        $zz94->setStatus('Bezet');
-        $zz94->setAcquisition('WIP');
-        $zz94->setDescription('Beschrijving van zz-94');
-        $manager->persist($zz94);
-        $zz94->setId($id);
-        $manager->persist($zz94);
-        $manager->flush();
-        $zz94 = $manager->getRepository('App:Grave')->findOneBy(['id'=> $id]);
-
-        // zz-95
-        $id = Uuid::fromString('9d8f9b5e-9bea-408a-8ee5-9228b2893195');
-        $zz95 = new Grave();
-        $zz95->setReference('zz-95');
-        $zz95->setCemetery('https://grc.dev.westfriesland.commonground.nu/cemeteries/074defab-e2eb-4eeb-a22f-caf082502db6');
-        $zz95->setGraveType('https:/grc.dev.westfriesland.commonground.nu/grave_types/a330b371-1479-4662-9a4f-20acfc96c7fa');
-        $zz95->setDeceased('url/deceased WIP');
-        $zz95->setLocation('url/location WIP');
-        $zz95->setPosition('1');
-        $zz95->setStatus('Administratief geruimd');
-        $zz95->setAcquisition('WIP');
-        $zz95->setDescription('Beschrijving van zz-95');
-        $manager->persist($zz95);
-        $zz95->setId($id);
-        $manager->persist($zz95);
-        $manager->flush();
-        $zz95 = $manager->getRepository('App:Grave')->findOneBy(['id'=> $id]);
-
-
         // Gravetypes
         // Algemeen Graf
         $id = Uuid::fromString('19bce964-be08-4968-bb16-547d8538f3c7');
@@ -253,6 +198,9 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($AlgemeenGraf);
         $AlgemeenGraf->setId($id);
         $manager->persist($AlgemeenGraf);
+        $manager->flush();
+        $manager->flush();
+        
         $manager->flush();
         $AlgemeenGraf = $manager->getRepository('App:GraveType')->findOneBy(['id'=> $id]);
 
@@ -278,6 +226,62 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($Strooiveld);
         $manager->flush();
         $Strooiveld = $manager->getRepository('App:GraveType')->findOneBy(['id'=> $id]);
+
+        // Graves
+        // zz-93
+        $id = Uuid::fromString('cbce0b48-342a-4f39-9ed7-1f3504279a6b');
+        $zz93 = new Grave();
+        $zz93->setReference('zz-93');
+        $zz93->setCemetery($OpperdoesOud);
+        $zz93->setGraveType($AlgemeenGraf);
+        $zz93->setDeceased('url/deceased WIP');
+        $zz93->setLocation('url/location WIP');
+        $zz93->setPosition('1');
+        $zz93->setStatus('Beschikbaar');
+        $zz93->setAcquisition('WIP');
+        $zz93->setDescription('Beschrijving van zz-93');
+        $manager->persist($zz93);
+        $zz93->setId($id);
+        $manager->persist($zz93);
+        $manager->flush();
+        $zz93 = $manager->getRepository('App:Grave')->findOneBy(['id'=> $id]);
+
+        // zz-94
+        $id = Uuid::fromString('fc51d196-1e29-436e-a3af-55b50a711210');
+        $zz94 = new Grave();
+        $zz94->setReference('zz-94');
+        $zz94->setCemetery($OpperdoesOud);
+        $zz94->setGraveType($UrnenGraf);
+        $zz94->setDeceased('url/deceased WIP');
+        $zz94->setLocation('url/location WIP');
+        $zz94->setPosition('1');
+        $zz94->setStatus('Bezet');
+        $zz94->setAcquisition('WIP');
+        $zz94->setDescription('Beschrijving van zz-94');
+        $manager->persist($zz94);
+        $zz94->setId($id);
+        $manager->persist($zz94);
+        $manager->flush();
+        $zz94 = $manager->getRepository('App:Grave')->findOneBy(['id'=> $id]);
+
+        // zz-95
+        $id = Uuid::fromString('9d8f9b5e-9bea-408a-8ee5-9228b2893195');
+        $zz95 = new Grave();
+        $zz95->setReference('zz-95');
+        $zz95->setCemetery($OpperdoesOud);
+        $zz95->setGraveType($Strooiveld);
+        $zz95->setDeceased('url/deceased WIP');
+        $zz95->setLocation('url/location WIP');
+        $zz95->setPosition('1');
+        $zz95->setStatus('Administratief geruimd');
+        $zz95->setAcquisition('WIP');
+        $zz95->setDescription('Beschrijving van zz-95');
+        $manager->persist($zz95);
+        $zz95->setId($id);
+        $manager->persist($zz95);
+        $manager->flush();
+        $zz95 = $manager->getRepository('App:Grave')->findOneBy(['id'=> $id]);
+
 
         $manager->flush();
     }
