@@ -3,15 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="92089c82-d91e-45b0-a4eb-32fdfd03bfef" name="Default Changelist" comment="(semi) definitive fix for rollout issue">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/helm/Chart.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/helm/Chart.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/helm/grc-0.1.0.tgz" beforeDir="false" afterPath="$PROJECT_DIR$/api/helm/grc-0.1.0.tgz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/helm/index.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/helm/index.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/helm/values.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/helm/values.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/public/schema/openapi.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/public/schema/openapi.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/public/schema/publiccode.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/public/schema/publiccode.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/DataFixtures/WestfrieslandFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/DataFixtures/WestfrieslandFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/Entity/Grave.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/Entity/Grave.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/Entity/GraveType.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/Entity/GraveType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/DataFixtures/WestfrieslandFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/DataFixtures/WestFrieslandFixtures.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,7 +224,7 @@
       <workItem from="1590587140312" duration="709000" />
       <workItem from="1590655383384" duration="4382000" />
       <workItem from="1590660030975" duration="815000" />
-      <workItem from="1590661605677" duration="1771000" />
+      <workItem from="1590661605677" duration="2715000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed language errors in Installation.md">
       <created>1573726496674</created>
@@ -428,6 +424,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="(semi) definitive fix for rollout issue" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="37" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1590664271897">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="37" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1590664271897" />
     <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1585741104962">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

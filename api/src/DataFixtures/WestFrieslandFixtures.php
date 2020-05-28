@@ -10,7 +10,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Ramsey\Uuid\Uuid;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
-class WestfrieslandFixtures extends Fixture
+class WestFrieslandFixtures extends Fixture
 {
     private $params;
 
@@ -42,7 +42,7 @@ class WestfrieslandFixtures extends Fixture
         $OpperdoesOud->setId($id);
         $manager->persist($OpperdoesOud);
         $manager->flush();
-        $OpperdoesOud = $manager->getRepository('App:Organization')->findOneBy(['id'=> $id]);
+        $OpperdoesOud = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
 
         // Streekweg in Hoogkarspel
         $id = Uuid::fromString('0a46ce57-b566-4af7-b2ac-60c0520efffc');
@@ -54,7 +54,7 @@ class WestfrieslandFixtures extends Fixture
         $StreekwegInHoogkarspel->setId($id);
         $manager->persist($StreekwegInHoogkarspel);
         $manager->flush();
-        $StreekwegInHoogkarspel = $manager->getRepository('App:Organization')->findOneBy(['id'=> $id]);
+        $StreekwegInHoogkarspel = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
 
         // Aartswoud
         $id = Uuid::fromString('0d600d56-45ad-4094-b006-d897559e5f23');
@@ -66,7 +66,7 @@ class WestfrieslandFixtures extends Fixture
         $Aartswoud->setId($id);
         $manager->persist($Aartswoud);
         $manager->flush();
-        $Aartswoud = $manager->getRepository('App:Organization')->findOneBy(['id'=> $id]);
+        $Aartswoud = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
 
         // Sijbekarspel (oud)
         $id = Uuid::fromString('14587988-21f7-4482-87ec-f725a7f1967b');
@@ -78,7 +78,7 @@ class WestfrieslandFixtures extends Fixture
         $SijbekarspelOud->setId($id);
         $manager->persist($SijbekarspelOud);
         $manager->flush();
-        $SijbekarspelOud = $manager->getRepository('App:Organization')->findOneBy(['id'=> $id]);
+        $SijbekarspelOud = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
 
         // Benningbroek (oud)
         $id = Uuid::fromString('176db849-6cb8-410e-a0dd-6235da6fff64');
@@ -90,7 +90,7 @@ class WestfrieslandFixtures extends Fixture
         $BenningbroekOud->setId($id);
         $manager->persist($BenningbroekOud);
         $manager->flush();
-        $BenningbroekOud = $manager->getRepository('App:Organization')->findOneBy(['id'=> $id]);
+        $BenningbroekOud = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
 
         // Obdam
         $id = Uuid::fromString('1b8e442b-f725-4dd3-ba8d-d42b5a6f3b8f');
@@ -102,7 +102,7 @@ class WestfrieslandFixtures extends Fixture
         $Obdam->setId($id);
         $manager->persist($Obdam);
         $manager->flush();
-        $Obdam = $manager->getRepository('App:Organization')->findOneBy(['id'=> $id]);
+        $Obdam = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
 
         // Benningbroek (nieuw)
         $id = Uuid::fromString('1c98e138-98c5-4c61-a450-63a925938a8d');
@@ -114,7 +114,7 @@ class WestfrieslandFixtures extends Fixture
         $BenningbroekNieuw->setId($id);
         $manager->persist($BenningbroekNieuw);
         $manager->flush();
-        $BenningbroekNieuw = $manager->getRepository('App:Organization')->findOneBy(['id'=> $id]);
+        $BenningbroekNieuw = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
 
         // Twisk (oud)
         $id = Uuid::fromString('217f3fe6-5b5d-422d-87ed-9b9d256a6475');
@@ -126,7 +126,7 @@ class WestfrieslandFixtures extends Fixture
         $TwiskOud->setId($id);
         $manager->persist($TwiskOud);
         $manager->flush();
-        $TwiskOud = $manager->getRepository('App:Organization')->findOneBy(['id'=> $id]);
+        $TwiskOud = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
 
         // Algemene Begraafplaats "Rustoord"
         $id = Uuid::fromString('25410687-1088-4477-a8f5-24bcc5addf7c');
@@ -138,7 +138,7 @@ class WestfrieslandFixtures extends Fixture
         $AlgemeneBegraafplaatsRustoord->setId($id);
         $manager->persist($AlgemeneBegraafplaatsRustoord);
         $manager->flush();
-        $AlgemeneBegraafplaatsRustoord = $manager->getRepository('App:Organization')->findOneBy(['id'=> $id]);
+        $AlgemeneBegraafplaatsRustoord = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
 
         // Wognum (Kreekland)
         $id = Uuid::fromString('2556c084-0687-4ca1-b098-e4f0a7292ae8');
@@ -150,7 +150,7 @@ class WestfrieslandFixtures extends Fixture
         $WognumKreekland->setId($id);
         $manager->persist($WognumKreekland);
         $manager->flush();
-        $WognumKreekland = $manager->getRepository('App:Organization')->findOneBy(['id'=> $id]);
+        $WognumKreekland = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
 
         // Kleine Zomerdijk
         $id = Uuid::fromString('25adb7aa-ab70-4ade-8d40-e48368fa1ac3');
@@ -162,7 +162,7 @@ class WestfrieslandFixtures extends Fixture
         $KleineZomerdijk->setId($id);
         $manager->persist($KleineZomerdijk);
         $manager->flush();
-        $KleineZomerdijk = $manager->getRepository('App:Organization')->findOneBy(['id'=> $id]);
+        $KleineZomerdijk = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
 
         // Oostwoud (nieuw)
         $id = Uuid::fromString('29be88be-6225-4758-ae43-806b7ab5a840');
@@ -174,7 +174,7 @@ class WestfrieslandFixtures extends Fixture
         $OostwoudNieuw->setId($id);
         $manager->persist($OostwoudNieuw);
         $manager->flush();
-        $OostwoudNieuw = $manager->getRepository('App:Organization')->findOneBy(['id'=> $id]);
+        $OostwoudNieuw = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
 
         // Westerkerkweg in Venhuizen
         $id = Uuid::fromString('2ad6e631-ecaa-419f-b517-9088e0d8357c');
@@ -186,7 +186,7 @@ class WestfrieslandFixtures extends Fixture
         $WesterkerkwegInVenhuizen->setId($id);
         $manager->persist($WesterkerkwegInVenhuizen);
         $manager->flush();
-        $WesterkerkwegInVenhuizen = $manager->getRepository('App:Organization')->findOneBy(['id'=> $id]);
+        $WesterkerkwegInVenhuizen = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
 
          // Graves
         // zz-93
@@ -205,7 +205,7 @@ class WestfrieslandFixtures extends Fixture
         $zz93->setId($id);
         $manager->persist($zz93);
         $manager->flush();
-        $zz93 = $manager->getRepository('App:Organization')->findOneBy(['id'=> $id]);
+        $zz93 = $manager->getRepository('App:Grave')->findOneBy(['id'=> $id]);
 
         // zz-94
         $id = Uuid::fromString('fc51d196-1e29-436e-a3af-55b50a711210');
@@ -223,7 +223,7 @@ class WestfrieslandFixtures extends Fixture
         $zz94->setId($id);
         $manager->persist($zz94);
         $manager->flush();
-        $zz94 = $manager->getRepository('App:Organization')->findOneBy(['id'=> $id]);
+        $zz94 = $manager->getRepository('App:Grave')->findOneBy(['id'=> $id]);
 
         // zz-95
         $id = Uuid::fromString('9d8f9b5e-9bea-408a-8ee5-9228b2893195');
@@ -241,7 +241,7 @@ class WestfrieslandFixtures extends Fixture
         $zz95->setId($id);
         $manager->persist($zz95);
         $manager->flush();
-        $zz95 = $manager->getRepository('App:Organization')->findOneBy(['id'=> $id]);
+        $zz95 = $manager->getRepository('App:Grave')->findOneBy(['id'=> $id]);
 
 
         // Gravetypes
@@ -254,7 +254,7 @@ class WestfrieslandFixtures extends Fixture
         $AlgemeenGraf->setId($id);
         $manager->persist($AlgemeenGraf);
         $manager->flush();
-        $AlgemeenGraf = $manager->getRepository('App:Organization')->findOneBy(['id'=> $id]);
+        $AlgemeenGraf = $manager->getRepository('App:GraveType')->findOneBy(['id'=> $id]);
 
         // Gravetypes
         // Urnen Graf
@@ -266,7 +266,7 @@ class WestfrieslandFixtures extends Fixture
         $UrnenGraf->setId($id);
         $manager->persist($UrnenGraf);
         $manager->flush();
-        $UrnenGraf = $manager->getRepository('App:Organization')->findOneBy(['id'=> $id]);
+        $UrnenGraf = $manager->getRepository('App:GraveType')->findOneBy(['id'=> $id]);
 
         // Strooiveld
         $id = Uuid::fromString('a330b371-1479-4662-9a4f-20acfc96c7fa');
@@ -277,7 +277,7 @@ class WestfrieslandFixtures extends Fixture
         $Strooiveld->setId($id);
         $manager->persist($Strooiveld);
         $manager->flush();
-        $Strooiveld = $manager->getRepository('App:Organization')->findOneBy(['id'=> $id]);
+        $Strooiveld = $manager->getRepository('App:GraveType')->findOneBy(['id'=> $id]);
 
         $manager->flush();
     }
