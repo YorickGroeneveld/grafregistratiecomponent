@@ -187,8 +187,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($WesterkerkwegInVenhuizen);
         $manager->flush();
         $WesterkerkwegInVenhuizen = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
-
-        $manager->persist($zz93);
+        
         // Gravetypes
         // Algemeen Graf
         $id = Uuid::fromString('19bce964-be08-4968-bb16-547d8538f3c7');
@@ -200,7 +199,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($AlgemeenGraf);
         $manager->flush();
         $manager->flush();
-        
+
         $manager->flush();
         $AlgemeenGraf = $manager->getRepository('App:GraveType')->findOneBy(['id'=> $id]);
 
