@@ -19,6 +19,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Serializer\Annotation\MaxDepth;
 use Symfony\Component\Validator\Constraints\DateTime;
 
+use Gedmo\Mapping\Annotation as Gedmo;
 /**
  *  An entity representing an Grave.
  *
@@ -56,19 +57,19 @@ class Grave
     private $id;
 
     /**
-     * @var datetime The date this Grave has been created
-     * @Assert\NotNull
-     * @example 2020-01-19T00:00:00+00:00
-     * @Groups({"read", "write"})
-     * @ORM\Column(type="datetime")
+     * @var Datetime The moment this entity was created
+     *
+     * @Groups({"read"})
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $dateCreated;
 
     /**
-     * @var datetime The date this Grave has been edited
+     * @var Datetime The moment this entity last Modified
      *
-     * @example 2020-01-19T00:00:00+00:00
-     * @Groups({"read", "write"})
+     * @Groups({"read"})
+     * @Gedmo\Timestampable(on="update")
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $dateModified;
