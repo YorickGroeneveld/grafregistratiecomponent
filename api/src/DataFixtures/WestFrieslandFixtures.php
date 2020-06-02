@@ -68,6 +68,138 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $WesterkerkwegInVenhuizen = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
 
+        // Schoollaan in Hem
+        $id = Uuid::fromString('e3f5f329-e309-4a62-9c91-f8d52d65c81d');
+        $SchoollaanInHem = new Cemetery();
+        $SchoollaanInHem->setReference('Schoollaan in Hem');
+        $SchoollaanInHem->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/7033eeb4-5c77-4d88-9f40-303b538f176f'); //SED
+        $SchoollaanInHem->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/4eb1880d-96cb-4f50-8499-e55c61816974');
+        $manager->persist($SchoollaanInHem);
+        $SchoollaanInHem->setId($id);
+        $manager->persist($SchoollaanInHem);
+        $manager->flush();
+        $SchoollaanInHem = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
+
+        // Molenwei in Hoogkarspel
+        $id = Uuid::fromString('8d7e5eca-a9bb-4088-951c-3bb0fe9b30d3');
+        $MolenweiInHoogkarspel = new Cemetery();
+        $MolenweiInHoogkarspel->setReference('Molenwei in Hoogkarspel');
+        $MolenweiInHoogkarspel->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/7033eeb4-5c77-4d88-9f40-303b538f176f'); //SED
+        $MolenweiInHoogkarspel->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/da41a5ff-43fe-4256-83c1-e064e7b3c4a6');
+        $manager->persist($MolenweiInHoogkarspel);
+        $MolenweiInHoogkarspel->setId($id);
+        $manager->persist($MolenweiInHoogkarspel);
+        $manager->flush();
+        $MolenweiInHoogkarspel = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
+
+        // Raadhuisplein in Hoogkarspel
+        $id = Uuid::fromString('5da232ce-3201-42d8-8895-a39d7a937056');
+        $RaadhuispleinInHoogkarspel = new Cemetery();
+        $RaadhuispleinInHoogkarspel->setReference('Raadhuisplein in Hoogkarspel');
+        $RaadhuispleinInHoogkarspel->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/7033eeb4-5c77-4d88-9f40-303b538f176f'); //SED
+        $RaadhuispleinInHoogkarspel->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/e16fd87d-3484-45fe-ad7c-d894ce454e35');
+        $manager->persist($RaadhuispleinInHoogkarspel);
+        $RaadhuispleinInHoogkarspel->setId($id);
+        $manager->persist($RaadhuispleinInHoogkarspel);
+        $manager->flush();
+        $RaadhuispleinInHoogkarspel = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
+
+        // Begraafplaats in Oosterleek
+        $id = Uuid::fromString('e2f7048d-97ad-46cc-ad61-d04685a11f36');
+        $BegraafplaatsInOosterleek = new Cemetery();
+        $BegraafplaatsInOosterleek->setReference('Begraafplaats in Oosterleek');
+        $BegraafplaatsInOosterleek->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/7033eeb4-5c77-4d88-9f40-303b538f176f'); //SED
+        $BegraafplaatsInOosterleek->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/3712f885-1d43-4e19-8b40-e39e885d66ac');
+        $manager->persist($BegraafplaatsInOosterleek);
+        $BegraafplaatsInOosterleek->setId($id);
+        $manager->persist($BegraafplaatsInOosterleek);
+        $manager->flush();
+        $BegraafplaatsInOosterleek = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
+
+        // Dorpsweg in Schellinkhout
+        $id = Uuid::fromString('b352f1b2-95cf-4fe9-bb61-ba45597b9c2b');
+        $DorpswegInSchellinkhout = new Cemetery();
+        $DorpswegInSchellinkhout->setReference('Dorpsweg in Schellinkhout');
+        $DorpswegInSchellinkhout->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/7033eeb4-5c77-4d88-9f40-303b538f176f'); //SED
+        $DorpswegInSchellinkhout->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/417cb133-161d-4799-93b5-bc7ac3a4f51b');
+        $manager->persist($DorpswegInSchellinkhout);
+        $DorpswegInSchellinkhout->setId($id);
+        $manager->persist($DorpswegInSchellinkhout);
+        $manager->flush();
+        $DorpswegInSchellinkhout = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
+
+        // Kerkbuurt in Wijdenes
+        $id = Uuid::fromString('12532d0a-87ee-4f3f-9209-6da511507761');
+        $KerkbuurtInWijdenes = new Cemetery();
+        $KerkbuurtInWijdenes->setReference('Kerkbuurt in Wijdenes');
+        $KerkbuurtInWijdenes->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/7033eeb4-5c77-4d88-9f40-303b538f176f'); //SED
+        $KerkbuurtInWijdenes->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/d0f3ed79-acd9-4eaa-8b84-88b6fc150a47');
+        $manager->persist($KerkbuurtInWijdenes);
+        $KerkbuurtInWijdenes->setId($id);
+        $manager->persist($KerkbuurtInWijdenes);
+        $manager->flush();
+        $KerkbuurtInWijdenes = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
+
+        // Gemeentelijke begraafplaats
+        $id = Uuid::fromString('ee71f8b5-0f3c-488c-981d-a55e61555bba');
+        $GemeentelijkeBegraafplaats = new Cemetery();
+        $GemeentelijkeBegraafplaats->setReference('Gemeentelijke begraafplaats');
+        $GemeentelijkeBegraafplaats->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/7033eeb4-5c77-4d88-9f40-303b538f176f'); //SED
+        $GemeentelijkeBegraafplaats->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/7ae61cae-fa4f-4efd-aa85-8767602c7680');
+        $manager->persist($GemeentelijkeBegraafplaats);
+        $GemeentelijkeBegraafplaats->setId($id);
+        $manager->persist($GemeentelijkeBegraafplaats);
+        $manager->flush();
+        $GemeentelijkeBegraafplaats = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
+
+        // Zuiderveld
+        $id = Uuid::fromString('fc8e5151-9fe1-4b30-8b32-29d4a1f53218');
+        $Zuiderveld = new Cemetery();
+        $Zuiderveld->setReference('Zuiderveld');
+        $Zuiderveld->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/d736013f-ad6d-4885-b816-ce72ac3e1384'); //Hoorn
+        $Zuiderveld->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/9678886f-bfcc-41d4-a42b-4ae47769c23d');
+        $manager->persist($Zuiderveld);
+        $Zuiderveld->setId($id);
+        $manager->persist($Zuiderveld);
+        $manager->flush();
+        $Zuiderveld = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
+
+        // Berkhouterweg
+        $id = Uuid::fromString('a8a734db-ee93-43c1-8051-acd36b477d7c');
+        $Berkhouterweg = new Cemetery();
+        $Berkhouterweg->setReference('Berkhouterweg');
+        $Berkhouterweg->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/d736013f-ad6d-4885-b816-ce72ac3e1384'); //Hoorn
+        $Berkhouterweg->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/9c96f5f1-0c9a-4432-905f-8991635c3ca7');
+        $manager->persist($Berkhouterweg);
+        $Berkhouterweg->setId($id);
+        $manager->persist($Berkhouterweg);
+        $manager->flush();
+        $Berkhouterweg = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
+
+        // Keern
+        $id = Uuid::fromString('cbfe0076-38aa-43d2-a7fe-8d24286c2503');
+        $Keern = new Cemetery();
+        $Keern->setReference('Keern');
+        $Keern->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/d736013f-ad6d-4885-b816-ce72ac3e1384'); //Hoorn
+        $Keern->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/aed16b93-5912-42df-88cc-b0def3beaa39');
+        $manager->persist($Keern);
+        $Keern->setId($id);
+        $manager->persist($Keern);
+        $manager->flush();
+        $Keern = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
+
+        // Zwaag
+        $id = Uuid::fromString('5bac8758-c869-4953-bc16-dd50463dfc8d');
+        $Zwaag = new Cemetery();
+        $Zwaag->setReference('Zwaag');
+        $Zwaag->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/d736013f-ad6d-4885-b816-ce72ac3e1384'); //Hoorn
+        $Zwaag->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/3b020f07-4ea4-4161-a677-f8458f4796ed');
+        $manager->persist($Zwaag);
+        $Zwaag->setId($id);
+        $manager->persist($Zwaag);
+        $manager->flush();
+        $Zwaag = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
+
         // Opperdoes (oud)
         $id = Uuid::fromString('074defab-e2eb-4eeb-a22f-caf082502db6');
         $OpperdoesOud = new Cemetery();
@@ -187,6 +319,56 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($Aartswoud);
         $manager->flush();
         $Aartswoud = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
+
+        // Spanbroek
+        $id = Uuid::fromString('64a35e6e-17bf-48df-8e80-5588aa243d83');
+        $Spanbroek = new Cemetery();
+        $Spanbroek->setReference('Spanbroek');
+        $Spanbroek->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/16fd1092-c4d3-4011-8998-0e15e13239cf'); //Opmeer
+        $Spanbroek->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/9066d1c3-01fc-41b6-b7da-799be71390cd');
+        $manager->persist($Spanbroek);
+        $Spanbroek->setId($id);
+        $manager->persist($Spanbroek);
+        $manager->flush();
+        $Spanbroek = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
+
+        // Opmeer
+        $id = Uuid::fromString('3774e19f-a01c-4740-b81e-78eb662eb9ef');
+        $Opmeer = new Cemetery();
+        $Opmeer->setReference('Opmeer');
+        $Opmeer->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/16fd1092-c4d3-4011-8998-0e15e13239cf'); //Opmeer
+        $Opmeer->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/e56fdbad-b97a-46fc-85f3-232ff8721055');
+        $manager->persist($Opmeer);
+        $Opmeer->setId($id);
+        $manager->persist($Opmeer);
+        $manager->flush();
+        $Opmeer = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
+
+        // Hoogwoud
+        $id = Uuid::fromString('69ebe7c2-2cbf-4d02-abfc-755570c85289');
+        $Hoogwoud = new Cemetery();
+        $Hoogwoud->setReference('Hoogwoud');
+        $Hoogwoud->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/16fd1092-c4d3-4011-8998-0e15e13239cf'); //Opmeer
+        $Hoogwoud->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/53c8905a-b77f-449b-8bb1-9b77f4c05ace');
+        $manager->persist($Hoogwoud);
+        $Hoogwoud->setId($id);
+        $manager->persist($Hoogwoud);
+        $manager->flush();
+        $Hoogwoud = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
+
+        // De Weere
+        $id = Uuid::fromString('e6262629-5d0b-49e3-ac9d-e0b5b101eff5');
+        $DeWeere = new Cemetery();
+        $DeWeere->setReference('De Weere');
+        $DeWeere->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/16fd1092-c4d3-4011-8998-0e15e13239cf'); //Opmeer
+        $DeWeere->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/2e9e5014-73d7-483b-b21f-1c3f51250ce4');
+        $manager->persist($DeWeere);
+        $DeWeere->setId($id);
+        $manager->persist($DeWeere);
+        $manager->flush();
+        $DeWeere = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
+
+
 
         // Gravetypes
         // Algemeen Graf

@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="92089c82-d91e-45b0-a4eb-32fdfd03bfef" name="Default Changelist" comment="(semi) definitive fix for rollout issue">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/src/DataFixtures/WestFrieslandFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/DataFixtures/WestFrieslandFixtures.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
