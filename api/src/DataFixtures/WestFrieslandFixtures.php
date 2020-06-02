@@ -625,7 +625,6 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $AlgemeenGraf = $manager->getRepository('App:GraveType')->findOneBy(['id'=> $id]);
 
-        // Gravetypes
         // Urnen Graf
         $id = Uuid::fromString('165a4898-3026-48b7-b71b-7f2ce754d5c3');
         $UrnenGraf = new GraveType();
@@ -647,6 +646,8 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($Strooiveld);
         $manager->flush();
         $Strooiveld = $manager->getRepository('App:GraveType')->findOneBy(['id'=> $id]);
+
+
 
         // Graves
         // zz-93
