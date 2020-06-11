@@ -38,6 +38,7 @@ use Symfony\Component\Validator\Constraints\DateTime;
  * @ApiFilter(OrderFilter::class)
  * @ApiFilter(DateFilter::class, strategy=DateFilter::EXCLUDE_NULL)
  * @ApiFilter(SearchFilter::class, properties={"id":"exact"})
+ * @ApiFilter(SearchFilter::class, properties={"organization":"exact"})
  */
 class Cemetery
 {
