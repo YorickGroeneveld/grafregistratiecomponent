@@ -189,11 +189,14 @@ class Grave
     private $cemetery;
 
     /**
-     * @var GraveType The grave type of this Grave
+     * @var string The grave type of this Grave
      *
+     * @example pdc/product
+     * @Assert\Length(
+     *     max = 255
+     * )
      * @Groups({"read", "write"})
-     * @MaxDepth(1)
-     * @ORM\ManyToOne(targetEntity="App\Entity\GraveType", inversedBy="graves")
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $graveType;
 
@@ -310,6 +313,18 @@ class Grave
         return $this;
     }
 
+    public function getGraveType(): ?string
+    {
+        return $this->graveType;
+    }
+
+    public function setGraveType(string $graveType): self
+    {
+        $this->graveType = $graveType;
+
+        return $this;
+    }
+
     /**
      * @return Collection|GraveCover[]
      */
@@ -368,18 +383,6 @@ class Grave
     public function setCemetery(?Cemetery $cemetery): self
     {
         $this->cemetery = $cemetery;
-
-        return $this;
-    }
-
-    public function getGraveType(): ?GraveType
-    {
-        return $this->graveType;
-    }
-
-    public function setGraveType(?GraveType $graveType): self
-    {
-        $this->graveType = $graveType;
 
         return $this;
     }

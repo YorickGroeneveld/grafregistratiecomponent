@@ -1,13 +1,13 @@
 openapi: 3.0.2
 info:
   title: 'Graf Registratie Component'
-  version: V.0.6.0
+  version: V.0.6.1
   description: |
     API Details
     - Component: Graf Registratie Component
     - Reference: grc
     - Enviroment: dev
-    - Version: V.0.6.0
+    - Version: V.0.6.1
     - Repository: [online](https://github.com/ConductionNL/proto-component) / [zip](https://github.com/ConductionNL/proto-component/archive/master.zip)
     - Docker Image: [online](https://hub.docker.com/repository/docker/conduction/pc-php) 
     - Datamodel: [postman](/schema/grc.postman_collection.json) / [oas](/schema/openapi.yaml) / [pdf](/schema/datamodel.pdf) / [modelio (zip)](/schema/Datamodel_Modelio.zip) 
@@ -1177,6 +1177,15 @@ paths:
               - asc
               - desc
         -
+          name: 'order[graveTypes]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        -
           name: 'dateCreated[before]'
           in: query
           required: false
@@ -1225,13 +1234,13 @@ paths:
           schema:
             type: string
         -
-          name: id
+          name: organization
           in: query
           required: false
           schema:
             type: string
         -
-          name: 'id[]'
+          name: 'organization[]'
           in: query
           required: false
           schema:
@@ -3495,728 +3504,6 @@ paths:
             schema:
               $ref: '#/components/schemas/GraveCover-write'
         description: 'The updated GraveCover resource'
-  /grave_types:
-    get:
-      tags:
-        - GraveType
-      operationId: getGraveTypeCollection
-      summary: 'Retrieves the collection of GraveType resources.'
-      responses:
-        200:
-          description: 'GraveType collection response'
-          content:
-            application/ld+json:
-              schema:
-                type: object
-                properties:
-                  'hydra:member': { type: array, items: { $ref: '#/components/schemas/GraveType:jsonld-read' } }
-                  'hydra:totalItems': { type: integer, minimum: 0 }
-                  'hydra:view': { type: object, properties: { '@id': { type: string, format: iri-reference }, '@type': { type: string }, 'hydra:first': { type: string, format: iri-reference }, 'hydra:last': { type: string, format: iri-reference }, 'hydra:next': { type: string, format: iri-reference } } }
-                  'hydra:search': { type: object, properties: { '@type': { type: string }, 'hydra:template': { type: string }, 'hydra:variableRepresentation': { type: string }, 'hydra:mapping': { type: array, items: { type: object, properties: { '@type': { type: string }, variable: { type: string }, property: { type: string }, required: { type: boolean } } } } } }
-                required:
-                  - 'hydra:member'
-            application/json+ld:
-              schema:
-                type: object
-                properties:
-                  'hydra:member': { type: array, items: { $ref: '#/components/schemas/GraveType:jsonld-read' } }
-                  'hydra:totalItems': { type: integer, minimum: 0 }
-                  'hydra:view': { type: object, properties: { '@id': { type: string, format: iri-reference }, '@type': { type: string }, 'hydra:first': { type: string, format: iri-reference }, 'hydra:last': { type: string, format: iri-reference }, 'hydra:next': { type: string, format: iri-reference } } }
-                  'hydra:search': { type: object, properties: { '@type': { type: string }, 'hydra:template': { type: string }, 'hydra:variableRepresentation': { type: string }, 'hydra:mapping': { type: array, items: { type: object, properties: { '@type': { type: string }, variable: { type: string }, property: { type: string }, required: { type: boolean } } } } } }
-                required:
-                  - 'hydra:member'
-            application/hal+json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/GraveType-read'
-            application/json+hal:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/GraveType-read'
-            application/vnd.api+json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/GraveType-read'
-            application/json+vnd.api:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/GraveType-read'
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/GraveType-read'
-            application/health+json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/GraveType-read'
-            application/json+health:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/GraveType-read'
-            application/xml:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/GraveType-read'
-            application/x-yaml:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/GraveType-read'
-            text/csv:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/GraveType-read'
-            text/html:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/GraveType-read'
-      parameters:
-        -
-          name: page
-          in: query
-          required: false
-          description: 'The collection page number'
-          schema:
-            type: integer
-            default: 1
-        -
-          name: Authorization
-          description: 'The JWT of the entity performing the request'
-          in: header
-        -
-          name: API-Version
-          description: 'The version of the API conform [Landelijke API-strategie.](https://geonovum.github.io/KP-APIs/#versioning)'
-          example: 1.0.1
-          in: header
-        -
-          name: X-NLX-Logrecord-ID
-          description: 'A  globally unique id of the request, which makes a request traceable throughout the network.'
-          in: header
-        -
-          name: X-NLX-Request-Process-Id
-          description: 'A process id for purpose registration (doelbinding)'
-          in: header
-        -
-          name: X-NLX-Request-Data-Elements
-          description: 'A list of requested data elements'
-          in: header
-        -
-          name: X-NLX-Request-Data-Subject
-          description: 'A key-value list of data subjects related to this request. e.g. `bsn=12345678, kenteken=ab-12-fg`'
-          in: header
-        -
-          name: X-NLX-Audit-Clarification
-          description: 'A clarification as to why a request has been made  (doelbinding)'
-          in: header
-        -
-          name: Link
-          description: 'A [websub](https://www.w3.org/TR/websub/#discovery) header like <https://hub.example.com/>; rel="hub"'
-          in: header
-        -
-          name: 'extend[]'
-          required: false
-          description: 'An array of nested objects to include in the return object'
-          in: query
-          schema:
-            type: array
-        -
-          name: 'fields[]'
-          required: false
-          description: 'An array of fields to return in output, wil return all fields is not supplied'
-          in: query
-          schema:
-            type: array
-        -
-          name: validOn
-          required: false
-          description: 'Returns object as valid on a given date time'
-          schema:
-            type: string
-            format: date-time
-          in: query
-        -
-          name: validFrom
-          required: false
-          description: 'Returns objects valid from a given date time'
-          schema:
-            type: string
-            format: date-time
-          in: query
-        -
-          name: validUntil
-          required: false
-          description: 'Returns objects valid until a given date time'
-          schema:
-            type: string
-            format: date-time
-          in: query
-      produces:
-        - application/health+json
-    post:
-      tags:
-        - GraveType
-      operationId: postGraveTypeCollection
-      summary: 'Creates a GraveType resource.'
-      responses:
-        201:
-          description: 'GraveType resource created'
-          content:
-            application/ld+json:
-              schema:
-                $ref: '#/components/schemas/GraveType:jsonld-read'
-            application/json+ld:
-              schema:
-                $ref: '#/components/schemas/GraveType:jsonld-read'
-            application/hal+json:
-              schema:
-                $ref: '#/components/schemas/GraveType-read'
-            application/json+hal:
-              schema:
-                $ref: '#/components/schemas/GraveType-read'
-            application/vnd.api+json:
-              schema:
-                $ref: '#/components/schemas/GraveType-read'
-            application/json+vnd.api:
-              schema:
-                $ref: '#/components/schemas/GraveType-read'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/GraveType-read'
-            application/health+json:
-              schema:
-                $ref: '#/components/schemas/GraveType-read'
-            application/json+health:
-              schema:
-                $ref: '#/components/schemas/GraveType-read'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/GraveType-read'
-            application/x-yaml:
-              schema:
-                $ref: '#/components/schemas/GraveType-read'
-            text/csv:
-              schema:
-                $ref: '#/components/schemas/GraveType-read'
-            text/html:
-              schema:
-                $ref: '#/components/schemas/GraveType-read'
-          links:
-            GetGraveTypeItem:
-              parameters:
-                id: '$response.body#/id'
-              operationId: getGraveTypeItem
-              description: 'The `id` value returned in the response can be used as the `id` parameter in `GET /grave_types/{id}`.'
-        400:
-          description: 'Invalid input'
-        404:
-          description: 'Resource not found'
-      requestBody:
-        content:
-          application/ld+json:
-            schema:
-              $ref: '#/components/schemas/GraveType:jsonld-write'
-          application/json+ld:
-            schema:
-              $ref: '#/components/schemas/GraveType:jsonld-write'
-          application/hal+json:
-            schema:
-              $ref: '#/components/schemas/GraveType-write'
-          application/json+hal:
-            schema:
-              $ref: '#/components/schemas/GraveType-write'
-          application/vnd.api+json:
-            schema:
-              $ref: '#/components/schemas/GraveType-write'
-          application/json+vnd.api:
-            schema:
-              $ref: '#/components/schemas/GraveType-write'
-          application/json:
-            schema:
-              $ref: '#/components/schemas/GraveType-write'
-          application/health+json:
-            schema:
-              $ref: '#/components/schemas/GraveType-write'
-          application/json+health:
-            schema:
-              $ref: '#/components/schemas/GraveType-write'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/GraveType-write'
-          application/x-yaml:
-            schema:
-              $ref: '#/components/schemas/GraveType-write'
-          text/csv:
-            schema:
-              $ref: '#/components/schemas/GraveType-write'
-          text/html:
-            schema:
-              $ref: '#/components/schemas/GraveType-write'
-        description: 'The new GraveType resource'
-      parameters:
-        -
-          name: Authorization
-          description: 'The JWT of the entity performing the request'
-          in: header
-        -
-          name: API-Version
-          description: 'The version of the API conform [Landelijke API-strategie.](https://geonovum.github.io/KP-APIs/#versioning)'
-          example: 1.0.1
-          in: header
-        -
-          name: X-NLX-Logrecord-ID
-          description: 'A  globally unique id of the request, which makes a request traceable throughout the network.'
-          in: header
-        -
-          name: X-NLX-Request-Process-Id
-          description: 'A process id for purpose registration (doelbinding)'
-          in: header
-        -
-          name: X-NLX-Request-Data-Elements
-          description: 'A list of requested data elements'
-          in: header
-        -
-          name: X-NLX-Request-Data-Subject
-          description: 'A key-value list of data subjects related to this request. e.g. `bsn=12345678, kenteken=ab-12-fg`'
-          in: header
-        -
-          name: X-NLX-Audit-Clarification
-          description: 'A clarification as to why a request has been made  (doelbinding)'
-          in: header
-  '/grave_types/{id}':
-    get:
-      tags:
-        - GraveType
-      operationId: getGraveTypeItem
-      summary: 'Retrieves a GraveType resource.'
-      parameters:
-        -
-          name: id
-          in: path
-          required: true
-          schema:
-            type: string
-        -
-          name: Authorization
-          description: 'The JWT of the entity performing the request'
-          in: header
-        -
-          name: API-Version
-          description: 'The version of the API conform [Landelijke API-strategie.](https://geonovum.github.io/KP-APIs/#versioning)'
-          example: 1.0.1
-          in: header
-        -
-          name: X-NLX-Logrecord-ID
-          description: 'A  globally unique id of the request, which makes a request traceable throughout the network.'
-          in: header
-        -
-          name: X-NLX-Request-Process-Id
-          description: 'A process id for purpose registration (doelbinding)'
-          in: header
-        -
-          name: X-NLX-Request-Data-Elements
-          description: 'A list of requested data elements'
-          in: header
-        -
-          name: X-NLX-Request-Data-Subject
-          description: 'A key-value list of data subjects related to this request. e.g. `bsn=12345678, kenteken=ab-12-fg`'
-          in: header
-        -
-          name: X-NLX-Audit-Clarification
-          description: 'A clarification as to why a request has been made  (doelbinding)'
-          in: header
-        -
-          name: Link
-          description: 'A [websub](https://www.w3.org/TR/websub/#discovery) header like <https://hub.example.com/>; rel="hub"'
-          in: header
-        -
-          name: 'extend[]'
-          required: false
-          description: 'An array of nested objects to include in the return object'
-          in: query
-          schema:
-            type: array
-        -
-          name: 'fields[]'
-          required: false
-          description: 'An array of fields to return in output, wil return all fields is not supplied'
-          in: query
-          schema:
-            type: array
-        -
-          name: validOn
-          required: false
-          description: 'Returns object as valid on a given date time'
-          schema:
-            type: string
-            format: date-time
-          in: query
-        -
-          name: validFrom
-          required: false
-          description: 'Returns objects valid from a given date time'
-          schema:
-            type: string
-            format: date-time
-          in: query
-        -
-          name: validUntil
-          required: false
-          description: 'Returns objects valid until a given date time'
-          schema:
-            type: string
-            format: date-time
-          in: query
-      responses:
-        200:
-          description: 'GraveType resource response'
-          content:
-            application/ld+json:
-              schema:
-                $ref: '#/components/schemas/GraveType:jsonld-read'
-            application/json+ld:
-              schema:
-                $ref: '#/components/schemas/GraveType:jsonld-read'
-            application/hal+json:
-              schema:
-                $ref: '#/components/schemas/GraveType-read'
-            application/json+hal:
-              schema:
-                $ref: '#/components/schemas/GraveType-read'
-            application/vnd.api+json:
-              schema:
-                $ref: '#/components/schemas/GraveType-read'
-            application/json+vnd.api:
-              schema:
-                $ref: '#/components/schemas/GraveType-read'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/GraveType-read'
-            application/health+json:
-              schema:
-                $ref: '#/components/schemas/GraveType-read'
-            application/json+health:
-              schema:
-                $ref: '#/components/schemas/GraveType-read'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/GraveType-read'
-            application/x-yaml:
-              schema:
-                $ref: '#/components/schemas/GraveType-read'
-            text/csv:
-              schema:
-                $ref: '#/components/schemas/GraveType-read'
-            text/html:
-              schema:
-                $ref: '#/components/schemas/GraveType-read'
-        404:
-          description: 'Resource not found'
-      produces:
-        - application/health+json
-    delete:
-      tags:
-        - GraveType
-      operationId: deleteGraveTypeItem
-      summary: 'Removes the GraveType resource.'
-      responses:
-        204:
-          description: 'GraveType resource deleted'
-        404:
-          description: 'Resource not found'
-      parameters:
-        -
-          name: id
-          in: path
-          required: true
-          schema:
-            type: string
-        -
-          name: Authorization
-          description: 'The JWT of the entity performing the request'
-          in: header
-        -
-          name: API-Version
-          description: 'The version of the API conform [Landelijke API-strategie.](https://geonovum.github.io/KP-APIs/#versioning)'
-          example: 1.0.1
-          in: header
-        -
-          name: X-NLX-Logrecord-ID
-          description: 'A  globally unique id of the request, which makes a request traceable throughout the network.'
-          in: header
-        -
-          name: X-NLX-Request-Process-Id
-          description: 'A process id for purpose registration (doelbinding)'
-          in: header
-        -
-          name: X-NLX-Request-Data-Elements
-          description: 'A list of requested data elements'
-          in: header
-        -
-          name: X-NLX-Request-Data-Subject
-          description: 'A key-value list of data subjects related to this request. e.g. `bsn=12345678, kenteken=ab-12-fg`'
-          in: header
-        -
-          name: X-NLX-Audit-Clarification
-          description: 'A clarification as to why a request has been made  (doelbinding)'
-          in: header
-    put:
-      tags:
-        - GraveType
-      operationId: putGraveTypeItem
-      summary: 'Replaces the GraveType resource.'
-      parameters:
-        -
-          name: id
-          in: path
-          required: true
-          schema:
-            type: string
-        -
-          name: Authorization
-          description: 'The JWT of the entity performing the request'
-          in: header
-        -
-          name: API-Version
-          description: 'The version of the API conform [Landelijke API-strategie.](https://geonovum.github.io/KP-APIs/#versioning)'
-          example: 1.0.1
-          in: header
-        -
-          name: X-NLX-Logrecord-ID
-          description: 'A  globally unique id of the request, which makes a request traceable throughout the network.'
-          in: header
-        -
-          name: X-NLX-Request-Process-Id
-          description: 'A process id for purpose registration (doelbinding)'
-          in: header
-        -
-          name: X-NLX-Request-Data-Elements
-          description: 'A list of requested data elements'
-          in: header
-        -
-          name: X-NLX-Request-Data-Subject
-          description: 'A key-value list of data subjects related to this request. e.g. `bsn=12345678, kenteken=ab-12-fg`'
-          in: header
-        -
-          name: X-NLX-Audit-Clarification
-          description: 'A clarification as to why a request has been made  (doelbinding)'
-          in: header
-      responses:
-        200:
-          description: 'GraveType resource updated'
-          content:
-            application/ld+json:
-              schema:
-                $ref: '#/components/schemas/GraveType:jsonld-read'
-            application/json+ld:
-              schema:
-                $ref: '#/components/schemas/GraveType:jsonld-read'
-            application/hal+json:
-              schema:
-                $ref: '#/components/schemas/GraveType-read'
-            application/json+hal:
-              schema:
-                $ref: '#/components/schemas/GraveType-read'
-            application/vnd.api+json:
-              schema:
-                $ref: '#/components/schemas/GraveType-read'
-            application/json+vnd.api:
-              schema:
-                $ref: '#/components/schemas/GraveType-read'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/GraveType-read'
-            application/health+json:
-              schema:
-                $ref: '#/components/schemas/GraveType-read'
-            application/json+health:
-              schema:
-                $ref: '#/components/schemas/GraveType-read'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/GraveType-read'
-            application/x-yaml:
-              schema:
-                $ref: '#/components/schemas/GraveType-read'
-            text/csv:
-              schema:
-                $ref: '#/components/schemas/GraveType-read'
-            text/html:
-              schema:
-                $ref: '#/components/schemas/GraveType-read'
-        400:
-          description: 'Invalid input'
-        404:
-          description: 'Resource not found'
-      requestBody:
-        content:
-          application/ld+json:
-            schema:
-              $ref: '#/components/schemas/GraveType:jsonld-write'
-          application/json+ld:
-            schema:
-              $ref: '#/components/schemas/GraveType:jsonld-write'
-          application/hal+json:
-            schema:
-              $ref: '#/components/schemas/GraveType-write'
-          application/json+hal:
-            schema:
-              $ref: '#/components/schemas/GraveType-write'
-          application/vnd.api+json:
-            schema:
-              $ref: '#/components/schemas/GraveType-write'
-          application/json+vnd.api:
-            schema:
-              $ref: '#/components/schemas/GraveType-write'
-          application/json:
-            schema:
-              $ref: '#/components/schemas/GraveType-write'
-          application/health+json:
-            schema:
-              $ref: '#/components/schemas/GraveType-write'
-          application/json+health:
-            schema:
-              $ref: '#/components/schemas/GraveType-write'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/GraveType-write'
-          application/x-yaml:
-            schema:
-              $ref: '#/components/schemas/GraveType-write'
-          text/csv:
-            schema:
-              $ref: '#/components/schemas/GraveType-write'
-          text/html:
-            schema:
-              $ref: '#/components/schemas/GraveType-write'
-        description: 'The updated GraveType resource'
-    patch:
-      tags:
-        - GraveType
-      operationId: patchGraveTypeItem
-      summary: 'Updates the GraveType resource.'
-      parameters:
-        -
-          name: id
-          in: path
-          required: true
-          schema:
-            type: string
-        -
-          name: Authorization
-          description: 'The JWT of the entity performing the request'
-          in: header
-        -
-          name: API-Version
-          description: 'The version of the API conform [Landelijke API-strategie.](https://geonovum.github.io/KP-APIs/#versioning)'
-          example: 1.0.1
-          in: header
-        -
-          name: X-NLX-Logrecord-ID
-          description: 'A  globally unique id of the request, which makes a request traceable throughout the network.'
-          in: header
-        -
-          name: X-NLX-Request-Process-Id
-          description: 'A process id for purpose registration (doelbinding)'
-          in: header
-        -
-          name: X-NLX-Request-Data-Elements
-          description: 'A list of requested data elements'
-          in: header
-        -
-          name: X-NLX-Request-Data-Subject
-          description: 'A key-value list of data subjects related to this request. e.g. `bsn=12345678, kenteken=ab-12-fg`'
-          in: header
-        -
-          name: X-NLX-Audit-Clarification
-          description: 'A clarification as to why a request has been made  (doelbinding)'
-          in: header
-      responses:
-        200:
-          description: 'GraveType resource updated'
-          content:
-            application/ld+json:
-              schema:
-                $ref: '#/components/schemas/GraveType:jsonld-read'
-            application/json+ld:
-              schema:
-                $ref: '#/components/schemas/GraveType:jsonld-read'
-            application/hal+json:
-              schema:
-                $ref: '#/components/schemas/GraveType-read'
-            application/json+hal:
-              schema:
-                $ref: '#/components/schemas/GraveType-read'
-            application/vnd.api+json:
-              schema:
-                $ref: '#/components/schemas/GraveType-read'
-            application/json+vnd.api:
-              schema:
-                $ref: '#/components/schemas/GraveType-read'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/GraveType-read'
-            application/health+json:
-              schema:
-                $ref: '#/components/schemas/GraveType-read'
-            application/json+health:
-              schema:
-                $ref: '#/components/schemas/GraveType-read'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/GraveType-read'
-            application/x-yaml:
-              schema:
-                $ref: '#/components/schemas/GraveType-read'
-            text/csv:
-              schema:
-                $ref: '#/components/schemas/GraveType-read'
-            text/html:
-              schema:
-                $ref: '#/components/schemas/GraveType-read'
-        400:
-          description: 'Invalid input'
-        404:
-          description: 'Resource not found'
-      requestBody:
-        content:
-          application/ld+json:
-            schema:
-              $ref: '#/components/schemas/GraveType:jsonld-write'
-          application/json:
-            schema:
-              $ref: '#/components/schemas/GraveType-write'
-          application/hal+json:
-            schema:
-              $ref: '#/components/schemas/GraveType-write'
-          application/vnd.api+json:
-            schema:
-              $ref: '#/components/schemas/GraveType-write'
-          application/merge-patch+json:
-            schema:
-              $ref: '#/components/schemas/GraveType-write'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/GraveType-write'
-          applications/x-yaml:
-            schema:
-              $ref: '#/components/schemas/GraveType-write'
-          text/csv:
-            schema:
-              $ref: '#/components/schemas/GraveType-write'
-          text/html:
-            schema:
-              $ref: '#/components/schemas/GraveType-write'
-        description: 'The updated GraveType resource'
   /graves:
     get:
       tags:
@@ -4386,6 +3673,15 @@ paths:
               - desc
         -
           name: 'order[deceased]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        -
+          name: 'order[graveType]'
           in: query
           required: false
           schema:
@@ -6090,15 +5386,12 @@ components:
           type: string
           format: uuid
         dateCreated:
-          description: 'The date this Cemetery has been created'
-          externalDocs:
-            url: 'http://schema.org/Date'
+          description: 'The moment this entity was created'
           type: string
           format: date-time
+          nullable: true
         dateModified:
-          description: 'The date this Cemetery has been edited'
-          externalDocs:
-            url: 'http://schema.org/Date'
+          description: 'The moment this entity last Modified'
           type: string
           format: date-time
           nullable: true
@@ -6123,27 +5416,14 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Grave-read'
-      required:
-        - dateCreated
+        graveTypes:
+          description: 'The grave types for this Cemetery'
+          type: string
+          nullable: true
     Cemetery-write:
       type: object
       description: 'An entity representing an Cemetery.'
-      required:
-        - dateCreated
       properties:
-        dateCreated:
-          description: 'The date this Cemetery has been created'
-          externalDocs:
-            url: 'http://schema.org/Date'
-          type: string
-          format: date-time
-        dateModified:
-          description: 'The date this Cemetery has been edited'
-          externalDocs:
-            url: 'http://schema.org/Date'
-          type: string
-          format: date-time
-          nullable: true
         reference:
           description: 'The grave reference of this Grave'
           type: string
@@ -6165,6 +5445,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Grave-write'
+        graveTypes:
+          description: 'The grave types for this Cemetery'
+          type: string
+          nullable: true
     'Cemetery:jsonld-read':
       type: object
       description: 'An entity representing an Cemetery.'
@@ -6186,15 +5470,12 @@ components:
           type: string
           format: uuid
         dateCreated:
-          description: 'The date this Cemetery has been created'
-          externalDocs:
-            url: 'http://schema.org/Date'
+          description: 'The moment this entity was created'
           type: string
           format: date-time
+          nullable: true
         dateModified:
-          description: 'The date this Cemetery has been edited'
-          externalDocs:
-            url: 'http://schema.org/Date'
+          description: 'The moment this entity last Modified'
           type: string
           format: date-time
           nullable: true
@@ -6219,13 +5500,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Grave:jsonld-read'
-      required:
-        - dateCreated
+        graveTypes:
+          description: 'The grave types for this Cemetery'
+          type: string
+          nullable: true
     'Cemetery:jsonld-write':
       type: object
       description: 'An entity representing an Cemetery.'
-      required:
-        - dateCreated
       properties:
         '@context':
           readOnly: true
@@ -6236,19 +5517,6 @@ components:
         '@type':
           readOnly: true
           type: string
-        dateCreated:
-          description: 'The date this Cemetery has been created'
-          externalDocs:
-            url: 'http://schema.org/Date'
-          type: string
-          format: date-time
-        dateModified:
-          description: 'The date this Cemetery has been edited'
-          externalDocs:
-            url: 'http://schema.org/Date'
-          type: string
-          format: date-time
-          nullable: true
         reference:
           description: 'The grave reference of this Grave'
           type: string
@@ -6270,6 +5538,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Grave:jsonld-write'
+        graveTypes:
+          description: 'The grave types for this Cemetery'
+          type: string
+          nullable: true
     ChangeLog-read:
       type: object
       description: 'An resource representing a log line.'
@@ -6399,11 +5671,12 @@ components:
           type: string
           format: uuid
         dateCreated:
-          description: 'The date this Grave has been created'
+          description: 'The moment this entity was created'
           type: string
           format: date-time
+          nullable: true
         dateModified:
-          description: 'The date this Grave has been edited'
+          description: 'The moment this entity last Modified'
           type: string
           format: date-time
           nullable: true
@@ -6454,27 +5727,12 @@ components:
               $ref: '#/components/schemas/Cemetery-read'
         graveType:
           description: 'The grave type of this Grave'
+          type: string
           nullable: true
-          anyOf:
-            -
-              $ref: '#/components/schemas/GraveType-read'
-      required:
-        - dateCreated
     Grave-write:
       type: object
       description: 'An entity representing an Grave.'
-      required:
-        - dateCreated
       properties:
-        dateCreated:
-          description: 'The date this Grave has been created'
-          type: string
-          format: date-time
-        dateModified:
-          description: 'The date this Grave has been edited'
-          type: string
-          format: date-time
-          nullable: true
         description:
           description: 'The description of this Grave'
           type: string
@@ -6522,10 +5780,8 @@ components:
               $ref: '#/components/schemas/Cemetery-write'
         graveType:
           description: 'The grave type of this Grave'
+          type: string
           nullable: true
-          anyOf:
-            -
-              $ref: '#/components/schemas/GraveType-write'
     'Grave:jsonld-read':
       type: object
       description: 'An entity representing an Grave.'
@@ -6547,11 +5803,12 @@ components:
           type: string
           format: uuid
         dateCreated:
-          description: 'The date this Grave has been created'
+          description: 'The moment this entity was created'
           type: string
           format: date-time
+          nullable: true
         dateModified:
-          description: 'The date this Grave has been edited'
+          description: 'The moment this entity last Modified'
           type: string
           format: date-time
           nullable: true
@@ -6602,17 +5859,11 @@ components:
               $ref: '#/components/schemas/Cemetery:jsonld-read'
         graveType:
           description: 'The grave type of this Grave'
+          type: string
           nullable: true
-          anyOf:
-            -
-              $ref: '#/components/schemas/GraveType:jsonld-read'
-      required:
-        - dateCreated
     'Grave:jsonld-write':
       type: object
       description: 'An entity representing an Grave.'
-      required:
-        - dateCreated
       properties:
         '@context':
           readOnly: true
@@ -6623,15 +5874,6 @@ components:
         '@type':
           readOnly: true
           type: string
-        dateCreated:
-          description: 'The date this Grave has been created'
-          type: string
-          format: date-time
-        dateModified:
-          description: 'The date this Grave has been edited'
-          type: string
-          format: date-time
-          nullable: true
         description:
           description: 'The description of this Grave'
           type: string
@@ -6679,10 +5921,8 @@ components:
               $ref: '#/components/schemas/Cemetery:jsonld-write'
         graveType:
           description: 'The grave type of this Grave'
+          type: string
           nullable: true
-          anyOf:
-            -
-              $ref: '#/components/schemas/GraveType:jsonld-write'
     GraveCover-read:
       type: object
       description: 'An entity representing an GraveCover.'
@@ -6695,15 +5935,12 @@ components:
           type: string
           format: uuid
         dateCreated:
-          description: 'The date this GraveCover has been created'
-          externalDocs:
-            url: 'http://schema.org/Date'
+          description: 'The moment this entity was created'
           type: string
           format: date-time
+          nullable: true
         dateModified:
-          description: 'The date this GraveCover has been edited'
-          externalDocs:
-            url: 'http://schema.org/Date'
+          description: 'The moment this entity last Modified'
           type: string
           format: date-time
           nullable: true
@@ -6720,27 +5957,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Grave-read'
-      required:
-        - dateCreated
     GraveCover-write:
       type: object
       description: 'An entity representing an GraveCover.'
-      required:
-        - dateCreated
       properties:
-        dateCreated:
-          description: 'The date this GraveCover has been created'
-          externalDocs:
-            url: 'http://schema.org/Date'
-          type: string
-          format: date-time
-        dateModified:
-          description: 'The date this GraveCover has been edited'
-          externalDocs:
-            url: 'http://schema.org/Date'
-          type: string
-          format: date-time
-          nullable: true
         reference:
           description: 'The reference of this GraveCover'
           type: string
@@ -6775,15 +5995,12 @@ components:
           type: string
           format: uuid
         dateCreated:
-          description: 'The date this GraveCover has been created'
-          externalDocs:
-            url: 'http://schema.org/Date'
+          description: 'The moment this entity was created'
           type: string
           format: date-time
+          nullable: true
         dateModified:
-          description: 'The date this GraveCover has been edited'
-          externalDocs:
-            url: 'http://schema.org/Date'
+          description: 'The moment this entity last Modified'
           type: string
           format: date-time
           nullable: true
@@ -6800,13 +6017,9 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Grave:jsonld-read'
-      required:
-        - dateCreated
     'GraveCover:jsonld-write':
       type: object
       description: 'An entity representing an GraveCover.'
-      required:
-        - dateCreated
       properties:
         '@context':
           readOnly: true
@@ -6817,19 +6030,6 @@ components:
         '@type':
           readOnly: true
           type: string
-        dateCreated:
-          description: 'The date this GraveCover has been created'
-          externalDocs:
-            url: 'http://schema.org/Date'
-          type: string
-          format: date-time
-        dateModified:
-          description: 'The date this GraveCover has been edited'
-          externalDocs:
-            url: 'http://schema.org/Date'
-          type: string
-          format: date-time
-          nullable: true
         reference:
           description: 'The reference of this GraveCover'
           type: string
@@ -6840,166 +6040,6 @@ components:
           nullable: true
         graves:
           description: 'The Graves that are part of this GraveCover'
-          type: array
-          items:
-            $ref: '#/components/schemas/Grave:jsonld-write'
-    GraveType-read:
-      type: object
-      description: 'An entity representing an GraveType.'
-      properties:
-        id:
-          readOnly: true
-          description: 'The UUID identifier of this object'
-          externalDocs:
-            url: 'http://schema.org/identifier'
-          type: string
-          format: uuid
-        dateCreated:
-          description: 'The date this GraveTyp has been created'
-          externalDocs:
-            url: 'http://schema.org/Date'
-          type: string
-          format: date-time
-        dateModified:
-          description: 'The date this GraveType has been edited'
-          externalDocs:
-            url: 'http://schema.org/Date'
-          type: string
-          format: date-time
-          nullable: true
-        reference:
-          description: 'The reference of this GraveType'
-          type: string
-          nullable: true
-        description:
-          description: 'The description of this GraveType'
-          type: string
-          nullable: true
-        graves:
-          description: 'The graves that are part of this GraveType'
-          type: array
-          items:
-            $ref: '#/components/schemas/Grave-read'
-      required:
-        - dateCreated
-    GraveType-write:
-      type: object
-      description: 'An entity representing an GraveType.'
-      required:
-        - dateCreated
-      properties:
-        dateCreated:
-          description: 'The date this GraveTyp has been created'
-          externalDocs:
-            url: 'http://schema.org/Date'
-          type: string
-          format: date-time
-        dateModified:
-          description: 'The date this GraveType has been edited'
-          externalDocs:
-            url: 'http://schema.org/Date'
-          type: string
-          format: date-time
-          nullable: true
-        reference:
-          description: 'The reference of this GraveType'
-          type: string
-          nullable: true
-        description:
-          description: 'The description of this GraveType'
-          type: string
-          nullable: true
-        graves:
-          description: 'The graves that are part of this GraveType'
-          type: array
-          items:
-            $ref: '#/components/schemas/Grave-write'
-    'GraveType:jsonld-read':
-      type: object
-      description: 'An entity representing an GraveType.'
-      properties:
-        '@context':
-          readOnly: true
-          type: string
-        '@id':
-          readOnly: true
-          type: string
-        '@type':
-          readOnly: true
-          type: string
-        id:
-          readOnly: true
-          description: 'The UUID identifier of this object'
-          externalDocs:
-            url: 'http://schema.org/identifier'
-          type: string
-          format: uuid
-        dateCreated:
-          description: 'The date this GraveTyp has been created'
-          externalDocs:
-            url: 'http://schema.org/Date'
-          type: string
-          format: date-time
-        dateModified:
-          description: 'The date this GraveType has been edited'
-          externalDocs:
-            url: 'http://schema.org/Date'
-          type: string
-          format: date-time
-          nullable: true
-        reference:
-          description: 'The reference of this GraveType'
-          type: string
-          nullable: true
-        description:
-          description: 'The description of this GraveType'
-          type: string
-          nullable: true
-        graves:
-          description: 'The graves that are part of this GraveType'
-          type: array
-          items:
-            $ref: '#/components/schemas/Grave:jsonld-read'
-      required:
-        - dateCreated
-    'GraveType:jsonld-write':
-      type: object
-      description: 'An entity representing an GraveType.'
-      required:
-        - dateCreated
-      properties:
-        '@context':
-          readOnly: true
-          type: string
-        '@id':
-          readOnly: true
-          type: string
-        '@type':
-          readOnly: true
-          type: string
-        dateCreated:
-          description: 'The date this GraveTyp has been created'
-          externalDocs:
-            url: 'http://schema.org/Date'
-          type: string
-          format: date-time
-        dateModified:
-          description: 'The date this GraveType has been edited'
-          externalDocs:
-            url: 'http://schema.org/Date'
-          type: string
-          format: date-time
-          nullable: true
-        reference:
-          description: 'The reference of this GraveType'
-          type: string
-          nullable: true
-        description:
-          description: 'The description of this GraveType'
-          type: string
-          nullable: true
-        graves:
-          description: 'The graves that are part of this GraveType'
           type: array
           items:
             $ref: '#/components/schemas/Grave:jsonld-write'
@@ -7015,15 +6055,12 @@ components:
           type: string
           format: uuid
         dateCreated:
-          description: 'The date this Stakeholder has been created'
-          externalDocs:
-            url: 'http://schema.org/Date'
+          description: 'The moment this entity was created'
           type: string
           format: date-time
+          nullable: true
         dateModified:
-          description: 'The date this Stakeholder has been edited'
-          externalDocs:
-            url: 'http://schema.org/Date'
+          description: 'The moment this entity last Modified'
           type: string
           format: date-time
           nullable: true
@@ -7040,27 +6077,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Grave-read'
-      required:
-        - dateCreated
     Stakeholder-write:
       type: object
       description: 'An entity representing an Stakeholder.'
-      required:
-        - dateCreated
       properties:
-        dateCreated:
-          description: 'The date this Stakeholder has been created'
-          externalDocs:
-            url: 'http://schema.org/Date'
-          type: string
-          format: date-time
-        dateModified:
-          description: 'The date this Stakeholder has been edited'
-          externalDocs:
-            url: 'http://schema.org/Date'
-          type: string
-          format: date-time
-          nullable: true
         contact:
           description: 'The contact of this Stakeholder'
           type: string
@@ -7095,15 +6115,12 @@ components:
           type: string
           format: uuid
         dateCreated:
-          description: 'The date this Stakeholder has been created'
-          externalDocs:
-            url: 'http://schema.org/Date'
+          description: 'The moment this entity was created'
           type: string
           format: date-time
+          nullable: true
         dateModified:
-          description: 'The date this Stakeholder has been edited'
-          externalDocs:
-            url: 'http://schema.org/Date'
+          description: 'The moment this entity last Modified'
           type: string
           format: date-time
           nullable: true
@@ -7120,13 +6137,9 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Grave:jsonld-read'
-      required:
-        - dateCreated
     'Stakeholder:jsonld-write':
       type: object
       description: 'An entity representing an Stakeholder.'
-      required:
-        - dateCreated
       properties:
         '@context':
           readOnly: true
@@ -7137,19 +6150,6 @@ components:
         '@type':
           readOnly: true
           type: string
-        dateCreated:
-          description: 'The date this Stakeholder has been created'
-          externalDocs:
-            url: 'http://schema.org/Date'
-          type: string
-          format: date-time
-        dateModified:
-          description: 'The date this Stakeholder has been edited'
-          externalDocs:
-            url: 'http://schema.org/Date'
-          type: string
-          format: date-time
-          nullable: true
         contact:
           description: 'The contact of this Stakeholder'
           type: string
@@ -7172,15 +6172,11 @@ definitions:
         example: e2984465-190a-4562-829e-a8cca81aa35d
         format: uuid
       dateCreated:
-        description: 'The date this Cemetery has been created'
-        type: string
-        format: date
-        example: '2020-01-19T00:00:00+00:00'
+        description: 'The moment this entity was created'
+        type: \Datetime
       dateModified:
-        description: 'The date this Cemetery has been edited'
-        type: string
-        format: date
-        example: '2020-01-19T00:00:00+00:00'
+        description: 'The moment this entity last Modified'
+        type: \Datetime
       reference:
         description: 'The grave reference of this Grave'
         type: string
@@ -7201,23 +6197,17 @@ definitions:
         type: string
         example: url/calendar1
         maxLength: 255
+      graveTypes:
+        description: 'The grave types for this Cemetery'
+        type: string
+        example: pdc/group
+        maxLength: 255
       graves:
         description: 'The graves that are part of this Cemetery'
         type: \ArrayCollection
-    required:
-      - dateCreated
+    required: []
   Cemetery-write:
     properties:
-      dateCreated:
-        description: 'The date this Cemetery has been created'
-        type: string
-        format: date
-        example: '2020-01-19T00:00:00+00:00'
-      dateModified:
-        description: 'The date this Cemetery has been edited'
-        type: string
-        format: date
-        example: '2020-01-19T00:00:00+00:00'
       reference:
         description: 'The grave reference of this Grave'
         type: string
@@ -7238,11 +6228,15 @@ definitions:
         type: string
         example: url/calendar1
         maxLength: 255
+      graveTypes:
+        description: 'The grave types for this Cemetery'
+        type: string
+        example: pdc/group
+        maxLength: 255
       graves:
         description: 'The graves that are part of this Cemetery'
         type: \ArrayCollection
-    required:
-      - dateCreated
+    required: []
   Grave-read:
     properties:
       id:
@@ -7251,13 +6245,11 @@ definitions:
         example: e2984465-190a-4562-829e-a8cca81aa35d
         format: uuid
       dateCreated:
-        description: 'The date this Grave has been created'
-        type: \datetime
-        example: '2020-01-19T00:00:00+00:00'
+        description: 'The moment this entity was created'
+        type: \Datetime
       dateModified:
-        description: 'The date this Grave has been edited'
-        type: \datetime
-        example: '2020-01-19T00:00:00+00:00'
+        description: 'The moment this entity last Modified'
+        type: \Datetime
       description:
         description: 'The description of this Grave'
         type: string
@@ -7292,6 +6284,11 @@ definitions:
         type: string
         example: url/deceased1
         maxLength: 255
+      graveType:
+        description: 'The grave type of this Grave'
+        type: string
+        example: pdc/product
+        maxLength: 255
       graveCovers:
         description: 'The GraveCovers that are part of this Grave'
         type: \ArrayCollection
@@ -7301,21 +6298,9 @@ definitions:
       cemetery:
         description: 'The Cemetery that is part of this Grave'
         type: \Cemetery
-      graveType:
-        description: 'The grave type of this Grave'
-        type: \GraveType
-    required:
-      - dateCreated
+    required: []
   Grave-write:
     properties:
-      dateCreated:
-        description: 'The date this Grave has been created'
-        type: \datetime
-        example: '2020-01-19T00:00:00+00:00'
-      dateModified:
-        description: 'The date this Grave has been edited'
-        type: \datetime
-        example: '2020-01-19T00:00:00+00:00'
       description:
         description: 'The description of this Grave'
         type: string
@@ -7350,6 +6335,11 @@ definitions:
         type: string
         example: url/deceased1
         maxLength: 255
+      graveType:
+        description: 'The grave type of this Grave'
+        type: string
+        example: pdc/product
+        maxLength: 255
       graveCovers:
         description: 'The GraveCovers that are part of this Grave'
         type: \ArrayCollection
@@ -7359,11 +6349,7 @@ definitions:
       cemetery:
         description: 'The Cemetery that is part of this Grave'
         type: \Cemetery
-      graveType:
-        description: 'The grave type of this Grave'
-        type: \GraveType
-    required:
-      - dateCreated
+    required: []
   GraveCover-read:
     properties:
       id:
@@ -7372,15 +6358,11 @@ definitions:
         example: e2984465-190a-4562-829e-a8cca81aa35d
         format: uuid
       dateCreated:
-        description: 'The date this GraveCover has been created'
-        type: string
-        format: date
-        example: '2020-01-19T00:00:00+00:00'
+        description: 'The moment this entity was created'
+        type: \Datetime
       dateModified:
-        description: 'The date this GraveCover has been edited'
-        type: string
-        format: date
-        example: '2020-01-19T00:00:00+00:00'
+        description: 'The moment this entity last Modified'
+        type: \Datetime
       reference:
         description: 'The reference of this GraveCover'
         type: string
@@ -7394,20 +6376,9 @@ definitions:
       graves:
         description: 'The Graves that are part of this GraveCover'
         type: \ArrayCollection
-    required:
-      - dateCreated
+    required: []
   GraveCover-write:
     properties:
-      dateCreated:
-        description: 'The date this GraveCover has been created'
-        type: string
-        format: date
-        example: '2020-01-19T00:00:00+00:00'
-      dateModified:
-        description: 'The date this GraveCover has been edited'
-        type: string
-        format: date
-        example: '2020-01-19T00:00:00+00:00'
       reference:
         description: 'The reference of this GraveCover'
         type: string
@@ -7421,67 +6392,7 @@ definitions:
       graves:
         description: 'The Graves that are part of this GraveCover'
         type: \ArrayCollection
-    required:
-      - dateCreated
-  GraveType-read:
-    properties:
-      id:
-        description: 'The UUID identifier of this object'
-        type: string
-        example: e2984465-190a-4562-829e-a8cca81aa35d
-        format: uuid
-      dateCreated:
-        description: 'The date this GraveTyp has been created'
-        type: string
-        format: date
-        example: '2020-01-19T00:00:00+00:00'
-      dateModified:
-        description: 'The date this GraveType has been edited'
-        type: string
-        format: date
-        example: '2020-01-19T00:00:00+00:00'
-      reference:
-        description: 'The reference of this GraveType'
-        type: string
-        example: 'Algemeen graf'
-        maxLength: 255
-      description:
-        description: 'The description of this GraveType'
-        type: string
-        example: 'Dit is een beschrijving van een Algemeen graf'
-        maxLength: 255
-      graves:
-        description: 'The graves that are part of this GraveType'
-        type: \ArrayCollection
-    required:
-      - dateCreated
-  GraveType-write:
-    properties:
-      dateCreated:
-        description: 'The date this GraveTyp has been created'
-        type: string
-        format: date
-        example: '2020-01-19T00:00:00+00:00'
-      dateModified:
-        description: 'The date this GraveType has been edited'
-        type: string
-        format: date
-        example: '2020-01-19T00:00:00+00:00'
-      reference:
-        description: 'The reference of this GraveType'
-        type: string
-        example: 'Algemeen graf'
-        maxLength: 255
-      description:
-        description: 'The description of this GraveType'
-        type: string
-        example: 'Dit is een beschrijving van een Algemeen graf'
-        maxLength: 255
-      graves:
-        description: 'The graves that are part of this GraveType'
-        type: \ArrayCollection
-    required:
-      - dateCreated
+    required: []
   Stakeholder-read:
     properties:
       id:
@@ -7490,15 +6401,11 @@ definitions:
         example: e2984465-190a-4562-829e-a8cca81aa35d
         format: uuid
       dateCreated:
-        description: 'The date this Stakeholder has been created'
-        type: string
-        format: date
-        example: '2020-01-19T00:00:00+00:00'
+        description: 'The moment this entity was created'
+        type: \Datetime
       dateModified:
-        description: 'The date this Stakeholder has been edited'
-        type: string
-        format: date
-        example: '2020-01-19T00:00:00+00:00'
+        description: 'The moment this entity last Modified'
+        type: \Datetime
       contact:
         description: 'The contact of this Stakeholder'
         type: string
@@ -7512,20 +6419,9 @@ definitions:
       graves:
         description: 'The graves that are part of this Stakeholder'
         type: \ArrayCollection
-    required:
-      - dateCreated
+    required: []
   Stakeholder-write:
     properties:
-      dateCreated:
-        description: 'The date this Stakeholder has been created'
-        type: string
-        format: date
-        example: '2020-01-19T00:00:00+00:00'
-      dateModified:
-        description: 'The date this Stakeholder has been edited'
-        type: string
-        format: date
-        example: '2020-01-19T00:00:00+00:00'
       contact:
         description: 'The contact of this Stakeholder'
         type: string
@@ -7539,8 +6435,7 @@ definitions:
       graves:
         description: 'The graves that are part of this Stakeholder'
         type: \ArrayCollection
-    required:
-      - dateCreated
+    required: []
   AuditTrail-read:
     properties:
       id:
@@ -7645,12 +6540,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-05-28 11:00:53'
+        example: '2020-06-15 14:07:32'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-05-28 11:00:53'
+        example: '2020-06-15 14:07:32'
     required: []
   AuditTrail-write:
     properties:
@@ -7698,12 +6593,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-05-28 11:00:53'
+        example: '2020-06-15 14:07:32'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-05-28 11:00:53'
+        example: '2020-06-15 14:07:32'
     required: []
   ChangeLog-write:
     properties:
@@ -7732,12 +6627,6 @@ tags:
       An entity representing an GraveCover.
       
       This entity represents an GraveCover for Graves
-  -
-    name: GraveType
-    description: |
-      An entity representing an GraveType.
-      
-      This entity represents an GraveType for Graves
   -
     name: Stakeholder
     description: |

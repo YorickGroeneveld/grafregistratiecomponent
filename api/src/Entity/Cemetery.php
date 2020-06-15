@@ -132,6 +132,18 @@ class Cemetery
      */
     private $graves;
 
+    /**
+     * @var string The grave types for this Cemetery
+     *
+     * @example pdc/group
+     * @Assert\Length(
+     *     max = 255
+     * )
+     * @Groups({"read", "write"})
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $graveTypes;
+
     public function __construct()
     {
         $this->graves = new ArrayCollection();
@@ -217,6 +229,18 @@ class Cemetery
     public function setCalendar(string $calendar): self
     {
         $this->calendar = $calendar;
+
+        return $this;
+    }
+
+    public function getGraveTypes(): ?string
+    {
+        return $this->graveTypes;
+    }
+
+    public function setGraveTypes(string $graveTypes): self
+    {
+        $this->graveTypes = $graveTypes;
 
         return $this;
     }

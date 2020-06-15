@@ -7,7 +7,7 @@ settings:
   projectName: grc
   name: grc
   title: Graf Registratie Component
-  version: V.0.6.0
+  version: V.0.6.1
   id: 
   description: '&#039;Naast deze JSON rest API is er ook een [graphql](/graphql) interface beschikbaar.&#039;'
   type: component

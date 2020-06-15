@@ -4,7 +4,6 @@ namespace App\DataFixtures;
 
 use App\Entity\Cemetery;
 use App\Entity\Grave;
-use App\Entity\GraveType;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Ramsey\Uuid\Uuid;
@@ -38,6 +37,7 @@ class WestFrieslandFixtures extends Fixture
         $StreekwegInHoogkarspel->setReference('Streekweg in Hoogkarspel');
         $StreekwegInHoogkarspel->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/7033eeb4-5c77-4d88-9f40-303b538f176f'); //SED
         $StreekwegInHoogkarspel->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/ab69a95d-f46c-4b3f-9027-9f25fd9bbb5f');
+        $StreekwegInHoogkarspel->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/58298393-2682-4412-9fca-a03170592610");
         $manager->persist($StreekwegInHoogkarspel);
         $StreekwegInHoogkarspel->setId($id);
         $manager->persist($StreekwegInHoogkarspel);
@@ -50,6 +50,7 @@ class WestFrieslandFixtures extends Fixture
         $AlgemeneBegraafplaatsRustoord->setReference('Algemene Begraafplaats "Rustoord"');
         $AlgemeneBegraafplaatsRustoord->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/7033eeb4-5c77-4d88-9f40-303b538f176f'); //SED
         $AlgemeneBegraafplaatsRustoord->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/f4fa187b-c807-4e20-afda-dff758d68cae');
+        $AlgemeneBegraafplaatsRustoord->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/58298393-2682-4412-9fca-a03170592610");
         $manager->persist($AlgemeneBegraafplaatsRustoord);
         $AlgemeneBegraafplaatsRustoord->setId($id);
         $manager->persist($AlgemeneBegraafplaatsRustoord);
@@ -62,6 +63,7 @@ class WestFrieslandFixtures extends Fixture
         $WesterkerkwegInVenhuizen->setReference('Westerkerkweg in Venhuizen');
         $WesterkerkwegInVenhuizen->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/7033eeb4-5c77-4d88-9f40-303b538f176f'); //SED
         $WesterkerkwegInVenhuizen->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/ed397496-1faf-48b1-890c-f9afb74645d4');
+        $WesterkerkwegInVenhuizen->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/58298393-2682-4412-9fca-a03170592610");
         $manager->persist($WesterkerkwegInVenhuizen);
         $WesterkerkwegInVenhuizen->setId($id);
         $manager->persist($WesterkerkwegInVenhuizen);
@@ -74,6 +76,7 @@ class WestFrieslandFixtures extends Fixture
         $SchoollaanInHem->setReference('Schoollaan in Hem');
         $SchoollaanInHem->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/7033eeb4-5c77-4d88-9f40-303b538f176f'); //SED
         $SchoollaanInHem->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/4eb1880d-96cb-4f50-8499-e55c61816974');
+        $SchoollaanInHem->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/58298393-2682-4412-9fca-a03170592610");
         $manager->persist($SchoollaanInHem);
         $SchoollaanInHem->setId($id);
         $manager->persist($SchoollaanInHem);
@@ -86,6 +89,7 @@ class WestFrieslandFixtures extends Fixture
         $MolenweiInHoogkarspel->setReference('Molenwei in Hoogkarspel');
         $MolenweiInHoogkarspel->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/7033eeb4-5c77-4d88-9f40-303b538f176f'); //SED
         $MolenweiInHoogkarspel->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/da41a5ff-43fe-4256-83c1-e064e7b3c4a6');
+        $MolenweiInHoogkarspel->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/58298393-2682-4412-9fca-a03170592610");
         $manager->persist($MolenweiInHoogkarspel);
         $MolenweiInHoogkarspel->setId($id);
         $manager->persist($MolenweiInHoogkarspel);
@@ -98,6 +102,7 @@ class WestFrieslandFixtures extends Fixture
         $RaadhuispleinInHoogkarspel->setReference('Raadhuisplein in Hoogkarspel');
         $RaadhuispleinInHoogkarspel->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/7033eeb4-5c77-4d88-9f40-303b538f176f'); //SED
         $RaadhuispleinInHoogkarspel->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/e16fd87d-3484-45fe-ad7c-d894ce454e35');
+        $RaadhuispleinInHoogkarspel->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/58298393-2682-4412-9fca-a03170592610");
         $manager->persist($RaadhuispleinInHoogkarspel);
         $RaadhuispleinInHoogkarspel->setId($id);
         $manager->persist($RaadhuispleinInHoogkarspel);
@@ -110,6 +115,7 @@ class WestFrieslandFixtures extends Fixture
         $BegraafplaatsInOosterleek->setReference('Begraafplaats in Oosterleek');
         $BegraafplaatsInOosterleek->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/7033eeb4-5c77-4d88-9f40-303b538f176f'); //SED
         $BegraafplaatsInOosterleek->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/3712f885-1d43-4e19-8b40-e39e885d66ac');
+        $BegraafplaatsInOosterleek->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/58298393-2682-4412-9fca-a03170592610");
         $manager->persist($BegraafplaatsInOosterleek);
         $BegraafplaatsInOosterleek->setId($id);
         $manager->persist($BegraafplaatsInOosterleek);
@@ -122,6 +128,7 @@ class WestFrieslandFixtures extends Fixture
         $DorpswegInSchellinkhout->setReference('Dorpsweg in Schellinkhout');
         $DorpswegInSchellinkhout->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/7033eeb4-5c77-4d88-9f40-303b538f176f'); //SED
         $DorpswegInSchellinkhout->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/417cb133-161d-4799-93b5-bc7ac3a4f51b');
+        $DorpswegInSchellinkhout->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/58298393-2682-4412-9fca-a03170592610");
         $manager->persist($DorpswegInSchellinkhout);
         $DorpswegInSchellinkhout->setId($id);
         $manager->persist($DorpswegInSchellinkhout);
@@ -134,6 +141,7 @@ class WestFrieslandFixtures extends Fixture
         $KerkbuurtInWijdenes->setReference('Kerkbuurt in Wijdenes');
         $KerkbuurtInWijdenes->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/7033eeb4-5c77-4d88-9f40-303b538f176f'); //SED
         $KerkbuurtInWijdenes->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/d0f3ed79-acd9-4eaa-8b84-88b6fc150a47');
+        $KerkbuurtInWijdenes->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/58298393-2682-4412-9fca-a03170592610");
         $manager->persist($KerkbuurtInWijdenes);
         $KerkbuurtInWijdenes->setId($id);
         $manager->persist($KerkbuurtInWijdenes);
@@ -146,6 +154,7 @@ class WestFrieslandFixtures extends Fixture
         $GemeentelijkeBegraafplaats->setReference('Gemeentelijke begraafplaats');
         $GemeentelijkeBegraafplaats->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/7033eeb4-5c77-4d88-9f40-303b538f176f'); //SED
         $GemeentelijkeBegraafplaats->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/7ae61cae-fa4f-4efd-aa85-8767602c7680');
+        $GemeentelijkeBegraafplaats->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/58298393-2682-4412-9fca-a03170592610");
         $manager->persist($GemeentelijkeBegraafplaats);
         $GemeentelijkeBegraafplaats->setId($id);
         $manager->persist($GemeentelijkeBegraafplaats);
@@ -158,6 +167,7 @@ class WestFrieslandFixtures extends Fixture
         $Zuiderveld->setReference('Zuiderveld');
         $Zuiderveld->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/d736013f-ad6d-4885-b816-ce72ac3e1384'); //Hoorn
         $Zuiderveld->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/9678886f-bfcc-41d4-a42b-4ae47769c23d');
+        $Zuiderveld->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/baf448a2-671e-481b-88b8-34f9598b5d8b");
         $manager->persist($Zuiderveld);
         $Zuiderveld->setId($id);
         $manager->persist($Zuiderveld);
@@ -170,6 +180,7 @@ class WestFrieslandFixtures extends Fixture
         $Berkhouterweg->setReference('Berkhouterweg');
         $Berkhouterweg->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/d736013f-ad6d-4885-b816-ce72ac3e1384'); //Hoorn
         $Berkhouterweg->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/9c96f5f1-0c9a-4432-905f-8991635c3ca7');
+        $Berkhouterweg->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/17c09fb9-a3a1-4fc9-9617-5ebcf73e06cc");
         $manager->persist($Berkhouterweg);
         $Berkhouterweg->setId($id);
         $manager->persist($Berkhouterweg);
@@ -182,6 +193,7 @@ class WestFrieslandFixtures extends Fixture
         $Keern->setReference('Keern');
         $Keern->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/d736013f-ad6d-4885-b816-ce72ac3e1384'); //Hoorn
         $Keern->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/aed16b93-5912-42df-88cc-b0def3beaa39');
+        $Keern->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/17c09fb9-a3a1-4fc9-9617-5ebcf73e06cc");
         $manager->persist($Keern);
         $Keern->setId($id);
         $manager->persist($Keern);
@@ -194,6 +206,7 @@ class WestFrieslandFixtures extends Fixture
         $Zwaag->setReference('Zwaag');
         $Zwaag->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/d736013f-ad6d-4885-b816-ce72ac3e1384'); //Hoorn
         $Zwaag->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/3b020f07-4ea4-4161-a677-f8458f4796ed');
+        $Zwaag->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/17c09fb9-a3a1-4fc9-9617-5ebcf73e06cc");
         $manager->persist($Zwaag);
         $Zwaag->setId($id);
         $manager->persist($Zwaag);
@@ -206,6 +219,7 @@ class WestFrieslandFixtures extends Fixture
         $AbbekerkNieuw->setReference('Abbekerk (nieuw)');
         $AbbekerkNieuw->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5'); //Medemblik
         $AbbekerkNieuw->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/fbf46af1-7c86-4de7-8b13-c7dd6471e96d');
+        $AbbekerkNieuw->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/9ed30829-4e38-43a1-a497-c47f7bc54124");
         $manager->persist($AbbekerkNieuw);
         $AbbekerkNieuw->setId($id);
         $manager->persist($AbbekerkNieuw);
@@ -218,6 +232,7 @@ class WestFrieslandFixtures extends Fixture
         $AbbekerkOud->setReference('Abbekerk (oud)');
         $AbbekerkOud->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5'); //Medemblik
         $AbbekerkOud->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/6af6f8fe-8824-46ad-8af6-fe7f152e9a8c');
+        $AbbekerkOud->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/9ed30829-4e38-43a1-a497-c47f7bc54124");
         $manager->persist($AbbekerkOud);
         $AbbekerkOud->setId($id);
         $manager->persist($AbbekerkOud);
@@ -230,6 +245,7 @@ class WestFrieslandFixtures extends Fixture
         $BenningbroekNieuw->setReference('Benningbroek (nieuw)');
         $BenningbroekNieuw->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5'); //Medemblik
         $BenningbroekNieuw->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/e37eac05-b6ee-4fc3-b8b7-f7eadd0f9e6d');
+        $BenningbroekNieuw->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/9ed30829-4e38-43a1-a497-c47f7bc54124");
         $manager->persist($BenningbroekNieuw);
         $BenningbroekNieuw->setId($id);
         $manager->persist($BenningbroekNieuw);
@@ -242,6 +258,7 @@ class WestFrieslandFixtures extends Fixture
         $BenningbroekOud->setReference('Benningbroek (oud)');
         $BenningbroekOud->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5'); //Medemblik
         $BenningbroekOud->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/eaf45602-511a-4193-9c03-6ece1187fc63');
+        $BenningbroekOud->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/9ed30829-4e38-43a1-a497-c47f7bc54124");
         $manager->persist($BenningbroekOud);
         $BenningbroekOud->setId($id);
         $manager->persist($BenningbroekOud);
@@ -254,6 +271,7 @@ class WestFrieslandFixtures extends Fixture
         $Lambertschaag->setReference('Lambertschaag');
         $Lambertschaag->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5'); //Medemblik
         $Lambertschaag->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/06cea75a-847a-404c-b12c-950241bdfa7b');
+        $Lambertschaag->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/9ed30829-4e38-43a1-a497-c47f7bc54124");
         $manager->persist($Lambertschaag);
         $Lambertschaag->setId($id);
         $manager->persist($Lambertschaag);
@@ -266,6 +284,7 @@ class WestFrieslandFixtures extends Fixture
         $MidwoudNieuw->setReference('Midwoud (nieuw)');
         $MidwoudNieuw->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5'); //Medemblik
         $MidwoudNieuw->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/517eb46e-529a-453d-b79d-45520d9a591a');
+        $MidwoudNieuw->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/9ed30829-4e38-43a1-a497-c47f7bc54124");
         $manager->persist($MidwoudNieuw);
         $MidwoudNieuw->setId($id);
         $manager->persist($MidwoudNieuw);
@@ -278,6 +297,7 @@ class WestFrieslandFixtures extends Fixture
         $MidwoudOud->setReference('Midwoud (oud)');
         $MidwoudOud->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5'); //Medemblik
         $MidwoudOud->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/1b162bb2-650a-4644-a611-c34e3abccee6');
+        $MidwoudOud->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/9ed30829-4e38-43a1-a497-c47f7bc54124");
         $manager->persist($MidwoudOud);
         $MidwoudOud->setId($id);
         $manager->persist($MidwoudOud);
@@ -290,6 +310,7 @@ class WestFrieslandFixtures extends Fixture
         $OostwoudNieuw->setReference('Oostwoud (nieuw)');
         $OostwoudNieuw->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5'); //Medemblik
         $OostwoudNieuw->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/05141bd7-5890-41f0-aa33-f74466b9731c');
+        $OostwoudNieuw->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/9ed30829-4e38-43a1-a497-c47f7bc54124");
         $manager->persist($OostwoudNieuw);
         $OostwoudNieuw->setId($id);
         $manager->persist($OostwoudNieuw);
@@ -302,6 +323,7 @@ class WestFrieslandFixtures extends Fixture
         $OostwoudOud->setReference('Oostwoud (oud)');
         $OostwoudOud->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5'); //Medemblik
         $OostwoudOud->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/d4f72b32-4d10-4825-a5b5-6adf0dc14369');
+        $OostwoudOud->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/9ed30829-4e38-43a1-a497-c47f7bc54124");
         $manager->persist($OostwoudOud);
         $OostwoudOud->setId($id);
         $manager->persist($OostwoudOud);
@@ -314,6 +336,7 @@ class WestFrieslandFixtures extends Fixture
         $OpperdoesNieuw->setReference('Opperdoes (nieuw)');
         $OpperdoesNieuw->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5'); //Medemblik
         $OpperdoesNieuw->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/39fe81c5-4f2e-49a0-8b4e-562e641b7f30');
+        $OpperdoesNieuw->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/9ed30829-4e38-43a1-a497-c47f7bc54124");
         $manager->persist($OpperdoesNieuw);
         $OpperdoesNieuw->setId($id);
         $manager->persist($OpperdoesNieuw);
@@ -326,6 +349,7 @@ class WestFrieslandFixtures extends Fixture
         $OpperdoesOud->setReference('Opperdoes (oud)');
         $OpperdoesOud->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5'); //Medemblik
         $OpperdoesOud->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/1776104a-5c40-4091-8d58-6c5c676ea6d1');
+        $OpperdoesOud->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/9ed30829-4e38-43a1-a497-c47f7bc54124");
         $manager->persist($OpperdoesOud);
         $OpperdoesOud->setId($id);
         $manager->persist($OpperdoesOud);
@@ -338,6 +362,7 @@ class WestFrieslandFixtures extends Fixture
         $SijbekarspelOud->setReference('Sijbekarspel (oud)');
         $SijbekarspelOud->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5'); //Medemblik
         $SijbekarspelOud->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/7fb5c2ca-f72c-4720-92fe-d2a11a1621a9');
+        $SijbekarspelOud->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/9ed30829-4e38-43a1-a497-c47f7bc54124");
         $manager->persist($SijbekarspelOud);
         $SijbekarspelOud->setId($id);
         $manager->persist($SijbekarspelOud);
@@ -350,6 +375,7 @@ class WestFrieslandFixtures extends Fixture
         $TwiskNieuw->setReference('Twisk (nieuw)');
         $TwiskNieuw->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5'); //Medemblik
         $TwiskNieuw->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/0099ecff-c8e4-4995-9b9a-3528a66ef557');
+        $TwiskNieuw->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/9ed30829-4e38-43a1-a497-c47f7bc54124");
         $manager->persist($TwiskNieuw);
         $TwiskNieuw->setId($id);
         $manager->persist($TwiskNieuw);
@@ -362,6 +388,7 @@ class WestFrieslandFixtures extends Fixture
         $TwiskOud->setReference('Twisk (oud)');
         $TwiskOud->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5'); //Medemblik
         $TwiskOud->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/08435035-b28b-4c1f-a7e2-38b5f67f45d1');
+        $TwiskOud->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/9ed30829-4e38-43a1-a497-c47f7bc54124");
         $manager->persist($TwiskOud);
         $TwiskOud->setId($id);
         $manager->persist($TwiskOud);
@@ -374,6 +401,7 @@ class WestFrieslandFixtures extends Fixture
         $MedemblikCompagniesingel->setReference('Medemblik (Compagniesingel)');
         $MedemblikCompagniesingel->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5'); //Medemblik
         $MedemblikCompagniesingel->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/eff794f8-7030-4f81-b276-1cabe17fc120');
+        $MedemblikCompagniesingel->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/9ed30829-4e38-43a1-a497-c47f7bc54124");
         $manager->persist($MedemblikCompagniesingel);
         $MedemblikCompagniesingel->setId($id);
         $manager->persist($MedemblikCompagniesingel);
@@ -386,6 +414,7 @@ class WestFrieslandFixtures extends Fixture
         $Nibbixwoud->setReference('Nibbixwoud');
         $Nibbixwoud->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5'); //Medemblik
         $Nibbixwoud->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/75b84194-372f-4102-b163-b002b3071ab9');
+        $Nibbixwoud->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/9ed30829-4e38-43a1-a497-c47f7bc54124");
         $manager->persist($Nibbixwoud);
         $Nibbixwoud->setId($id);
         $manager->persist($Nibbixwoud);
@@ -398,6 +427,7 @@ class WestFrieslandFixtures extends Fixture
         $Wognum->setReference('Wognum');
         $Wognum->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5'); //Medemblik
         $Wognum->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/c6f2dc3f-50ae-4629-bbef-294df4d99445');
+        $Wognum->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/9ed30829-4e38-43a1-a497-c47f7bc54124");
         $manager->persist($Wognum);
         $Wognum->setId($id);
         $manager->persist($Wognum);
@@ -410,6 +440,7 @@ class WestFrieslandFixtures extends Fixture
         $MedemblikZorgvliet->setReference('Medemblik (Zorgvliet)');
         $MedemblikZorgvliet->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5'); //Medemblik
         $MedemblikZorgvliet->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/a8e1eccf-ab85-40b1-931d-99f0a86afa43');
+        $MedemblikZorgvliet->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/9ed30829-4e38-43a1-a497-c47f7bc54124");
         $manager->persist($MedemblikZorgvliet);
         $MedemblikZorgvliet->setId($id);
         $manager->persist($MedemblikZorgvliet);
@@ -422,6 +453,7 @@ class WestFrieslandFixtures extends Fixture
         $AndijkWesterbegraafplaats->setReference('Andijk (Westerbegraafplaats)');
         $AndijkWesterbegraafplaats->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5'); //Medemblik
         $AndijkWesterbegraafplaats->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/5a6fdffb-2bdf-4f42-8057-4cab4584aa78');
+        $AndijkWesterbegraafplaats->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/9ed30829-4e38-43a1-a497-c47f7bc54124");
         $manager->persist($AndijkWesterbegraafplaats);
         $AndijkWesterbegraafplaats->setId($id);
         $manager->persist($AndijkWesterbegraafplaats);
@@ -434,6 +466,7 @@ class WestFrieslandFixtures extends Fixture
         $AndijkOosterbegraafplaats->setReference('Andijk (Oosterbegraafplaats)');
         $AndijkOosterbegraafplaats->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5'); //Medemblik
         $AndijkOosterbegraafplaats->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/2810a334-b78a-4adf-8be8-8ac115b19ab6');
+        $AndijkOosterbegraafplaats->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/9ed30829-4e38-43a1-a497-c47f7bc54124");
         $manager->persist($AndijkOosterbegraafplaats);
         $AndijkOosterbegraafplaats->setId($id);
         $manager->persist($AndijkOosterbegraafplaats);
@@ -446,6 +479,7 @@ class WestFrieslandFixtures extends Fixture
         $WognumKreekland->setReference('Wognum (Kreekland)');
         $WognumKreekland->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5'); //Medemblik
         $WognumKreekland->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/2885fad3-56de-47ee-a817-5d5bc007f87e');
+        $WognumKreekland->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/9ed30829-4e38-43a1-a497-c47f7bc54124");
         $manager->persist($WognumKreekland);
         $WognumKreekland->setId($id);
         $manager->persist($WognumKreekland);
@@ -458,6 +492,7 @@ class WestFrieslandFixtures extends Fixture
         $KleineZomerdijk->setReference('Kleine Zomerdijk');
         $KleineZomerdijk->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5'); //Medemblik
         $KleineZomerdijk->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/a8d03533-f915-4459-b317-fe61c0b176ee');
+        $KleineZomerdijk->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/9ed30829-4e38-43a1-a497-c47f7bc54124");
         $manager->persist($KleineZomerdijk);
         $KleineZomerdijk->setId($id);
         $manager->persist($KleineZomerdijk);
@@ -470,6 +505,7 @@ class WestFrieslandFixtures extends Fixture
         $Avenhorn->setReference('Avenhorn');
         $Avenhorn->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/f050292c-973d-46ab-97ae-9d8830a59d15'); //Koggenland
         $Avenhorn->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/837f45f7-6419-4175-888e-f7b4c56cfede');
+        $Avenhorn->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/4bc89791-dd77-479f-8df0-3fd10ce47839");
         $manager->persist($Avenhorn);
         $Avenhorn->setId($id);
         $manager->persist($Avenhorn);
@@ -482,6 +518,7 @@ class WestFrieslandFixtures extends Fixture
         $Berkhout->setReference('Berkhout');
         $Berkhout->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/f050292c-973d-46ab-97ae-9d8830a59d15'); //Koggenland
         $Berkhout->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/7efbbbce-7bd0-4b02-896a-23957c841f32');
+        $Berkhout->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/4bc89791-dd77-479f-8df0-3fd10ce47839");
         $manager->persist($Berkhout);
         $Berkhout->setId($id);
         $manager->persist($Berkhout);
@@ -494,6 +531,7 @@ class WestFrieslandFixtures extends Fixture
         $Oudendijk->setReference('Oudendijk');
         $Oudendijk->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/f050292c-973d-46ab-97ae-9d8830a59d15'); //Koggenland
         $Oudendijk->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/87d6ca22-1982-4b7e-bf9a-6c2b8542e6ee');
+        $Oudendijk->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/4bc89791-dd77-479f-8df0-3fd10ce47839");
         $manager->persist($Oudendijk);
         $Oudendijk->setId($id);
         $manager->persist($Oudendijk);
@@ -506,6 +544,7 @@ class WestFrieslandFixtures extends Fixture
         $Grosthuizen->setReference('Grosthuizen');
         $Grosthuizen->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/f050292c-973d-46ab-97ae-9d8830a59d15'); //Koggenland
         $Grosthuizen->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/362d9c05-7b31-47e8-ae98-e5e1e8a45d1f');
+        $Grosthuizen->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/4bc89791-dd77-479f-8df0-3fd10ce47839");
         $manager->persist($Grosthuizen);
         $Grosthuizen->setId($id);
         $manager->persist($Grosthuizen);
@@ -518,6 +557,7 @@ class WestFrieslandFixtures extends Fixture
         $Ursem->setReference('Ursem');
         $Ursem->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/f050292c-973d-46ab-97ae-9d8830a59d15'); //Koggenland
         $Ursem->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/abb520b0-73da-4604-b72c-b26cecda556c');
+        $Ursem->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/4bc89791-dd77-479f-8df0-3fd10ce47839");
         $manager->persist($Ursem);
         $Ursem->setId($id);
         $manager->persist($Ursem);
@@ -530,6 +570,7 @@ class WestFrieslandFixtures extends Fixture
         $Hensbroek->setReference('Hensbroek');
         $Hensbroek->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/f050292c-973d-46ab-97ae-9d8830a59d15'); //Koggenland
         $Hensbroek->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/3f40dc8f-2b63-429d-b677-a006e2863f66');
+        $Hensbroek->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/4bc89791-dd77-479f-8df0-3fd10ce47839");
         $manager->persist($Hensbroek);
         $Hensbroek->setId($id);
         $manager->persist($Hensbroek);
@@ -542,6 +583,7 @@ class WestFrieslandFixtures extends Fixture
         $Obdam->setReference('Obdam');
         $Obdam->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/f050292c-973d-46ab-97ae-9d8830a59d15'); //Koggenland
         $Obdam->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/c09c8b68-7721-4276-a92b-15f45c25a8d8');
+        $Obdam->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/4bc89791-dd77-479f-8df0-3fd10ce47839");
         $manager->persist($Obdam);
         $Obdam->setId($id);
         $manager->persist($Obdam);
@@ -554,6 +596,7 @@ class WestFrieslandFixtures extends Fixture
         $Aartswoud->setReference('Aartswoud');
         $Aartswoud->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/16fd1092-c4d3-4011-8998-0e15e13239cf'); //Opmeer
         $Aartswoud->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/a03f8321-a02f-497e-993c-00677aee2566');
+        $Aartswoud->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/c0379617-0d36-406b-8a99-e230aad496bf");
         $manager->persist($Aartswoud);
         $Aartswoud->setId($id);
         $manager->persist($Aartswoud);
@@ -566,6 +609,7 @@ class WestFrieslandFixtures extends Fixture
         $Spanbroek->setReference('Spanbroek');
         $Spanbroek->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/16fd1092-c4d3-4011-8998-0e15e13239cf'); //Opmeer
         $Spanbroek->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/9066d1c3-01fc-41b6-b7da-799be71390cd');
+        $Spanbroek->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/c0379617-0d36-406b-8a99-e230aad496bf");
         $manager->persist($Spanbroek);
         $Spanbroek->setId($id);
         $manager->persist($Spanbroek);
@@ -578,6 +622,7 @@ class WestFrieslandFixtures extends Fixture
         $Opmeer->setReference('Opmeer');
         $Opmeer->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/16fd1092-c4d3-4011-8998-0e15e13239cf'); //Opmeer
         $Opmeer->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/e56fdbad-b97a-46fc-85f3-232ff8721055');
+        $Opmeer->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/c0379617-0d36-406b-8a99-e230aad496bf");
         $manager->persist($Opmeer);
         $Opmeer->setId($id);
         $manager->persist($Opmeer);
@@ -590,6 +635,7 @@ class WestFrieslandFixtures extends Fixture
         $Hoogwoud->setReference('Hoogwoud');
         $Hoogwoud->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/16fd1092-c4d3-4011-8998-0e15e13239cf'); //Opmeer
         $Hoogwoud->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/53c8905a-b77f-449b-8bb1-9b77f4c05ace');
+        $Hoogwoud->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/c0379617-0d36-406b-8a99-e230aad496bf");
         $manager->persist($Hoogwoud);
         $Hoogwoud->setId($id);
         $manager->persist($Hoogwoud);
@@ -602,52 +648,12 @@ class WestFrieslandFixtures extends Fixture
         $DeWeere->setReference('De Weere');
         $DeWeere->setOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/16fd1092-c4d3-4011-8998-0e15e13239cf'); //Opmeer
         $DeWeere->setCalendar('https://arc.dev.westfriesland.commonground.nu/calendars/2e9e5014-73d7-483b-b21f-1c3f51250ce4');
+        $DeWeere->setGraveTypes("https://pdc.dev.westfriesland.commonground.nu/groups/c0379617-0d36-406b-8a99-e230aad496bf");
         $manager->persist($DeWeere);
         $DeWeere->setId($id);
         $manager->persist($DeWeere);
         $manager->flush();
         $DeWeere = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
-
-
-
-        // Gravetypes
-        // Algemeen Graf
-        $id = Uuid::fromString('19bce964-be08-4968-bb16-547d8538f3c7');
-        $AlgemeenGraf = new GraveType();
-        $AlgemeenGraf->setReference('Algemeen Graf');
-        $AlgemeenGraf->setDescription('Beschrijving van Algemeen Graf');
-        $manager->persist($AlgemeenGraf);
-        $AlgemeenGraf->setId($id);
-        $manager->persist($AlgemeenGraf);
-        $manager->flush();
-        $manager->flush();
-
-        $manager->flush();
-        $AlgemeenGraf = $manager->getRepository('App:GraveType')->findOneBy(['id'=> $id]);
-
-        // Urnen Graf
-        $id = Uuid::fromString('165a4898-3026-48b7-b71b-7f2ce754d5c3');
-        $UrnenGraf = new GraveType();
-        $UrnenGraf->setReference('Urnen Graf');
-        $UrnenGraf->setDescription('Beschrijving van Urnen Graf');
-        $manager->persist($UrnenGraf);
-        $UrnenGraf->setId($id);
-        $manager->persist($UrnenGraf);
-        $manager->flush();
-        $UrnenGraf = $manager->getRepository('App:GraveType')->findOneBy(['id'=> $id]);
-
-        // Strooiveld
-        $id = Uuid::fromString('a330b371-1479-4662-9a4f-20acfc96c7fa');
-        $Strooiveld = new GraveType();
-        $Strooiveld->setReference('Strooiveld');
-        $Strooiveld->setDescription('Beschrijving van Strooiveld');
-        $manager->persist($Strooiveld);
-        $Strooiveld->setId($id);
-        $manager->persist($Strooiveld);
-        $manager->flush();
-        $Strooiveld = $manager->getRepository('App:GraveType')->findOneBy(['id'=> $id]);
-
-
 
         // Graves
         // zz-93
@@ -655,8 +661,8 @@ class WestFrieslandFixtures extends Fixture
         $zz93 = new Grave();
         $zz93->setReference('zz-93');
         $zz93->setCemetery($OpperdoesOud);
-        $zz93->setGraveType($AlgemeenGraf);
-        $zz93->setDeceased('url/deceased WIP');
+        $zz93->setGraveType("https://pdc.dev.westfriesland.commonground.nu/products/44c6edea-ee80-4c86-8be4-3576b0bd1b56");
+        $zz93->setDeceased('https://brp.dev.westfriesland.commonground.nu/ingeschrevenpersonen/uuid/394d564d-e456-44d4-8619-a5b2b4e4cf8d');
         $zz93->setLocation('url/location WIP');
         $zz93->setPosition('1');
         $zz93->setStatus('Beschikbaar');
@@ -673,8 +679,8 @@ class WestFrieslandFixtures extends Fixture
         $zz94 = new Grave();
         $zz94->setReference('zz-94');
         $zz94->setCemetery($OpperdoesOud);
-        $zz94->setGraveType($UrnenGraf);
-        $zz94->setDeceased('url/deceased WIP');
+        $zz94->setGraveType("https://pdc.dev.westfriesland.commonground.nu/products/fcc5289b-c1c9-4760-bb3b-516197ac1d10");
+        $zz94->setDeceased('https://brp.dev.westfriesland.commonground.nu/ingeschrevenpersonen/uuid/7486c55e-cef5-4928-b17d-935cf4207e0e');
         $zz94->setLocation('url/location WIP');
         $zz94->setPosition('1');
         $zz94->setStatus('Bezet');
@@ -691,8 +697,8 @@ class WestFrieslandFixtures extends Fixture
         $zz95 = new Grave();
         $zz95->setReference('zz-95');
         $zz95->setCemetery($OpperdoesOud);
-        $zz95->setGraveType($Strooiveld);
-        $zz95->setDeceased('url/deceased WIP');
+        $zz95->setGraveType("https://pdc.dev.westfriesland.commonground.nu/products/bca4ec81-7328-4b4f-9114-bbd8f7056724");
+        $zz95->setDeceased('https://brp.dev.westfriesland.commonground.nu/ingeschrevenpersonen/uuid/fd03ab88-698d-4c17-86ad-e29ee1e1ca04');
         $zz95->setLocation('url/location WIP');
         $zz95->setPosition('1');
         $zz95->setStatus('Administratief geruimd');
