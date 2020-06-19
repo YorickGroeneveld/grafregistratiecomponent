@@ -12,6 +12,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Serializer\Annotation\MaxDepth;
 use Symfony\Component\Validator\Constraints\DateTime;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  *  An entity representing an GraveCover.
@@ -44,28 +45,25 @@ class GraveCover
     private $id;
 
     /**
-     * @var datetime The date this GraveCover has been created
-     * @Assert\NotNull
-     * @Assert\Date
-     * @example 2020-01-19T00:00:00+00:00
-     * @Groups({"read", "write"})
-     * @ORM\Column(type="datetime")
+     * @var Datetime The moment this entity was created
+     *
+     * @Groups({"read"})
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime", nullable=true)
      */
-
     private $dateCreated;
 
     /**
-     * @var datetime The date this GraveCover has been edited
-     * @Assert\Date
-     * @example 2020-01-19T00:00:00+00:00
-     * @Groups({"read", "write"})
+     * @var Datetime The moment this entity last Modified
+     *
+     * @Groups({"read"})
+     * @Gedmo\Timestampable(on="update")
      * @ORM\Column(type="datetime", nullable=true)
      */
-
     private $dateModified;
 
     /**
-     * @var string The name of this GraveCover
+     * @var string The reference of this GraveCover
      *
      * @example Enkel monument
      *
@@ -75,7 +73,7 @@ class GraveCover
      * @Groups({"read", "write"})
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $name;
+    private $reference;
 
     /**
      * @var string The description of this GraveCover
@@ -133,14 +131,14 @@ class GraveCover
         return $this;
     }
 
-    public function getName(): ?string
+    public function getReference(): ?string
     {
-        return $this->name;
+        return $this->reference;
     }
 
-    public function setName(?string $name): self
+    public function setReference(?string $reference): self
     {
-        $this->name = $name;
+        $this->reference = $reference;
 
         return $this;
     }

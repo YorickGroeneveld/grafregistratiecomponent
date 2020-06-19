@@ -3,6 +3,12 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\BooleanFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\DateFilter;
+
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -13,6 +19,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Serializer\Annotation\MaxDepth;
 use Symfony\Component\Validator\Constraints\DateTime;
 
+use Gedmo\Mapping\Annotation as Gedmo;
 /**
  *  An entity representing an Grave.
  *
@@ -26,6 +33,12 @@ use Symfony\Component\Validator\Constraints\DateTime;
  *     denormalizationContext={"groups"={"write"}, "enable_max_depth"=true}
  * )
  * @ORM\Entity(repositoryClass="App\Repository\GraveRepository")
+ *
+ *
+ * @ApiFilter(BooleanFilter::class)
+ * @ApiFilter(OrderFilter::class)
+ * @ApiFilter(DateFilter::class, strategy=DateFilter::EXCLUDE_NULL)
+ * @ApiFilter(SearchFilter::class, properties={"cemetery.id":"exact"})
  */
 class Grave
 {
@@ -44,19 +57,19 @@ class Grave
     private $id;
 
     /**
-     * @var datetime The date this Grave has been created
-     * @Assert\NotNull
-     * @example 2020-01-19T00:00:00+00:00
-     * @Groups({"read", "write"})
-     * @ORM\Column(type="datetime")
+     * @var Datetime The moment this entity was created
+     *
+     * @Groups({"read"})
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $dateCreated;
 
     /**
-     * @var datetime The date this Grave has been edited
+     * @var Datetime The moment this entity last Modified
      *
-     * @example 2020-01-19T00:00:00+00:00
-     * @Groups({"read", "write"})
+     * @Groups({"read"})
+     * @Gedmo\Timestampable(on="update")
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $dateModified;
@@ -87,7 +100,7 @@ class Grave
     private $acquisition;
 
     /**
-     * @var string The grave reference of this Grave
+     * @var string The reference of this Grave
      *
      * @example zb-01
      *
@@ -97,19 +110,7 @@ class Grave
      * @Groups({"read", "write"})
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $graveReference;
-
-    /**
-     * @var string The grave type of this Grave
-     *
-     * @example url/singlegrave
-     * @Assert\Length(
-     *     max = 255
-     * )
-     * @Groups({"read", "write"})
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $graveType;
+    private $reference;
 
     /**
      * @var string The status of this Grave
@@ -183,8 +184,21 @@ class Grave
      * @Groups({"read", "write"})
      * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="App\Entity\Cemetery", inversedBy="graves")
+     *
      */
     private $cemetery;
+
+    /**
+     * @var string The grave type of this Grave
+     *
+     * @example pdc/product
+     * @Assert\Length(
+     *     max = 255
+     * )
+     * @Groups({"read", "write"})
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $graveType;
 
     public function __construct()
     {
@@ -194,6 +208,13 @@ class Grave
     public function getId(): ?Uuid
     {
         return $this->id;
+    }
+
+    public function setId(Uuid $id): self
+    {
+        $this->id = $id;
+
+        return $this;
     }
 
     public function getDateCreated(): ?\DateTimeInterface
@@ -244,26 +265,14 @@ class Grave
         return $this;
     }
 
-    public function getGraveReference(): ?string
+    public function getReference(): ?string
     {
-        return $this->graveReference;
+        return $this->reference;
     }
 
-    public function setGraveReference(?string $graveReference): self
+    public function setReference(?string $reference): self
     {
-        $this->graveReference = $graveReference;
-
-        return $this;
-    }
-
-    public function getGraveType(): ?string
-    {
-        return $this->graveType;
-    }
-
-    public function setGraveType(?string $graveType): self
-    {
-        $this->graveType = $graveType;
+        $this->reference = $reference;
 
         return $this;
     }
@@ -300,6 +309,18 @@ class Grave
     public function setPosition(?int $position): self
     {
         $this->position = $position;
+
+        return $this;
+    }
+
+    public function getGraveType(): ?string
+    {
+        return $this->graveType;
+    }
+
+    public function setGraveType(string $graveType): self
+    {
+        $this->graveType = $graveType;
 
         return $this;
     }
