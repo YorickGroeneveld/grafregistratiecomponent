@@ -4,7 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\Cemetery;
 use App\Entity\Grave;
-use Conduction\CommonGroundbundle\Service\CommonGroundService;
+use Conduction\CommonGroundBundle\Service\CommonGroundService;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Ramsey\Uuid\Uuid;
@@ -32,7 +32,6 @@ class WestFrieslandFixtures extends Fixture
             return false;
         }
 
-        //urls moeten nog naar de volgende notatie: $section1->setProperties(["{$this->commonGroundService->getComponent('vtc')['location']}/properties/8f9adb13-d5e0-40de-a08c-a2ce5a648b1e"]);
         // Cemeteries
         // Streekweg in Hoogkarspel
         $id = Uuid::fromString('0a46ce57-b566-4af7-b2ac-60c0520efffc');
