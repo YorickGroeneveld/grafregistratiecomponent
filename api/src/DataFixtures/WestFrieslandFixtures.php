@@ -4,7 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\Cemetery;
 use App\Entity\Grave;
-use Conduction\CommonGroundbundle\Service\CommonGroundService;
+use Conduction\CommonGroundBundle\Service\CommonGroundService;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Ramsey\Uuid\Uuid;
