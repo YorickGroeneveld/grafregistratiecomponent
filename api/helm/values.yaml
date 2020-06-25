@@ -14,7 +14,7 @@ settings:
   repro: https://github.com/ConductionNL/proto-component
   demo: pc.zaakonline.nl
   container: https://hub.docker.com/repository/docker/conduction/pc-php
-  domain: conduction.nl
+  domain: zuid-drecht.nl
   subdomain: grc
   organisationName: Conduction
   email: info@conduction.nl
