@@ -3,5 +3,5 @@ appVersion: V.0.6.1
 description: '&#039;Naast deze JSON rest API is er ook een [graphql](/graphql) interface beschikbaar.&#039;'
 name: grc
 version: 0.1.0
-home: pc.zaakonline.nl
-icon: pc.zaakonline.nl
+home: grc.zuid-drecht.nl
+icon: grc.zuid-drecht.nl
