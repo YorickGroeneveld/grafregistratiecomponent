@@ -1,3 +1,4 @@
+{{ if or (eq .Values.settings.type "application") .Values.settings.web }}
 apiVersion: cert-manager.io/v1alpha2
 kind: Certificate
 metadata:
@@ -9,7 +10,7 @@ metadata:
         app.kubernetes.io/instance: {{ .Release.Name }}
         app.kubernetes.io/managed-by: {{ .Release.Service }}
 spec:
-  secretName: {{ .Values.settings.name }}-{{ .Values.settings.env }}-cert
+  secretName: {{ template "fullname" . }}
   duration: 24h
   renewBefore: 12h
   dnsNames:
@@ -24,5 +25,6 @@ spec:
   - {{ $.Values.settings.subdomain }}.{{ $.Values.settings.env }}.{{ $.Values.settings.domain }}    
   {{- end }}
   issuerRef:
-    name: {{ .Values.settings.name }}-{{ .Values.settings.env }}-letsencrypt
+    name: letsencrypt-prod
     kind: ClusterIssuer
+{{ end }}

@@ -14,7 +14,7 @@ settings:
   repro: https://github.com/ConductionNL/proto-component
   demo: pc.zaakonline.nl
   container: https://hub.docker.com/repository/docker/conduction/pc-php
-  domain: conduction.nl
+  domain: zuid-drecht.nl
   subdomain: grc
   organisationName: Conduction
   email: info@conduction.nl
@@ -23,11 +23,12 @@ settings:
   locality: Amsterdam
   unit: Common-Ground
   env: dev
+  web: false
   debug: 1
   cache: 1
   replicaCount: 1
   corsAllowOrigin: ['*']
-  trustedHosts: '^localhost$|^127.0.0.1$|^(.+\.)?conduction\.nl$'
+  trustedHosts: '^.+$'
   pullPolicy: Always
   # You will need these proxies on kubernetes
   trustedProxies:

@@ -175,6 +175,11 @@ spec:
                 configMapKeyRef:
                   name: {{ template "fullname" . }}
                   key: app-archive
+            - name: APP_WEB
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ template "fullname" . }}
+                  key: app-web
             
             # bla bla      
             - name: CORS_ALLOW_ORIGIN

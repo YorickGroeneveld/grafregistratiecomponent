@@ -37,7 +37,6 @@ services:
       - APP_VERSION=${APP_VERSION}    
       - APP_NAME=${APP_NAME} 
       - APP_TITLE=${APP_TITLE}
-      - APP_ID=${APP_ID}
       - APP_DOMAIN=${APP_DOMAIN}
       - APP_SUBDOMAIN=${APP_SUBDOMAIN}
       - APP_DEMO=${APP_DEMO}
@@ -51,6 +50,9 @@ services:
       - APP_COMMONGROUND_KEY=${APP_COMMONGROUND_KEY}
       - APP_APPLICATION_KEY=${APP_APPLICATION_KEY}
       - APP_USER_KEY=${APP_USER_KEY}
+      - APP_BUILD_ALL_FIXTURES=${APP_BUILD_ALL_FIXTURES}
+      - APP_WEB=${APP_WEB}
+      - APP_INTERNAL${APP_INTERNAL}
       - ORGANIZATION_NAME=${ORGANIZATION_NAME}
       - ORGANIZATION_EMAIL_ADDRESS=${ORGANIZATION_EMAIL_ADDRESS}
       - ORGANIZATION_COUNTRY_NAME=${ORGANIZATION_COUNTRY_NAME}
@@ -92,7 +94,7 @@ services:
     volumes:
       - ./api/public:/srv/api/public:ro
     ports:
-      - "31500:80"
+      - "80:80"
     environment:
       - NGINX_HOST=php
 
