@@ -31,6 +31,7 @@ parameters:
     env(APP_LOGO): "zaakonline.nl"
     env(APP_HOME): "zaakonline.nl"
     env(APP_SUBDOMAIN): "pc"
+    env(APP_SUBPATH): false
     env(APP_DEMO): "pc.zaakonline.nl"
     env(APP_WEB): false
     env(APP_INTERNAL): false
@@ -38,7 +39,7 @@ parameters:
 
     env(APP_CONTAINER): ""
     env(APP_REPRO): ""
-
+  
     app_env: "%env(APP_ENV)%"
     app_debug: "%env(APP_DEBUG)%"
     app_cache: "%env(APP_CACHE)%"
@@ -56,6 +57,7 @@ parameters:
     app_logo: "%env(APP_LOGO)%"
     app_home: "%env(APP_HOME)%"
     app_subdomain: "%env(APP_SUBDOMAIN)%"
+    app_subpath: "%env(APP_SUBPATH)%"
     app_demo: "%env(APP_DEMO)%"
     app_container: "%env(APP_CONTAINER)%"
     app_repro: "%env(APP_REPRO)%"
@@ -149,9 +151,6 @@ parameters:
     env(APP_COMMONGROUND_KIC_ID): "%env(APP_COMMONGROUND_ID)%"
     env(APP_COMMONGROUND_KIC_SECRET): "%env(APP_COMMONGROUND_SECRET)%"
     
-    # BasisRegistratiePersonen
-    env(APP_COMMONGROUND_BRP_LOCATION): "https://brp.%env(APP_ENV)%"
-    env(APP_COMMONGROUND_BRP_APIKEY): "%env(APP_COMMONGROUND_KEY)%"
     # BasisAdressenGemeenten
     env(APP_COMMONGROUND_BAG_LOCATION): "https://bag.basisregistraties.overheid.nl/api/v1/"
     env(APP_COMMONGROUND_BAG_APIKEY): "%env(APP_COMMONGROUND_KEY)%"
@@ -236,9 +235,6 @@ parameters:
         nlx_out:
             location: "%env(APP_COMMONGROUND_NLX_OUT_LOCATION)%"
             apikey: "%env(APP_COMMONGROUND_NLX_OUT_APIKEY)%"
-        brp:
-            location: "%env(APP_COMMONGROUND_BRP_LOCATION)%"
-            apikey: "%env(APP_COMMONGROUND_BRP_APIKEY)%"
         bag:
             location: "%env(APP_COMMONGROUND_BAG_LOCATION)%"
             apikey: "%env(APP_COMMONGROUND_BAG_APIKEY)%"
