@@ -25,16 +25,17 @@ class ZuiddrechtFixtures extends Fixture
     {
         if (
             !$this->params->get('app_build_all_fixtures') &&
+            $this->params->get('app_domain') != 'zuiddrecht.nl' && strpos($this->params->get('app_domain'), 'zuiddrecht.nl') == false &&
             $this->params->get('app_domain') != 'zuid-drecht.nl' && strpos($this->params->get('app_domain'), 'zuid-drecht.nl') == false
         ) {
             return false;
         }
 
         // Cemeteries
-        // Algemene Begraafplaats "Rustoord"
+        // Algemene Begraafplaats
         $id = Uuid::fromString('5ff4e420-f5bc-4296-b02c-bf5b42215987');
         $cemetery = new Cemetery();
-        $cemetery->setReference('Algemene Begraafplaats "Rustoord"');
+        $cemetery->setReference('Algemene Begraafplaats');
         $cemetery->setOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc','type'=>'organizations','id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); //SED
         $cemetery->setCalendar($this->commonGroundService->cleanUrl(['component'=>'arc','type'=>'calendars','id'=>'e46e6b3e-9b3a-4339-9d69-874d8dd6bc44']));
         $cemetery->setGraveTypes($this->commonGroundService->cleanUrl(['component'=>'pdc','type'=>'groups','id'=>'58298393-2682-4412-9fca-a03170592610']));
