@@ -657,6 +657,149 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $DeWeere = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
 
+        // Sauwerd
+        $id = Uuid::fromString('6fb61b49-1f3d-48a3-9bd8-edea1dd0a5ed');
+        $sauwerd = new Cemetery();
+        $sauwerd->setReference('Sauwerd');
+        $sauwerd->setOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc','type'=>'organizations','id'=>'79ad319b-1ff6-4e21-919b-4ea002b5f233'])); //Hogeland
+        $sauwerd->setCalendar($this->commonGroundService->cleanUrl(['component'=>'arc','type'=>'calendars','id'=>'5f1abeb9-3d73-484e-839c-d84eed30d448']));
+        $sauwerd->setGraveTypes($this->commonGroundService->cleanUrl(['component'=>'pdc','type'=>'groups','id'=>'02211125-c441-4c1c-bbd1-37c86aa5fc79']));
+        $manager->persist($sauwerd);
+        $sauwerd->setId($id);
+        $manager->persist($sauwerd);
+        $manager->flush();
+        $sauwerd = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
+
+        // Adorp
+        $id = Uuid::fromString('df2ad306-aa81-4421-832e-440dd66bf92f');
+        $adorp = new Cemetery();
+        $adorp->setReference('Adorp');
+        $adorp->setOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc','type'=>'organizations','id'=>'79ad319b-1ff6-4e21-919b-4ea002b5f233'])); //Hogeland
+        $adorp->setCalendar($this->commonGroundService->cleanUrl(['component'=>'arc','type'=>'calendars','id'=>'2e9e5014-73d7-483b-b21f-1c3f51250ce4']));
+        $adorp->setGraveTypes($this->commonGroundService->cleanUrl(['component'=>'pdc','type'=>'groups','id'=>'02211125-c441-4c1c-bbd1-37c86aa5fc79']));
+        $manager->persist($adorp);
+        $adorp->setId($id);
+        $manager->persist($adorp);
+        $manager->flush();
+        $adorp = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
+
+        // Winsum
+        $id = Uuid::fromString('a23a705a-214c-4a78-9a78-de2681db4632');
+        $winsum = new Cemetery();
+        $winsum->setReference('Winsum');
+        $winsum->setOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc','type'=>'organizations','id'=>'79ad319b-1ff6-4e21-919b-4ea002b5f233'])); //Hogeland
+        $winsum->setCalendar($this->commonGroundService->cleanUrl(['component'=>'arc','type'=>'calendars','id'=>'97d49f03-0f95-4db8-b727-a1a77926bbd2']));
+        $winsum->setGraveTypes($this->commonGroundService->cleanUrl(['component'=>'pdc','type'=>'groups','id'=>'02211125-c441-4c1c-bbd1-37c86aa5fc79']));
+        $manager->persist($winsum);
+        $winsum->setId($id);
+        $manager->persist($winsum);
+        $manager->flush();
+        $winsum = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
+
+        // Baflo
+        $id = Uuid::fromString('0140c7a9-6704-43df-bb45-4cf119e121a5');
+        $baflo = new Cemetery();
+        $baflo->setReference('Baflo');
+        $baflo->setOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc','type'=>'organizations','id'=>'79ad319b-1ff6-4e21-919b-4ea002b5f233'])); //Hogeland
+        $baflo->setCalendar($this->commonGroundService->cleanUrl(['component'=>'arc','type'=>'calendars','id'=>'325b1400-3269-4226-af82-2a64bfefd338']));
+        $baflo->setGraveTypes($this->commonGroundService->cleanUrl(['component'=>'pdc','type'=>'groups','id'=>'02211125-c441-4c1c-bbd1-37c86aa5fc79']));
+        $manager->persist($baflo);
+        $baflo->setId($id);
+        $manager->persist($baflo);
+        $manager->flush();
+        $baflo = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
+
+        // Sauwerd-oud
+        $id = Uuid::fromString('6108b92b-a55b-4595-b130-48cbed25ebe1');
+        $sauwerdOud = new Cemetery();
+        $sauwerdOud->setReference('Sauwerd-oud');
+        $sauwerdOud->setOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc','type'=>'organizations','id'=>'79ad319b-1ff6-4e21-919b-4ea002b5f233'])); //Hogeland
+        $sauwerdOud->setCalendar($this->commonGroundService->cleanUrl(['component'=>'arc','type'=>'calendars','id'=>'984e9dcc-9dbc-49d5-8249-6633b87aacd6']));
+        $sauwerdOud->setGraveTypes($this->commonGroundService->cleanUrl(['component'=>'pdc','type'=>'groups','id'=>'02211125-c441-4c1c-bbd1-37c86aa5fc79']));
+        $manager->persist($sauwerdOud);
+        $sauwerdOud->setId($id);
+        $manager->persist($sauwerdOud);
+        $manager->flush();
+        $sauwerdOud = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
+
+        // Bedum
+        $id = Uuid::fromString('2d29e122-7684-4e2c-bb32-3f9727323863');
+        $bedum = new Cemetery();
+        $bedum->setReference('Bedum');
+        $bedum->setOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc','type'=>'organizations','id'=>'79ad319b-1ff6-4e21-919b-4ea002b5f233'])); //Hogeland
+        $bedum->setCalendar($this->commonGroundService->cleanUrl(['component'=>'arc','type'=>'calendars','id'=>'73e47b60-3987-41b5-84dd-9e3eb82d2803']));
+        $bedum->setGraveTypes($this->commonGroundService->cleanUrl(['component'=>'pdc','type'=>'groups','id'=>'02211125-c441-4c1c-bbd1-37c86aa5fc79']));
+        $manager->persist($bedum);
+        $bedum->setId($id);
+        $manager->persist($bedum);
+        $manager->flush();
+        $bedum = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
+
+        // Noordwolde
+        $id = Uuid::fromString('aff0f59b-1fb5-4c16-981b-99f487a94985');
+        $noordwolde = new Cemetery();
+        $noordwolde->setReference('Noordwolde');
+        $noordwolde->setOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc','type'=>'organizations','id'=>'79ad319b-1ff6-4e21-919b-4ea002b5f233'])); //Hogeland
+        $noordwolde->setCalendar($this->commonGroundService->cleanUrl(['component'=>'arc','type'=>'calendars','id'=>'b8c87efe-c328-471f-b57d-d593e159fbf3']));
+        $noordwolde->setGraveTypes($this->commonGroundService->cleanUrl(['component'=>'pdc','type'=>'groups','id'=>'02211125-c441-4c1c-bbd1-37c86aa5fc79']));
+        $manager->persist($noordwolde);
+        $noordwolde->setId($id);
+        $manager->persist($noordwolde);
+        $manager->flush();
+        $noordwolde = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
+
+        // Onderdendam
+        $id = Uuid::fromString('7a3f2fa0-8ba4-4bab-a105-2854564381e1');
+        $onderdendam = new Cemetery();
+        $onderdendam->setReference('Onderdendam');
+        $onderdendam->setOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc','type'=>'organizations','id'=>'79ad319b-1ff6-4e21-919b-4ea002b5f233'])); //Hogeland
+        $onderdendam->setCalendar($this->commonGroundService->cleanUrl(['component'=>'arc','type'=>'calendars','id'=>'2a196c44-d5ce-4da0-aafb-1850151316d4']));
+        $onderdendam->setGraveTypes($this->commonGroundService->cleanUrl(['component'=>'pdc','type'=>'groups','id'=>'02211125-c441-4c1c-bbd1-37c86aa5fc79']));
+        $manager->persist($onderdendam);
+        $onderdendam->setId($id);
+        $manager->persist($onderdendam);
+        $manager->flush();
+        $onderdendam = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
+
+        // Westerdijkshorn
+        $id = Uuid::fromString('1c9e0fab-45fe-4b1c-811e-f2a8d32b1d7b');
+        $westerdijkshorn = new Cemetery();
+        $westerdijkshorn->setReference('Westerdijkshorn');
+        $westerdijkshorn->setOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc','type'=>'organizations','id'=>'79ad319b-1ff6-4e21-919b-4ea002b5f233'])); //Hogeland
+        $westerdijkshorn->setCalendar($this->commonGroundService->cleanUrl(['component'=>'arc','type'=>'calendars','id'=>'baf2b782-47f8-44c9-af38-efa599a4b5de']));
+        $westerdijkshorn->setGraveTypes($this->commonGroundService->cleanUrl(['component'=>'pdc','type'=>'groups','id'=>'02211125-c441-4c1c-bbd1-37c86aa5fc79']));
+        $manager->persist($westerdijkshorn);
+        $westerdijkshorn->setId($id);
+        $manager->persist($westerdijkshorn);
+        $manager->flush();
+        $westerdijkshorn = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
+
+        // Zuidwolde
+        $id = Uuid::fromString('e8b2f6dd-8d23-43f5-9ea7-60dfc879cbb0');
+        $zuidwolde = new Cemetery();
+        $zuidwolde->setReference('Zuidwolde');
+        $zuidwolde->setOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc','type'=>'organizations','id'=>'79ad319b-1ff6-4e21-919b-4ea002b5f233'])); //Hogeland
+        $zuidwolde->setCalendar($this->commonGroundService->cleanUrl(['component'=>'arc','type'=>'calendars','id'=>'694e33a7-418c-4bbe-aa5c-03b8b44169d0']));
+        $zuidwolde->setGraveTypes($this->commonGroundService->cleanUrl(['component'=>'pdc','type'=>'groups','id'=>'02211125-c441-4c1c-bbd1-37c86aa5fc79']));
+        $manager->persist($zuidwolde);
+        $zuidwolde->setId($id);
+        $manager->persist($zuidwolde);
+        $manager->flush();
+        $zuidwolde = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
+
+        // J.A.J.H. Nienhuis
+        $id = Uuid::fromString('ca362123-26fb-4e86-91f4-38ba93913a51');
+        $nienhuis = new Cemetery();
+        $nienhuis->setReference('J.A.J.H. Nienhuis');
+        $nienhuis->setOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc','type'=>'organizations','id'=>'79ad319b-1ff6-4e21-919b-4ea002b5f233'])); //Hogeland
+        $nienhuis->setCalendar($this->commonGroundService->cleanUrl(['component'=>'arc','type'=>'calendars','id'=>'4ba7ea93-8fe2-4520-8fcd-a221c4b201ee']));
+        $nienhuis->setGraveTypes($this->commonGroundService->cleanUrl(['component'=>'pdc','type'=>'groups','id'=>'02211125-c441-4c1c-bbd1-37c86aa5fc79']));
+        $manager->persist($nienhuis);
+        $nienhuis->setId($id);
+        $manager->persist($nienhuis);
+        $manager->flush();
+        $nienhuis = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
+
         // Graves
         // zz-93
         $id = Uuid::fromString('cbce0b48-342a-4f39-9ed7-1f3504279a6b');
