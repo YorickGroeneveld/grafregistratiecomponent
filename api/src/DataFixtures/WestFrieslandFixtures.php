@@ -228,6 +228,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $AbbekerkNieuw = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
 
+        /*
         // Abbekerk (oud)
         $id = Uuid::fromString('bde96f8e-e540-4960-8ec7-3a9852f8dcea');
         $AbbekerkOud = new Cemetery();
@@ -240,6 +241,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($AbbekerkOud);
         $manager->flush();
         $AbbekerkOud = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
+        */
 
         // Benningbroek (nieuw)
         $id = Uuid::fromString('1c98e138-98c5-4c61-a450-63a925938a8d');
@@ -320,6 +322,7 @@ class WestFrieslandFixtures extends Fixture
         $OostwoudNieuw = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
 
         // Oostwoud (oud)
+        /*
         $id = Uuid::fromString('cf1dc4b0-1b32-4074-be7e-d3720bfa3152');
         $OostwoudOud = new Cemetery();
         $OostwoudOud->setReference('Oostwoud (oud)');
@@ -331,6 +334,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($OostwoudOud);
         $manager->flush();
         $OostwoudOud = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
+        */
 
         // Opperdoes (nieuw)
         $id = Uuid::fromString('074defab-e2eb-4eeb-a22f-caf082502db6');
@@ -385,6 +389,7 @@ class WestFrieslandFixtures extends Fixture
         $TwiskNieuw = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
 
         // Twisk (oud)
+        /*
         $id = Uuid::fromString('217f3fe6-5b5d-422d-87ed-9b9d256a6475');
         $TwiskOud = new Cemetery();
         $TwiskOud->setReference('Twisk (oud)');
@@ -396,6 +401,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($TwiskOud);
         $manager->flush();
         $TwiskOud = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
+        */
 
         // Medemblik (Compagniesingel)
         $id = Uuid::fromString('bf67817a-f9e2-48ec-a1eb-c8eb251997a5');
@@ -489,6 +495,7 @@ class WestFrieslandFixtures extends Fixture
         $WognumKreekland = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
 
         // Kleine Zomerdijk
+        /*
         $id = Uuid::fromString('25adb7aa-ab70-4ade-8d40-e48368fa1ac3');
         $KleineZomerdijk = new Cemetery();
         $KleineZomerdijk->setReference('Kleine Zomerdijk');
@@ -500,6 +507,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($KleineZomerdijk);
         $manager->flush();
         $KleineZomerdijk = $manager->getRepository('App:Cemetery')->findOneBy(['id'=> $id]);
+        */
 
         // Avenhorn
         $id = Uuid::fromString('5d235516-f39f-443d-b0b4-b47850b3e963');
