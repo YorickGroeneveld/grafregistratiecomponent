@@ -144,6 +144,14 @@ class Cemetery
      */
     private $graveTypes;
 
+    /**
+     * @var array The configuration for this Cemetery
+     *
+     * @Groups({"read","write"})
+     * @ORM\Column(type="json")
+     */
+    private $configuration = [];
+
     public function __construct()
     {
         $this->graves = new ArrayCollection();
@@ -272,6 +280,18 @@ class Cemetery
                 $grave->setCemetery(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getConfiguration(): ?array
+    {
+        return $this->configuration;
+    }
+
+    public function setConfiguration(array $configuration): self
+    {
+        $this->configuration = $configuration;
 
         return $this;
     }
