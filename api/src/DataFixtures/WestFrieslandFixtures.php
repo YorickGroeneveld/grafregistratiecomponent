@@ -37,7 +37,7 @@ class WestFrieslandFixtures extends Fixture
         $id = Uuid::fromString('0a46ce57-b566-4af7-b2ac-60c0520efffc');
         $StreekwegInHoogkarspel = new Cemetery();
         $StreekwegInHoogkarspel->setReference('Streekweg in Hoogkarspel');
-        $StreekwegInHoogkarspel->setOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc','type'=>'organizations','id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); //SED
+        $StreekwegInHoogkarspel->setOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc','type'=>'organizations','id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); //SED
         $StreekwegInHoogkarspel->setCalendar($this->commonGroundService->cleanUrl(['component'=>'arc','type'=>'calendars','id'=>'ab69a95d-f46c-4b3f-9027-9f25fd9bbb5f']));
         $StreekwegInHoogkarspel->setGraveTypes($this->commonGroundService->cleanUrl(['component'=>'pdc','type'=>'groups','id'=>'58298393-2682-4412-9fca-a03170592610']));
         $manager->persist($StreekwegInHoogkarspel);
@@ -50,7 +50,7 @@ class WestFrieslandFixtures extends Fixture
         $id = Uuid::fromString('25410687-1088-4477-a8f5-24bcc5addf7c');
         $AlgemeneBegraafplaatsRustoord = new Cemetery();
         $AlgemeneBegraafplaatsRustoord->setReference('Algemene Begraafplaats "Rustoord"');
-        $AlgemeneBegraafplaatsRustoord->setOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc','type'=>'organizations','id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); //SED
+        $AlgemeneBegraafplaatsRustoord->setOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc','type'=>'organizations','id'=>'a5567d87-ca05-45e9-a888-184494a3c79c'])); //SED Stedebroec
         $AlgemeneBegraafplaatsRustoord->setCalendar($this->commonGroundService->cleanUrl(['component'=>'arc','type'=>'calendars','id'=>'f4fa187b-c807-4e20-afda-dff758d68cae']));
         $AlgemeneBegraafplaatsRustoord->setGraveTypes($this->commonGroundService->cleanUrl(['component'=>'pdc','type'=>'groups','id'=>'58298393-2682-4412-9fca-a03170592610']));
         $manager->persist($AlgemeneBegraafplaatsRustoord);
@@ -63,7 +63,7 @@ class WestFrieslandFixtures extends Fixture
         $id = Uuid::fromString('2ad6e631-ecaa-419f-b517-9088e0d8357c');
         $WesterkerkwegInVenhuizen = new Cemetery();
         $WesterkerkwegInVenhuizen->setReference('Westerkerkweg in Venhuizen');
-        $WesterkerkwegInVenhuizen->setOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc','type'=>'organizations','id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); //SED
+        $WesterkerkwegInVenhuizen->setOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc','type'=>'organizations','id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); //SED
         $WesterkerkwegInVenhuizen->setCalendar($this->commonGroundService->cleanUrl(['component'=>'arc','type'=>'calendars','id'=>'ed397496-1faf-48b1-890c-f9afb74645d4']));
         $WesterkerkwegInVenhuizen->setGraveTypes($this->commonGroundService->cleanUrl(['component'=>'pdc','type'=>'groups','id'=>'58298393-2682-4412-9fca-a03170592610']));
         $manager->persist($WesterkerkwegInVenhuizen);
@@ -76,7 +76,7 @@ class WestFrieslandFixtures extends Fixture
         $id = Uuid::fromString('e3f5f329-e309-4a62-9c91-f8d52d65c81d');
         $SchoollaanInHem = new Cemetery();
         $SchoollaanInHem->setReference('Schoollaan in Hem');
-        $SchoollaanInHem->setOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc','type'=>'organizations','id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); //SED
+        $SchoollaanInHem->setOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc','type'=>'organizations','id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); //SED
         $SchoollaanInHem->setCalendar($this->commonGroundService->cleanUrl(['component'=>'arc','type'=>'calendars','id'=>'4eb1880d-96cb-4f50-8499-e55c61816974']));
         $SchoollaanInHem->setGraveTypes($this->commonGroundService->cleanUrl(['component'=>'pdc','type'=>'groups','id'=>'58298393-2682-4412-9fca-a03170592610']));
         $manager->persist($SchoollaanInHem);
@@ -89,7 +89,7 @@ class WestFrieslandFixtures extends Fixture
         $id = Uuid::fromString('8d7e5eca-a9bb-4088-951c-3bb0fe9b30d3');
         $MolenweiInHoogkarspel = new Cemetery();
         $MolenweiInHoogkarspel->setReference('Molenwei in Hoogkarspel');
-        $MolenweiInHoogkarspel->setOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc','type'=>'organizations','id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); //SED
+        $MolenweiInHoogkarspel->setOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc','type'=>'organizations','id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); //SED
         $MolenweiInHoogkarspel->setCalendar($this->commonGroundService->cleanUrl(['component'=>'arc','type'=>'calendars','id'=>'da41a5ff-43fe-4256-83c1-e064e7b3c4a6']));
         $MolenweiInHoogkarspel->setGraveTypes($this->commonGroundService->cleanUrl(['component'=>'pdc','type'=>'groups','id'=>'58298393-2682-4412-9fca-a03170592610']));
         $manager->persist($MolenweiInHoogkarspel);
@@ -102,7 +102,7 @@ class WestFrieslandFixtures extends Fixture
         $id = Uuid::fromString('5da232ce-3201-42d8-8895-a39d7a937056');
         $RaadhuispleinInHoogkarspel = new Cemetery();
         $RaadhuispleinInHoogkarspel->setReference('Raadhuisplein in Hoogkarspel');
-        $RaadhuispleinInHoogkarspel->setOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc','type'=>'organizations','id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); //SED
+        $RaadhuispleinInHoogkarspel->setOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc','type'=>'organizations','id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); //SED
         $RaadhuispleinInHoogkarspel->setCalendar($this->commonGroundService->cleanUrl(['component'=>'arc','type'=>'calendars','id'=>'e16fd87d-3484-45fe-ad7c-d894ce454e35']));
         $RaadhuispleinInHoogkarspel->setGraveTypes($this->commonGroundService->cleanUrl(['component'=>'pdc','type'=>'groups','id'=>'58298393-2682-4412-9fca-a03170592610']));
         $manager->persist($RaadhuispleinInHoogkarspel);
@@ -115,7 +115,7 @@ class WestFrieslandFixtures extends Fixture
         $id = Uuid::fromString('e2f7048d-97ad-46cc-ad61-d04685a11f36');
         $BegraafplaatsInOosterleek = new Cemetery();
         $BegraafplaatsInOosterleek->setReference('Begraafplaats in Oosterleek');
-        $BegraafplaatsInOosterleek->setOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc','type'=>'organizations','id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); //SED
+        $BegraafplaatsInOosterleek->setOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc','type'=>'organizations','id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); //SED
         $BegraafplaatsInOosterleek->setCalendar($this->commonGroundService->cleanUrl(['component'=>'arc','type'=>'calendars','id'=>'3712f885-1d43-4e19-8b40-e39e885d66ac']));
         $BegraafplaatsInOosterleek->setGraveTypes($this->commonGroundService->cleanUrl(['component'=>'pdc','type'=>'groups','id'=>'58298393-2682-4412-9fca-a03170592610']));
         $manager->persist($BegraafplaatsInOosterleek);
@@ -128,7 +128,7 @@ class WestFrieslandFixtures extends Fixture
         $id = Uuid::fromString('b352f1b2-95cf-4fe9-bb61-ba45597b9c2b');
         $DorpswegInSchellinkhout = new Cemetery();
         $DorpswegInSchellinkhout->setReference('Dorpsweg in Schellinkhout');
-        $DorpswegInSchellinkhout->setOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc','type'=>'organizations','id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); //SED
+        $DorpswegInSchellinkhout->setOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc','type'=>'organizations','id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); //SED
         $DorpswegInSchellinkhout->setCalendar($this->commonGroundService->cleanUrl(['component'=>'arc','type'=>'calendars','id'=>'417cb133-161d-4799-93b5-bc7ac3a4f51b']));
         $DorpswegInSchellinkhout->setGraveTypes($this->commonGroundService->cleanUrl(['component'=>'pdc','type'=>'groups','id'=>'58298393-2682-4412-9fca-a03170592610']));
         $manager->persist($DorpswegInSchellinkhout);
@@ -141,7 +141,7 @@ class WestFrieslandFixtures extends Fixture
         $id = Uuid::fromString('12532d0a-87ee-4f3f-9209-6da511507761');
         $KerkbuurtInWijdenes = new Cemetery();
         $KerkbuurtInWijdenes->setReference('Kerkbuurt in Wijdenes');
-        $KerkbuurtInWijdenes->setOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc','type'=>'organizations','id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); //SED
+        $KerkbuurtInWijdenes->setOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc','type'=>'organizations','id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); //SED
         $KerkbuurtInWijdenes->setCalendar($this->commonGroundService->cleanUrl(['component'=>'arc','type'=>'calendars','id'=>'d0f3ed79-acd9-4eaa-8b84-88b6fc150a47']));
         $KerkbuurtInWijdenes->setGraveTypes($this->commonGroundService->cleanUrl(['component'=>'pdc','type'=>'groups','id'=>'58298393-2682-4412-9fca-a03170592610']));
         $manager->persist($KerkbuurtInWijdenes);
@@ -154,7 +154,7 @@ class WestFrieslandFixtures extends Fixture
         $id = Uuid::fromString('ee71f8b5-0f3c-488c-981d-a55e61555bba');
         $GemeentelijkeBegraafplaats = new Cemetery();
         $GemeentelijkeBegraafplaats->setReference('Gemeentelijke begraafplaats');
-        $GemeentelijkeBegraafplaats->setOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc','type'=>'organizations','id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); //SED
+        $GemeentelijkeBegraafplaats->setOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc','type'=>'organizations','id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); //SED Enkhuizen
         $GemeentelijkeBegraafplaats->setCalendar($this->commonGroundService->cleanUrl(['component'=>'arc','type'=>'calendars','id'=>'7ae61cae-fa4f-4efd-aa85-8767602c7680']));
         $GemeentelijkeBegraafplaats->setGraveTypes($this->commonGroundService->cleanUrl(['component'=>'pdc','type'=>'groups','id'=>'58298393-2682-4412-9fca-a03170592610']));
         $manager->persist($GemeentelijkeBegraafplaats);
